@@ -1,0 +1,61 @@
+# Benchmark targets and reference data
+# Updated 2026-09-07
+
+targets:
+  rbd:
+    pdb_id: "6M0J"
+    description: "SARS-CoV-2 Spike RBD, residues E333–E526 (ACE2-binding domain)"
+    chain: "E"
+    residue_start: 333
+    residue_end: 526
+    length: 194
+    source_dataset: "Validation campaign, 200-design RFdiffusion screen"
+    confirmed_binders: 43
+    confirmed_non_binders: 15
+    reference_positive_sequence: "TNLCPFGEVFNATRFASVYAWNRKRISNCVADYSVLYNSASFSTFKCYGVSPTKLNDLCFTNVYADSFVIRGDEVRQIAPGQTGKIADYNYKLPDDFTGCVIAWNSNNLDSKVGGNYNYLYRLFRKSNLKPFERDISTEIYQAGSTPCNGVEGFNCYFPLQSYGFQPTNGVGYQPYRVVVLSFELLHAPATVCG"
+
+  pdl1:
+    pdb_id: "5O45"
+    description: "PD-L1 (Programmed Death-Ligand 1), IgV domain, residues A18–A132"
+    chain: "A"
+    residue_start: 18
+    residue_end: 132
+    length: 115
+    source_dataset: "Adaptyv Bio competition + validation pilot"
+    confirmed_binders: 52
+    confirmed_non_binders: 31
+    reference_positive_sequence: "AFTVTVPKDLYVVEYGSNMTIECKFPVEKQLDLAALIVYWEMEDKNIIQFVHGEEDLKVQHSSYRQRARLLKDQLSLGNAALQITDVKLQDAGVYRCMISYGGADYKRITVKVNA"
+
+  # Additional targets from Adaptyv competition (placeholder structure; update as data is collected)
+  egfr_1:
+    pdb_id: "TBD"
+    description: "EGFR extracellular domain (Adaptyv round 1)"
+    chain: "A"
+    length: "~500"
+    confirmed_binders: 35
+    confirmed_non_binders: 22
+
+  egfr_2:
+    pdb_id: "TBD"
+    description: "EGFR extracellular domain (Adaptyv round 2)"
+    chain: "A"
+    length: "~500"
+    confirmed_binders: 48
+    confirmed_non_binders: 28
+
+benchmark_summary:
+  total_targets: 4
+  total_confirmed_binders: ~215
+  total_confirmed_non_binders: ~80
+  total_pairs_with_outcomes: ~295
+  data_sources:
+    - "Adaptyv Bio de novo design competitions (public data, ODC-ODbL licensed)"
+    - "RFdiffusion validation campaigns (this project)"
+  scoring_protocol:
+    - "ColabFold AF2-multimer v3"
+    - "Fast-screen settings: single-sequence (no MSA), 1 model, 3 recycles"
+    - "Low-VRAM optimized: TF_FORCE_UNIFIED_MEMORY=1, XLA_PYTHON_CLIENT_MEM_FRACTION=4.0"
+  notes: |
+    - Outcome labels: 'true' = binding confirmed by wet-lab, 'false' = no binding detected, 'unknown' = not tested
+    - ipTM metric is sensitive to chain size ratios (see RESEARCH_FINDINGS.md); calibration is target-specific
+    - Calibration curve is fit on fast-screen scores; high-accuracy rescored designs will have different absolute scores
