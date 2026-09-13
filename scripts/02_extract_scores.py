@@ -30,16 +30,26 @@ Notes:
   • Pairs with missing JSON output are skipped with a warning
 """
 
+import argparse
 import json
 import sys
 from pathlib import Path
 import pandas as pd
 
 def main():
+    parser = argparse.ArgumentParser(description="Extract ColabFold scores and merge with benchmark outcomes")
+    parser.add_argument("--fold-dir", type=str, default="results/benchmark_folds_raw",
+                         help="Directory containing ColabFold JSON outputs")
+    parser.add_argument("--benchmark", type=str, default="benchmark/adaptyv_benchmark.csv",
+                         help="Path to benchmark CSV")
+    parser.add_argument("--output", type=str, default="results/benchmark_scores_with_outcomes.csv",
+                         help="Path to write merged scores CSV")
+    args = parser.parse_args()
+
     # Paths
-    fold_dir = Path("results/benchmark_folds_raw")
-    benchmark_csv = Path("benchmark/adaptyv_benchmark.csv")
-    output_csv = Path("results/benchmark_scores_with_outcomes.csv")
+    fold_dir = Path(args.fold_dir)
+    benchmark_csv = Path(args.benchmark)
+    output_csv = Path(args.output)
 
     # Load benchmark
     if not benchmark_csv.exists():
@@ -49,21 +59,25 @@ def main():
     benchmark = pd.read_csv(benchmark_csv)
     print(f"Loaded {len(benchmark)} benchmark pairs")
 
-    # Find all JSON files recursively and group by source_system
+    # Find all JSON files recursively
     all_jsons = list(fold_dir.rglob("*_scores_rank_001_*.json"))
-    print(f"Found {len(all_jsons)} JSON files in benchmark_folds_raw/")
+    print(f"Found {len(all_jsons)} JSON files in {fold_dir}/")
 
-    # Group by source_system directory
+    # Primary strategy: flat naming, match directly by pair_NNN prefix
+    jsons_by_pair_name = {}
+    for json_file in all_jsons:
+        for part in json_file.name.split("_scores_rank_001_")[:1]:
+            jsons_by_pair_name.setdefault(part, []).append(json_file)
+
+    # Fallback strategy: legacy rbd/pdl1 nested-directory grouping (positional match)
     jsons_by_source = {"rbd": [], "pdl1": []}
     for json_file in all_jsons:
         if "rbd" in str(json_file):
             jsons_by_source["rbd"].append(json_file)
         elif "pdl1" in str(json_file):
             jsons_by_source["pdl1"].append(json_file)
-
     for source in jsons_by_source:
         jsons_by_source[source].sort()
-        print(f"  {source}: {len(jsons_by_source[source])} files")
 
     # Extract scores from JSONs
     scores = []
@@ -74,9 +88,13 @@ def main():
         pair_name = f"pair_{pos:03d}"
         source_system = row.get("source_system", "unknown")
 
-        # Get the next JSON file for this source
+        # Try direct flat-name match first
         json_file = None
-        if source_system in jsons_by_source:
+        candidates = jsons_by_pair_name.get(pair_name)
+        if candidates:
+            json_file = sorted(candidates)[0]
+        elif source_system in jsons_by_source:
+            # Fall back to legacy positional matching for rbd/pdl1
             current_idx = json_idx_by_source[source_system]
             if current_idx < len(jsons_by_source[source_system]):
                 json_file = jsons_by_source[source_system][current_idx]

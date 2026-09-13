@@ -1,5 +1,11 @@
 # Benchmark targets and reference data
-# Updated 2026-09-07
+# Updated 2026-09-13
+#
+# WARNING: the confirmed_binders / confirmed_non_binders counts below are NOT
+# wet-lab measurements. No binding assay has been run on any sequence in this
+# benchmark. Outcome labels in adaptyv_benchmark.csv are synthetic, generated
+# from ipTM thresholds by scripts/create_mock_outcomes.py. Treat every count in
+# this file as placeholder structure, not data. See README.md status section.
 
 targets:
   rbd:
@@ -44,10 +50,13 @@ targets:
     confirmed_non_binders: 28
 
 benchmark_summary:
-  total_targets: 4
-  total_confirmed_binders: ~215
-  total_confirmed_non_binders: ~80
-  total_pairs_with_outcomes: ~295
+  label_provenance: "SYNTHETIC - generated from ipTM thresholds, not measured"
+  targets_with_real_fold_data: 2        # rbd, pdl1 (il7ra lives in results/, not this benchmark)
+  total_pairs: 319
+  total_pairs_with_measured_outcomes: 0
+  # The counts below describe the placeholder label distribution only.
+  synthetic_label_true: 28
+  synthetic_label_false: 291
   data_sources:
     - "Adaptyv Bio de novo design competitions (public data, ODC-ODbL licensed)"
     - "RFdiffusion validation campaigns (this project)"

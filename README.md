@@ -6,7 +6,7 @@ A toolkit to map computational structure-prediction confidence scores to observe
 
 De novo protein binder design pipelines (e.g., RFdiffusion → ProteinMPNN → AlphaFold2) generate thousands of candidates ranked by computational metrics (ipTM, pTM, pLDDT). These metrics correlate *weakly* with real binding in wet-lab assays — a design that scores well computationally often fails to bind, and vice versa. This kit contains:
 
-1. **A calibration curve** fit on ~215 experimentally confirmed binders across 4 protein targets (from public Adaptyv Bio competition data)
+1. **A calibration pipeline** that maps ColabFold ipTM to empirical hit rates — see the honest status of the shipped curve below
 2. **Four scripts** to fold your designs, extract scores, fit a local calibration, and apply it to new candidates
 3. **Documentation** of limitations, confidence intervals, and how to improve the model with your own data
 
@@ -47,9 +47,32 @@ python scripts/04_calibrate_your_designs.py examples/example_user_designs.csv
 
 See **QUICKSTART.md** for detailed step-by-step instructions and troubleshooting.
 
+## ⚠️ Status of the shipped calibration curve — read before using
+
+**The curve included in this repository is NOT fit on wet-lab data.**
+
+`benchmark/adaptyv_benchmark.csv` contains 319 sequence pairs from two in-house
+RFdiffusion campaigns (SARS-CoV-2 RBD, PD-L1). Their `outcome` labels are
+**synthetic** — generated from ipTM thresholds by `scripts/create_mock_outcomes.py`,
+not from any binding assay. The resulting curve therefore demonstrates that the
+pipeline runs end to end; it does **not** tell you the probability that a design
+will bind.
+
+Concretely, this means:
+- Do **not** cite `estimated_hit_rate` as a probability of binding
+- Do **not** treat the confidence intervals as empirically grounded
+- The curve is a **worked example**, and should be replaced before any real use
+
+To make it real, supply your own labelled pairs (sequence, target, measured
+outcome) in `benchmark/adaptyv_benchmark.csv` and re-run steps 2–3. Public
+Adaptyv EGFR competition data (links below) carries genuine KD measurements and
+binding calls, but is scored under different ColabFold settings than this kit's
+defaults — see `ADAPTYV_DATA_NOTES.md` for why it is not merged here and what
+rescoring it would require.
+
 ## Limitations (Read This)
 
-1. **Target-dependent:** Calibration is fit on 4 targets (EGFR, Nipah, RBX-1, and others). Applying this model to a target not in the benchmark assumes similar scoring behavior — this may not hold.
+1. **Target-dependent:** The pipeline is exercised on RBD, PD-L1 and IL-7Rα. Applying a fitted curve to a target outside its benchmark assumes similar scoring behaviour — this may not hold.
 
 2. **Sample size:** Each target has 20–50 confirmed binders. Confidence intervals are wide, especially at the tails. This is honest uncertainty, not a failure — it communicates "we don't know yet."
 
@@ -77,11 +100,11 @@ ci_upper: 0.78
 n_benchmark_samples_in_bin: 23
 ```
 
-This means: designs at ipTM≈0.72 had ~65% hit rate in the benchmark (95% CI [50%, 78%]), based on 23 samples in that bin.
+This means: designs at ipTM≈0.72 had ~65% hit rate in the benchmark (95% CI [50%, 78%]), based on 23 samples in that bin. **With the shipped placeholder labels this number is illustrative only** — see the status section above.
 
 ## Data & Reproducibility
 
-- **Benchmark data:** `benchmark/adaptyv_benchmark.csv` — 319 sequences (RBD + PD-L1 campaigns) with ColabFold scores and outcomes
+- **Benchmark data:** `benchmark/adaptyv_benchmark.csv` — 319 sequences (RBD + PD-L1 campaigns) with ColabFold scores and **synthetic** outcome labels (see status section)
 - **Target structures:** `benchmark/target_structures/` — PDB files for each target
 - **Metadata:** `benchmark/metadata.yaml` — target details and reference positive sequences
 - **Fold results:** Pre-computed ColabFold outputs available upon request (not included to save space)

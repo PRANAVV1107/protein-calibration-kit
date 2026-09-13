@@ -1,9 +1,16 @@
-# Fold outputs (can be regenerated)
-results/benchmark_folds_raw/
-results/*.pkl
-results/*.json
-results/*.csv
-results/*.png
+# Fold outputs -- large, regenerable, and not useful in version control.
+# Ignore everything under results/ by default; whitelist summaries explicitly below.
+results/**
+!results/.gitkeep
+!results/**/ranked.csv
+!results/**/variance_results.csv
+!results/**/per_backbone_summary.csv
+
+# Raw structures and prediction dumps anywhere
+*.pdb
+!benchmark/**/*.pdb
+*.a3m
+*.pkl
 
 # Python
 __pycache__/

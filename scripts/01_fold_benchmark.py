@@ -64,11 +64,23 @@ def main():
         default=None,
         help="Fold only first N pairs (for testing)"
     )
+    parser.add_argument(
+        "--benchmark",
+        type=str,
+        default="benchmark/adaptyv_benchmark.csv",
+        help="Path to benchmark CSV (default: benchmark/adaptyv_benchmark.csv)"
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=str,
+        default="results/benchmark_folds_raw",
+        help="Output directory for fold results (default: results/benchmark_folds_raw)"
+    )
     args = parser.parse_args()
 
     # Paths
-    benchmark_csv = Path("benchmark/adaptyv_benchmark.csv")
-    output_dir = Path("results/benchmark_folds_raw")
+    benchmark_csv = Path(args.benchmark)
+    output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     checkpoint_file = output_dir / "checkpoint.txt"
 
