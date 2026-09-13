@@ -211,7 +211,94 @@ Within-backbone spread across just 3 kept draws: `binder_48` 0.62/0.81/0.84, `bi
 
 ---
 
+## 5b. Metric correction: ipTM → ipSAE
+
+After the sections below were written, a literature check surfaced Dunbrack 2025
+("Rēs ipSAE loquuntur: What's wrong with AlphaFold's ipTM score and how to fix
+it"). ipTM is computed across whole chains, so unequal chain lengths shift it
+spuriously — **this is the published fix for the size-asymmetry artifact recorded
+independently in this project's own notes**, where the true ACE2/RBD complex
+scored lower than an off-target pair. ipSAE restricts the calculation to residue
+pairs below a pAE threshold. Overath et al. 2025 (meta-analysis, 3,766
+experimentally characterised binders) found AF3/Boltz-1 with **ipSAE_min > 0.61**
+beat AF2-initial-guess on ipAE by ~1.4× average precision.
+
+ipSAE was already present in every ColabFold JSON here and had simply been
+ignored. Re-analysis required no new folding.
+
+### Three things changed
+
+**a. The variance result narrows.** Within-backbone (sequence) share of variance:
+
+| target | ipTM | **ipSAE_min** | pDockQ2_min |
+|---|---|---|---|
+| IL-7Rα | 59.0% | **43.4%** | 53.4% |
+| PD-L1 | 68.9% | **55.1%** | 66.4% |
+| RBD | 78.3% | **79.8%** | 78.9% |
+
+RBD holds at ~79% under every metric. But under ipSAE, IL-7Rα falls **below half**
+(43.4%), meaning backbone choice slightly dominates on that target. The defensible
+claim is therefore: *sequence dominates decisively on a hard target, and is
+roughly co-equal with backbone on easy targets.* Not the universal claim implied
+by the ipTM-only numbers.
+
+**b. pDockQ2 selects better than either ipTM or ipSAE.** Mean high-accuracy ipTM
+of the sequence each cheap metric picks (random 0.396, oracle 0.698):
+
+| selecting by | fast screen | hybrid MSA |
+|---|---|---|
+| ipTM | 0.234 (−0.162) | 0.537 (+0.141) |
+| ipSAE_min | 0.292 (−0.104) | 0.473 (+0.077) |
+| **pDockQ2_min** | **0.341 (−0.055)** | **0.562 (+0.166)** |
+
+Note this is a *different task* from the literature's recommendation: Overath
+ranks ipSAE best for predicting experimental binding success, whereas this
+measures within-backbone sequence selection. No contradiction.
+
+**c. The specificity ranking reorders, and off-target signal mostly evaporates.**
+
+| candidate | off ipTM | off ipSAE_min | ipSAE margin |
+|---|---|---|---|
+| **binder_47__s1** | 0.320 | **0.052** | **0.665** |
+| binder_34__s6 | 0.300 | 0.064 | 0.663 |
+| binder_34__s5 | 0.560 | 0.192 | 0.478 |
+| binder_6__s2 | 0.610 | 0.218 | 0.457 |
+| binder_47__s2 | 0.690 | 0.338 | 0.318 |
+
+Off-target ipTM of 0.32 looked like meaningful residual binding; the same pair at
+ipSAE_min 0.052 is essentially no interface at all. The apparent promiscuity was
+substantially a chain-length artifact — precisely what ipSAE exists to remove.
+
+### Epitope analysis (no GPU required)
+
+Contacts computed from existing predicted structures, against IL-7's own footprint
+in 3DI3:
+
+- IL-7's natural epitope on IL-7Rα is **19 residues** (31, 33, 57–59, 77–83, 102,
+  104, 138–139, 191–193).
+- Designed binders overlap it by **15.9 residues on average**; `binder_47__s3`
+  reaches 19/19.
+- So the designs occupy the real ligand site and would plausibly **compete with
+  IL-7** — the intended therapeutic mechanism.
+- But epitope overlap does **not** predict specificity (ρ = −0.36, p = 0.55, n=5);
+  `binder_47__s2` covers 17/19 and has the worst margin. Promiscuity appears to
+  come from the binder's own surface properties, not from where it binds.
+
+---
+
 ## 6. Final result
+
+> **Superseded by §5b.** Under ipSAE_min the top candidate is
+> **`il7ra_binder_47__s1`** (ipTM 0.86, pTM 0.89, pLDDT 92.5, **ipSAE_min 0.717**,
+> pDockQ2_min 0.487, 120 aa), which also engages all four requested hotspots and
+> covers 18/19 of the natural IL-7 epitope. Its off-target ipSAE_min is 0.052.
+>
+> ```
+> MTPACLKLAELVKSKSPEEAGELAGKAIACLASSFINPSNLEVCDPELAEQVAQLTTVEEKIECMKLLADMAAEIGKEAAGKVYIGAAVGASYLEDEGGDEKLIKGLKEIAEKAYEAYKK
+> ```
+>
+> The ipTM-selected candidate below remains accurate as recorded, but ipTM was the
+> wrong metric to rank on.
 
 **`il7ra_binder_6__s2`**
 
@@ -278,6 +365,38 @@ Wasted: ~2 h re-folding the wrong benchmark (§1.3), plus the entire random-sequ
 
 ---
 
+## 8b. Where this sits in the literature
+
+Checked after the fact, which was the wrong order — several of these would have
+changed how the campaign was run.
+
+**Probably novel.** No published work decomposes AF2 interface-score variance into
+within-backbone (sequence) versus between-backbone components. ProtDBench samples
+8 sequences per backbone "to reduce variance" without reporting the split; the
+RFdiffusion protocol fixes 8 with no ablation justifying it. The measurement here
+— across three targets and three metrics — appears unpublished.
+
+**Already standard, reinvented here.** Bennett et al. 2023 (`dl_binder_design`)
+already runs AF2 with an MSA for the target and single sequence for the binder,
+precisely because the target needs coevolutionary signal. The "hybrid MSA" built
+in this project is that practice, rediscovered. What is *not* documented anywhere
+found is the quantitative failure it avoids (target pLDDT 27.2 vs 84.3, binder
+unaffected at 70.1 vs 72.3) — useful as a practitioner note, not a discovery.
+
+**Superseded tooling.** AF2-initial-guess remains the reference baseline, but
+Overath et al. 2025 report AF3 and Boltz-1 outperforming it, with ipSAE_min the
+better filter. BindCraft (Pacesa et al., *Nature* 2025) reports 10–100% success
+screening ~10 designs, co-folding the target each iteration.
+
+**Contested, currently.** Specificity screening is not standardised: decoy panels
+are not routine, and no published campaign was found using ProteinMPNN's
+`--pos_neg_chain_betas` multi-state flags. Two 2026 preprints (RedNet; Odin-Multi)
+address binder selectivity directly.
+
+**Known folklore.** ProteinMPNN's low-complexity collapse at low sampling
+temperature is discussed in RFdiffusion issue #102, with a negative alanine bias
+as the standard remedy — the same fix arrived at here empirically.
+
 ## 9. Transferable lessons
 
 1. **Verify the target's identity from the PDB header** before spending compute. A wrong PDB ID
@@ -293,3 +412,14 @@ Wasted: ~2 h re-folding the wrong benchmark (§1.3), plus the entire random-sequ
    interface, bad sequence" from "composition artifact".
 6. **Isolate one variable at a time.** The no-bias control (§5.2) is what revealed that half the
    apparent cost of the alanine bias was sampling variance.
+7. **Check which metric you are optimising before optimising it.** ipTM was used throughout, while
+   ipSAE and pDockQ2 sat unread in the same JSON files. Switching metric reordered the specificity
+   ranking, changed the top candidate, and cut the headline variance figure on one target from 59%
+   to 43%. Zero new compute.
+8. **Read the literature first, not last.** The target-MSA fix has been standard practice since
+   2023, and the ipTM size-asymmetry artifact this project rediscovered by experiment has a
+   published correction (ipSAE). Both were findable in an hour.
+9. **Decompose a failing stage before discarding it.** The fast screen changed three variables at
+   once (no MSA, 1 model, 3 recycles). Only one mattered: holding the other two fixed while
+   restoring the target MSA moved selection from worse-than-random (−0.162) to better-than-random
+   (+0.166 with pDockQ2).
