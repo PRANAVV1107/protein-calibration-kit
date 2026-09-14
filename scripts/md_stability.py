@@ -18,10 +18,16 @@ magnitude cheaper, and sufficient for the question being asked, which is gross
 interface stability rather than precise energetics. Amber14 protein force field,
 Langevin thermostat at 300 K, 2 fs timestep with hydrogen bonds constrained.
 
-Runs on the CPU platform. This OpenMM build exposes only Reference and CPU
-platforms -- no CUDA -- which is also the real reason --use-gpu-relax fails in
-this environment, rather than a CUDA version mismatch. The upside is that MD
-here does not compete with ColabFold for the GPU.
+Platforms. The colabfold env's OpenMM exposes only Reference and CPU -- which is
+also the real reason --use-gpu-relax fails there, rather than a CUDA version
+mismatch. A separate openmm-gpu env carries the CUDA platform, which OpenMM
+rates at speed 100 against the CPU platform's 1.
+
+That difference decides how this is used. On CPU, 1 ns on one complex took over
+90 minutes and was still unfinished, which buys a screen that can only reject
+the grossest failures. On CUDA the same work is minutes, so 50-100 ns runs
+become affordable and the result can actually support a stability claim rather
+than merely a rejection. Use --platform CUDA once the GPU is free of folding.
 
 Measured per frame
 ------------------
@@ -104,7 +110,23 @@ def metrics(pos, t_heavy, b_heavy, t_ref, b_ref, cutoff=0.5):
     return contacts, com, rmsd
 
 
-def run(pdb_path, out_dir, ns=2.0, threads=4, equil_ps=100.0, report_ps=50.0):
+def make_simulation(topology, system, integrator, platform_name, threads):
+    """CUDA where available (about 100x the CPU platform), else CPU.
+
+    The colabfold env's OpenMM build exposes only Reference and CPU -- which is
+    the real reason --use-gpu-relax fails there, rather than a CUDA version
+    mismatch. A separate openmm-gpu env carries the CUDA platform.
+    """
+    if platform_name == "CUDA":
+        plat = openmm.Platform.getPlatformByName("CUDA")
+        return app.Simulation(topology, system, integrator, plat,
+                              {"Precision": "mixed"})
+    plat = openmm.Platform.getPlatformByName("CPU")
+    return app.Simulation(topology, system, integrator, plat, {"Threads": str(threads)})
+
+
+def run(pdb_path, out_dir, ns=2.0, threads=4, equil_ps=100.0, report_ps=50.0,
+        platform_name="CPU"):
     name = os.path.splitext(os.path.basename(pdb_path))[0]
     os.makedirs(out_dir, exist_ok=True)
     prefix = os.path.join(out_dir, name)
@@ -121,9 +143,7 @@ def run(pdb_path, out_dir, ns=2.0, threads=4, equil_ps=100.0, report_ps=50.0):
     integrator = openmm.LangevinMiddleIntegrator(300 * unit.kelvin,
                                                  1.0 / unit.picosecond,
                                                  0.002 * unit.picoseconds)
-    platform = openmm.Platform.getPlatformByName("CPU")
-    sim = app.Simulation(topology, system, integrator, platform,
-                         {"Threads": str(threads)})
+    sim = make_simulation(topology, system, integrator, platform_name, threads)
     sim.context.setPositions(positions)
 
     sim.minimizeEnergy(maxIterations=2000)
@@ -148,6 +168,7 @@ def run(pdb_path, out_dir, ns=2.0, threads=4, equil_ps=100.0, report_ps=50.0):
     res = {
         "name": name,
         "ns": ns,
+        "platform": platform_name,
         "wall_min": round((time.time() - t0) / 60, 1),
         "contacts_start": c0,
         "contacts_mean": float(np.mean(cs)),
@@ -171,6 +192,8 @@ def main():
     ap.add_argument("--out-dir", default="results/md")
     ap.add_argument("--ns", type=float, default=2.0)
     ap.add_argument("--threads", type=int, default=4)
+    ap.add_argument("--platform", default="CPU", choices=["CPU", "CUDA"],
+                    help="CUDA needs the openmm-gpu env; it is ~100x the CPU platform")
     ap.add_argument("--equil-ps", type=float, default=100.0,
                     help="equilibration before production; 20 is enough for a "
                          "gross-stability screen on the CPU platform")
@@ -180,7 +203,7 @@ def main():
         print("[%s] starting %s" % (time.strftime("%H:%M:%S"), os.path.basename(p)), flush=True)
         try:
             r = run(p, args.out_dir, ns=args.ns, threads=args.threads,
-                    equil_ps=args.equil_ps)
+                    equil_ps=args.equil_ps, platform_name=args.platform)
         except Exception as e:
             print("   FAILED: %s" % e, flush=True)
             continue
