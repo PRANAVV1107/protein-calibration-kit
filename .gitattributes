@@ -1,0 +1,11 @@
+# Shell scripts run under WSL. CRLF would put a \r on the shebang line and
+# every script would fail with "bad interpreter". Force LF regardless of the
+# checkout platform -- this repo is authored on Windows and executed on Linux.
+*.sh text eol=lf
+*.py text eol=lf
+
+# Structure and alignment files are parsed by fixed column offsets; leave the
+# bytes alone.
+*.pdb -text
+*.a3m -text
+*.fasta -text
