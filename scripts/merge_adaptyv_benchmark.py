@@ -3,23 +3,30 @@
 Merge EGFR Round 1 & 2 Adaptyv data into benchmark format.
 """
 
+import os
 import pandas as pd
+
+KITDIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from pathlib import Path
 
-# EGFR extracellular domain (~500 residues)
+# EGFR domain III -- the cetuximab epitope, which is what the Adaptyv
+# competition targets. From PDB 1YY9 chain A, residues 310-510, no crystal gaps,
+# verified against that file's own TITLE/COMPND records.
+#
+# WARNING: versions of this script before 2026-09-13 carried a FABRICATED
+# placeholder here -- poly-alanine/poly-proline filler, not a real protein.
+# Any benchmark row or score produced by those versions is invalid.
 egfr_seq = (
-    "MYPPQRSVVSVVPGPPGRASPGGGGGGGAEGPPQPPRRGGAGGGGCGPGAGSLGAGWAAGSGGWLPWQQ"
-    "PAPPPPPPPPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
-    "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
+    "RKVCNGIGIGEFKDSLSINATNIKHFKNCTSISGDLHILPVAFRGDSFTHTPPLDPQELDILKTVKEITG"
+    "FLLIQAWPENRTDLHAFENLEIIRGRTKQHGQFSLAVVSLNITSLGLRSLKEISDGDVIISGNKNLCYAN"
+    "TINWKKLFGTSGQKTKIISNRGENKCKATGQVCHALCSPEGCWGPEPRDCVSCRNVSRGRE"
 )
-egfr_seq = egfr_seq[:500]
 
 all_data = []
 
 # Process Round 2 (has explicit "binding" column)
 print("Processing EGFR Round 2...")
-df_r2 = pd.read_csv("C:/Users/prana/Downloads/proteinfoldingexp/calibration-kit/adaptyv_egfr_round2.csv")
+df_r2 = pd.read_csv(os.path.join(KITDIR, "adaptyv_egfr_round2.csv"))
 print(f"  Loaded {len(df_r2)} sequences")
 
 for idx, row in df_r2.iterrows():
@@ -27,9 +34,13 @@ for idx, row in df_r2.iterrows():
     if pd.isna(seq) or len(str(seq)) < 10:
         continue
 
-    # Use the "binding" column if available, else fall back to KD
-    if "binding" in row and pd.notna(row["binding"]):
-        outcome = "true" if row["binding"] else "false"
+    # The `binding` column holds the STRINGS 'true'/'false'/'unknown', not
+    # booleans. `if row["binding"]` is truthy for every non-empty string, so an
+    # earlier version of this line labelled all 325 verified NON-binders as
+    # binders. Compare the text explicitly.
+    b = str(row.get("binding", "")).strip().lower()
+    if b in ("true", "false"):
+        outcome = b
     else:
         kd = row.get("kd", None)
         if pd.isna(kd):
@@ -53,7 +64,7 @@ print(f"  Added {r2_count} sequences from Round 2")
 
 # Process Round 1 (sparse data but include it)
 print("Processing EGFR Round 1...")
-df_r1 = pd.read_csv("C:/Users/prana/Downloads/proteinfoldingexp/calibration-kit/adaptyv_egfr_round1.csv")
+df_r1 = pd.read_csv(os.path.join(KITDIR, "adaptyv_egfr_round1.csv"))
 print(f"  Loaded {len(df_r1)} sequences")
 
 for idx, row in df_r1.iterrows():

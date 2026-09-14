@@ -13,17 +13,22 @@ import numpy as np
 from pathlib import Path
 
 def parse_adaptyv_egfr():
-    # Hardcoded EGFR extracellular domain (approximate)
+    # EGFR domain III -- the cetuximab epitope, which is what the Adaptyv
+    # competition targets (its reference positive is Cetuximab_scFv).
+    # Extracted from PDB 1YY9 chain A, residues 310-510, no crystal gaps,
+    # verified against that file's own TITLE/COMPND records.
+    #
+    # WARNING: versions of this script before 2026-09-13 carried a FABRICATED
+    # placeholder here -- poly-alanine/poly-proline filler, not a real protein.
+    # Any benchmark row or score produced by those versions is invalid.
     egfr_seq = (
-        "MYPPQRSVVSVVPGPPGRASPGGGGGGGAEGPPQPPRRGGAGGGGCGPGAGSLGAGWAAGSGGWLPWQQ"
-        "PAPPPPPPPPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-        "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
-        "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
+        "RKVCNGIGIGEFKDSLSINATNIKHFKNCTSISGDLHILPVAFRGDSFTHTPPLDPQELDILKTVKEITG"
+        "FLLIQAWPENRTDLHAFENLEIIRGRTKQHGQFSLAVVSLNITSLGLRSLKEISDGDVIISGNKNLCYAN"
+        "TINWKKLFGTSGQKTKIISNRGENKCKATGQVCHALCSPEGCWGPEPRDCVSCRNVSRGRE"
     )
-    egfr_seq = egfr_seq[:500]
 
     # Read EGFR data
-    egfr_csv = Path("C:/Users/prana/Downloads/proteinfoldingexp/calibration-kit/adaptyv_egfr_round1.csv")
+    egfr_csv = Path(__file__).resolve().parent.parent / "adaptyv_egfr_round1.csv"
     df_egfr = pd.read_csv(egfr_csv)
     print(f"Loaded {len(df_egfr)} EGFR Round 1 sequences")
 
