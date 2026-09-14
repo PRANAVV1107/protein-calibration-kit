@@ -59,3 +59,6 @@ Thumbs.db
 # Large files
 *.tar.gz
 *.zip
+
+# Raw RCSB downloads are regenerable by scripts/fetch_decoys.py
+benchmark/decoys/[0-9]*.pdb

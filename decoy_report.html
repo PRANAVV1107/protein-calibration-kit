@@ -1,0 +1,321 @@
+<title>Unpublished Negatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --bg:#F4F3F0; --surface:#FFFFFF; --surface-2:#EAE8E3;
+  --ink:#161512; --ink-2:#55524B; --ink-3:#86827A;
+  --line:#DDD9D1; --line-2:#C6C1B6;
+  --signal:#8A3A12;            /* measured data */
+  --signal-soft:#F6E9E1;
+  --absent:#A8A398;            /* unmeasured / missing */
+  --good:#2F6B3D; --good-soft:#E6EFE7;
+  --warn:#966A09; --warn-soft:#F7EEDA;
+  --measure:66ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#111010; --surface:#1A1917; --surface-2:#232120;
+    --ink:#EDEAE4; --ink-2:#A19C92; --ink-3:#736E65;
+    --line:#2B2926; --line-2:#3B3835;
+    --signal:#E08050; --signal-soft:#2A1A12;
+    --absent:#5C574F;
+    --good:#6FBF83; --good-soft:#15251A;
+    --warn:#D9A73E; --warn-soft:#2A2113;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111010; --surface:#1A1917; --surface-2:#232120;
+  --ink:#EDEAE4; --ink-2:#A19C92; --ink-3:#736E65;
+  --line:#2B2926; --line-2:#3B3835;
+  --signal:#E08050; --signal-soft:#2A1A12;
+  --absent:#5C574F;
+  --good:#6FBF83; --good-soft:#15251A;
+  --warn:#D9A73E; --warn-soft:#2A2113;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.62}
+.wrap{max-width:1100px;margin:0 auto;padding:0 26px 90px}
+.col{max-width:var(--measure)}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;text-wrap:balance;margin:0;font-weight:500}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.02em}
+h2{font-size:27px;line-height:1.2;margin-bottom:8px}
+h3{font-size:18px;font-weight:600;font-family:"IBM Plex Sans",sans-serif;margin-bottom:4px}
+p{margin:0}
+a{color:var(--signal)}
+.mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-3)}
+.lede{font-size:19px;color:var(--ink-2);line-height:1.58}
+.small{font-size:14px}
+header{padding:70px 0 42px;border-bottom:1px solid var(--line)}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.sec-head{display:flex;flex-direction:column;gap:7px;margin-bottom:24px}
+.stack{display:flex;flex-direction:column;gap:17px}
+
+/* the gap illustration */
+.gap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:6px}
+.gap>div{background:var(--surface);padding:20px 22px;display:flex;flex-direction:column;gap:8px}
+.gap .n{font-family:"IBM Plex Mono",monospace;font-size:32px;font-weight:500;letter-spacing:-.02em}
+.gap .pub .n{color:var(--signal)}
+.gap .unpub .n{color:var(--absent)}
+.gap .lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3)}
+
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:2px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
+tr.best td{background:var(--good-soft)}
+tr.worst td{background:var(--warn-soft)}
+.chg{color:var(--signal);font-weight:600}
+
+.note{border-left:2px solid var(--line-2);padding:1px 0 1px 17px;color:var(--ink-2);font-size:15px}
+.note.signal{border-color:var(--signal)}
+.note.good{border-color:var(--good)}
+.note.warn{border-color:var(--warn)}
+.note b{color:var(--ink)}
+
+.tiers{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);
+  border-radius:2px;background:var(--surface);overflow:hidden}
+.tier{display:grid;grid-template-columns:92px 1fr;gap:0 18px;padding:16px 20px;
+  border-bottom:1px solid var(--line)}
+.tier:last-child{border-bottom:0}
+.tier .t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;padding-top:3px}
+.t1{color:var(--signal)} .t2{color:var(--warn)} .t3{color:var(--ink-3)}
+.tier p{font-size:14.5px;color:var(--ink-2);margin-top:2px}
+.tier .items{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink);margin-top:5px}
+footer{padding:36px 0 0;color:var(--ink-3);font-size:13px}
+@media (max-width:640px){.gap{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="col">
+    <div class="eyebrow" style="margin-bottom:14px">Specificity screening · Method report</div>
+    <h1>Unpublished Negatives</h1>
+    <p class="lede" style="margin-top:18px">
+      De novo binder design publishes its hits. The designs that bound the wrong
+      thing, or bound nothing, mostly go unrecorded — so there is no reference
+      distribution against which any score can be called good. This is an attempt
+      to build one deliberately.
+    </p>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head col">
+    <div class="eyebrow">The problem</div>
+    <h2>A threshold with nothing behind it</h2>
+  </div>
+  <div class="col stack">
+    <p>A candidate scores <span class="mono">ipSAE 0.717</span>. Is that good? The
+    field's working cutoff is 0.61, drawn from a meta-analysis of binders with
+    different targets, different chain lengths and different design methods. None
+    of those are ours.</p>
+    <p>Answering the question properly needs the other half of the data: what these
+    metrics look like on pairs that <em>do not</em> bind. That half is largely
+    absent from the literature, because a non-binder is not a result anyone
+    publishes.</p>
+    <p class="note signal"><b>The asymmetry is visible in how the field measures itself.</b>
+    Establishing what predicts experimental success required a 2025 meta-analysis
+    pooling 3,766 characterised binders scattered across separate papers. There is
+    no equivalent collection of designs that failed — and failure is the more
+    common outcome.</p>
+  </div>
+
+  <div class="gap col" style="max-width:none">
+    <div class="pub">
+      <span class="lbl">Routinely published</span>
+      <span class="n">Hits</span>
+      <p class="small muted">Designs that bound. Reported with structures, affinities,
+      and the score that selected them.</p>
+    </div>
+    <div class="unpub">
+      <span class="lbl">Rarely published</span>
+      <span class="n">Everything else</span>
+      <p class="small muted">Designs that bound the wrong target, bound nothing, or
+      scored well and failed. The distribution a threshold would need.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head col">
+    <div class="eyebrow">Measured · 5 candidates × 2 decoys</div>
+    <h2>Most apparent promiscuity was a measurement artifact</h2>
+    <p class="muted">Each IL-7Rα candidate folded against two unrelated proteins.
+    Scored twice: once with ipTM, once with ipSAE.</p>
+  </div>
+
+  <div class="tw col" style="max-width:none">
+    <table>
+      <thead><tr>
+        <th>Candidate</th>
+        <th style="text-align:right">on-target ipTM</th>
+        <th style="text-align:right">worst off ipTM</th>
+        <th style="text-align:right">worst off <span class="chg">ipSAE</span></th>
+        <th style="text-align:right">ipTM margin</th>
+        <th style="text-align:right"><span class="chg">ipSAE margin</span></th>
+      </tr></thead>
+      <tbody>
+        <tr class="best"><td>binder_47__s1</td><td class="num">0.86</td><td class="num">0.320</td>
+          <td class="num chg">0.052</td><td class="num">0.540</td><td class="num chg">0.665</td></tr>
+        <tr><td>binder_34__s6</td><td class="num">0.89</td><td class="num">0.300</td>
+          <td class="num chg">0.064</td><td class="num">0.590</td><td class="num chg">0.663</td></tr>
+        <tr><td>binder_34__s5</td><td class="num">0.86</td><td class="num">0.560</td>
+          <td class="num chg">0.192</td><td class="num">0.300</td><td class="num chg">0.478</td></tr>
+        <tr><td>binder_6__s2</td><td class="num">0.88</td><td class="num">0.610</td>
+          <td class="num chg">0.218</td><td class="num">0.270</td><td class="num chg">0.457</td></tr>
+        <tr class="worst"><td>binder_47__s2</td><td class="num">0.84</td><td class="num">0.690</td>
+          <td class="num chg">0.338</td><td class="num">0.150</td><td class="num chg">0.318</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col stack" style="margin-top:22px">
+    <p class="note signal"><b>An off-target ipTM of 0.32 reads as meaningful residual
+    binding. The same pair at ipSAE 0.052 is no interface at all.</b> ipTM is computed
+    across whole chains, so unequal chain lengths shift it — the artifact this project
+    had already hit independently, where a true receptor–ligand complex scored lower
+    than an unrelated pair. Most of the promiscuity we were about to design against
+    was not there.</p>
+    <p>The ranking also reorders: <span class="mono">binder_34__s6</span> leads on ipTM
+    margin, <span class="mono">binder_47__s1</span> on ipSAE margin. Selecting on the
+    wrong metric picks the wrong candidate.</p>
+    <p class="note good"><b>What survives is the spread.</b> Margins run 0.15 to 0.67
+    across designs whose on-target scores sit within 0.05 of each other. Specificity is
+    a real, separate axis — invisible to the score everyone optimises.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head col">
+    <div class="eyebrow">Design</div>
+    <h2>The decoys that matter are relatives</h2>
+    <p class="muted">The panel above used what was on disk — a viral receptor-binding
+    domain and an immune checkpoint protein. Both unrelated folds, so both test the
+    easy case.</p>
+  </div>
+
+  <div class="col stack" style="margin-bottom:22px">
+    <p>IL-7Rα is a type-I cytokine receptor built from fibronectin-III domains. A
+    binder that also hits the common gamma chain — IL-7Rα's own signalling partner —
+    is a specificity failure with clinical consequence. One that hits a coronavirus
+    spike domain is a curiosity. <b>Testing only unrelated folds measures the failure
+    mode least likely to occur.</b></p>
+  </div>
+
+  <div class="tiers col" style="max-width:none">
+    <div class="tier">
+      <span class="t t1">Tier 1 · hard</span>
+      <div>
+        <h3>Structural homologs</h3>
+        <p>Same family, same fold, overlapping architecture. Where real cross-reactivity
+        would show up. Near-identical chain lengths to the target, so ipTM stays
+        interpretable here.</p>
+        <div class="items">gammaC 191 aa · IL4Ra 188 aa · IL21R 209 aa</div>
+      </div>
+    </div>
+    <div class="tier">
+      <span class="t t2">Tier 2 · abundance</span>
+      <div>
+        <h3>What a therapeutic actually meets</h3>
+        <p>Not homologs, but present at high concentration in serum. Standard
+        nonspecific-binding indicators. Albumin at 578 aa is a 3:1 length ratio against
+        the 193 aa target — the regime where ipTM misbehaves, so these must be scored
+        on ipSAE.</p>
+        <div class="items">albumin 578 aa · IgG Fc 207 aa</div>
+      </div>
+    </div>
+    <div class="tier">
+      <span class="t t3">Tier 3 · control</span>
+      <div>
+        <h3>Unrelated folds</h3>
+        <p>The easy case, retained as a floor. A design that fails here has a serious
+        problem.</p>
+        <div class="items">PD-L1 115 aa · SARS-CoV-2 RBD 194 aa</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note col" style="margin-top:20px"><b>Every structure was verified by reading
+  its own TITLE and COMPND records before use.</b> This project previously ran a full
+  campaign against PDB 1ILR believing it to be IL-7Rα; it is interleukin-1 receptor
+  antagonist, an unrelated protein, and nothing downstream caught it.</p>
+</section>
+
+<section>
+  <div class="sec-head col">
+    <div class="eyebrow">In progress</div>
+    <h2>Building the null distribution</h2>
+  </div>
+  <div class="col stack">
+    <p>Two panels are running. Both label pairs as non-binding <em>by construction</em>
+    — unrelated proteins do not bind by default — rather than by deriving labels from
+    the metric being calibrated, which is circular.</p>
+
+    <div class="tw" style="max-width:none">
+      <table>
+        <thead><tr><th>Panel</th><th style="text-align:right">Pairings</th><th>Construction</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Cross-target null</td><td class="num">420</td>
+            <td>every binder × the two targets it was not designed for</td>
+            <td>broad empirical null per metric</td></tr>
+          <tr><td>Family panel</td><td class="num">75</td>
+            <td>15 candidates × 5 tiered decoys</td>
+            <td>hard-case specificity per candidate</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Cost is kept down by paying for each decoy's alignment <b>once</b> and reusing it
+    across every pairing. Characterising a null needs volume, not precision.</p>
+
+    <p class="note warn"><b>Stated limitation.</b> These are <em>predicted</em>
+    non-binders. No binding assay has been run on anything in this project. The prior
+    that unrelated proteins do not bind is strong but not certainty, and genuine
+    cross-reactivity would sit in the panel mislabelled — which is itself worth
+    discovering.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head col">
+    <div class="eyebrow">Why bother</div>
+    <h2>What a null buys</h2>
+  </div>
+  <div class="col stack">
+    <p><b>A percentile instead of a threshold.</b> "ipSAE 0.717" becomes "above 99% of
+    several hundred non-binding pairs from this same pipeline, these same chain lengths,
+    these same design methods." That is a claim the data supports; comparison against a
+    borrowed cutoff is not.</p>
+    <p><b>A way to compare metrics honestly.</b> With positives and negatives in hand you
+    can ask which of ipTM, ipSAE or pDockQ2 separates them most sharply — rather than
+    adopting whichever the last paper recommended.</p>
+    <p><b>Non-circular calibration labels.</b> A curve fit on labels derived from the
+    score it is calibrating tells you nothing. Negatives by construction break that loop.</p>
+    <p class="note"><b>And it is cheap.</b> The expensive input — the target's alignment —
+    is identical across every pairing against that target, so it is computed once and
+    reused. Generating negatives costs a fraction of generating the positives they
+    contextualise, which may be part of why so few exist.</p>
+  </div>
+</section>
+
+<footer>
+  <p>IL-7Rα binder campaign · RFdiffusion → ProteinMPNN → ColabFold (AF2-multimer v3).
+  All values are structure-prediction confidence scores, not measured affinities.
+  Decoy structures: 2B5I, 1IAR, 3TGX, 1AO6, 1FC1 — each verified from its own header records.</p>
+</footer>
+
+</div>
