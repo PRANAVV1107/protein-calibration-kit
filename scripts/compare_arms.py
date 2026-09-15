@@ -286,10 +286,24 @@ def main():
                 drop = "   <- survives"
         print("%-28s %7.3f %7.3f %7.3f%s" % (lab, raw, st, rs, drop))
 
-    # ---- the decision gate the user set ----
-    gate = 0.564  # within 10% of Adaptyv's 0.627
+    # ---- the decision gate ----
+    #
+    # The bar is "within 10% of Adaptyv", and which Adaptyv number that means
+    # matters more than it sounds. Their AUC on the full 365-design set is
+    # 0.627, giving a bar of 0.564. On the subset folded here they score
+    # higher, so the bar derived from THAT is stricter. Only the second is
+    # like-for-like: same designs, same labels, same class balance, which is
+    # the entire reason this script restricts both arms to a common set.
+    # Judging our subset number against their full-set number re-introduces
+    # exactly the confound the script exists to remove.
+    #
+    # So the bar is computed from the measured same-design baseline rather
+    # than hardcoded, and both sides are taken length-controlled -- correcting
+    # ours while crediting theirs uncorrected would flatter us.
+    MARGIN = 0.90
+    gate = 0.564  # legacy: 0.9 * 0.627, the full-365 figure, kept for continuity
     print("\n" + "=" * 78)
-    print("DECISION GATE: >= %.3f justifies the RL layer" % gate)
+    print("DECISION GATE")
     print("=" * 78)
     highs = [(lab, c) for lab, c in cand if c.startswith("high_")]
     best_raw = max(highs, key=lambda lc: auc_df(df, lc[1]))
@@ -305,15 +319,30 @@ def main():
     print("  best on raw AUC       : %-18s %.3f" % (best_raw[0].strip(), a_raw))
     print("  best length-controlled: %-18s %.3f  (weaker of strat/resid)"
           % (best_adj[0].strip(), a_adj))
-    ok = (not np.isnan(a_adj)) and a_adj >= gate
-    print("\n  GATE %s on the length-controlled figure (%.3f vs %.3f)"
-          % ("CLEARED" if ok else "NOT cleared", a_adj, gate))
-    if not ok and a_raw >= gate:
-        print("  raw AUC would have cleared it. The gap is the length confound;")
-        print("  do not report the raw figure as the result.")
+    base_adj = adjmin("adaptyv_iptm") if "adaptyv_iptm" in adj else np.nan
+    if not np.isnan(base_adj):
+        bar = MARGIN * base_adj
+        print("  Adaptyv, SAME designs, adj: %-18s %.3f  -> bar %.3f"
+              % ("adaptyv_iptm", base_adj, bar))
+        ok = (not np.isnan(a_adj)) and a_adj >= bar
+        print("\n  LIKE-FOR-LIKE GATE %s  (%.3f vs %.3f, %+.3f)"
+              % ("CLEARED" if ok else "NOT CLEARED", a_adj, bar, a_adj - bar))
+    else:
+        bar, ok = np.nan, False
+        print("\n  Adaptyv baseline missing on this subset -- gate cannot be judged.")
+    legacy_ok = (not np.isnan(a_adj)) and a_adj >= gate
+    print("  legacy gate vs the full-365 figure (%.3f): %s"
+          % (gate, "cleared" if legacy_ok else "not cleared"))
+    if legacy_ok and not ok and not np.isnan(bar):
+        print("\n  These disagree, and the like-for-like gate is the one that counts.")
+        print("  The legacy gate judges our subset number against their full-set")
+        print("  number, which is not the same comparison.")
+    if a_raw >= (bar if not np.isnan(bar) else gate) and not ok:
+        print("  Raw AUC would have cleared it; the gap is the length confound.")
+        print("  Do not report the raw figure as the result.")
     d = bdist[best_adj[1]][~np.isnan(bdist[best_adj[1]])]
-    print("  (raw-AUC bootstraps above gate for that metric: %.1f%%)"
-          % (100 * (d >= gate).mean()))
+    print("  (raw-AUC bootstraps above the like-for-like bar: %.1f%%)"
+          % (100 * (d >= (bar if not np.isnan(bar) else gate)).mean()))
     print("\n[OK] %s" % args.out)
 
 
