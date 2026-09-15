@@ -38,6 +38,19 @@ import pandas as pd
 
 KIT = "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit"
 
+# Known positive controls in the Adaptyv set -- not de novo designs, and this
+# study evaluates metrics FOR de novo designs. Cetuximab is the approved
+# anti-EGFR therapeutic (Erbitux) spiked in as a benchmark; scoring it as a
+# design would credit the pipeline for recognising a molecule that decades of
+# antibody engineering produced. Excluded from the primary figures and reported
+# as a sensitivity check rather than dropped silently.
+#
+# NOT excluded: the aureliabustos "wt_noised" entries. Those are a
+# participant's noised-wild-type strategy -- a real submission competing under
+# the same rules, however unadventurous. Removing them would be editing the
+# competition rather than removing a control.
+CONTROL_TAGS = {"adaptyv_002"}   # Cetuximab_scFv
+
 
 def mn(x):
     if isinstance(x, dict):
@@ -144,6 +157,9 @@ def main():
     ap.add_argument("--high-man", default="results/queue/adaptyv_highacc_manifest.csv")
     ap.add_argument("--out", default="results/arm_comparison.csv")
     ap.add_argument("--boot", type=int, default=4000)
+    ap.add_argument("--keep-controls", action="store_true",
+                    help="include known positive controls (Cetuximab) in the "
+                         "primary figures instead of only the sensitivity line")
     ap.add_argument("--min-folds", type=int, default=40,
                     help="refuse to report below this many high-accuracy folds")
     args = ap.parse_args()
@@ -162,6 +178,11 @@ def main():
     df = meta.join(cheap, how="inner").join(high, how="inner")
     df = df[df.binding.isin(["true", "false"])]
 
+    present_ctrl = sorted(CONTROL_TAGS & set(df.index))
+    df_all = df.copy()
+    if present_ctrl and not args.keep_controls:
+        df = df.drop(index=present_ctrl)
+
     n_pos = (df.binding == "true").sum()
     n_neg = (df.binding == "false").sum()
     print("=" * 78)
@@ -170,6 +191,10 @@ def main():
     print("  paired designs: %d   binders %d   non-binders %d"
           % (len(df), n_pos, n_neg))
     print("  high-accuracy arm is %d / 165 complete" % len(high))
+    if present_ctrl:
+        print("  excluded positive control(s): %s%s"
+              % (", ".join(present_ctrl),
+                 " [KEPT via --keep-controls]" if args.keep_controls else ""))
     if len(df) < args.min_folds or n_pos < 10 or n_neg < 10:
         print("\n  TOO EARLY -- need >=%d paired and >=10 per class. Rerun later."
               % args.min_folds)
