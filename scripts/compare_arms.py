@@ -64,6 +64,57 @@ def auc_df(df, col):
     return auc(df.loc[df.binding == "true", col], df.loc[df.binding == "false", col])
 
 
+def auc_stratified(df, col, by="length", k=3):
+    """AUC computed within length strata, then pooled.
+
+    The reason this is the headline number and not plain AUC: binders in this
+    set are longer than non-binders (127 aa against 100), so any metric that
+    tracks length scores above 0.5 without modelling anything. Comparing only
+    within strata of similar length removes that channel -- a metric that
+    still separates binders inside a narrow length band is separating them on
+    something other than size.
+
+    Strata are weighted by n_pos * n_neg, the number of comparable pairs each
+    contributes, which is the Mantel-Haenszel weighting for this statistic.
+    """
+    d = df[df[col].notna() & df[by].notna()].copy()
+    if len(d) < 3 * k:
+        return np.nan
+    try:
+        d["_s"] = pd.qcut(d[by], k, labels=False, duplicates="drop")
+    except ValueError:
+        return np.nan
+    num = den = 0.0
+    for _, g in d.groupby("_s"):
+        p = g.loc[g.binding == "true", col]
+        n = g.loc[g.binding == "false", col]
+        if len(p) < 1 or len(n) < 1:
+            continue
+        a = auc(p, n)
+        if np.isnan(a):
+            continue
+        w = len(p) * len(n)
+        num += w * a
+        den += w
+    return num / den if den else np.nan
+
+
+def residualize(df, col, by="length"):
+    """The metric with its linear dependence on length removed.
+
+    A second, independent check on the same confound. Stratifying and
+    residualizing fail in different ways -- stratification is robust to a
+    nonlinear length effect but throws away resolution, regression keeps
+    resolution but assumes linearity -- so agreement between them is
+    informative and disagreement is a flag to investigate.
+    """
+    d = df[[col, by]].dropna()
+    if len(d) < 5 or d[by].std() == 0:
+        return pd.Series(np.nan, index=df.index)
+    b, a = np.polyfit(d[by].to_numpy(float), d[col].to_numpy(float), 1)
+    return df[col] - (a + b * df[by])
+
+
 def load(fold_dir, manifest, prefix):
     """Scores from one arm, keyed by tag, columns prefixed."""
     man = pd.read_csv(manifest).set_index("tag")
@@ -123,9 +174,27 @@ def main():
         print("\n  TOO EARLY -- need >=%d paired and >=10 per class. Rerun later."
               % args.min_folds)
         return
-    if len(high) < 165:
-        print("  NOTE: arm incomplete, so this is an interim read on whichever")
-        print("        designs finished first, not a random subsample.")
+    if len(high) < len(hman):
+        # ColabFold sorts its input queries by length and folds the shortest
+        # first, so a partial arm is not a random subsample -- it is the short
+        # tail. At 70/165 the folded set spanned 27-58 aa against a manifest
+        # spanning 27-250. Every AUC below is then computed inside a narrow
+        # length band and does not transfer to the full set. This prints the
+        # actual coverage so no interim file can be mistaken for a result.
+        cov_lo, cov_hi = df.length.min(), df.length.max()
+        all_lo, all_hi = hman.length.min(), hman.length.max()
+        frac = (df.length.max() - df.length.min()) / max(all_hi - all_lo, 1)
+        print("\n  *** INTERIM -- NOT A RESULT ***")
+        print("  ColabFold folds shortest-first, so this is the short tail,")
+        print("  not a random subsample.")
+        print("  length covered here : %d-%d aa (sd %.0f)"
+              % (cov_lo, cov_hi, df.length.std()))
+        print("  length in full set  : %d-%d aa" % (all_lo, all_hi))
+        print("  covering %.0f%% of the length range; %d designs still unfolded."
+              % (100 * frac, len(hman) - len(high)))
+        if frac < 0.5:
+            print("  Length-adjusted columns are unreliable at this coverage:")
+            print("  there is too little length variation left to adjust for.")
 
     df.to_csv(args.out)
 
@@ -187,19 +256,64 @@ def main():
         print("  %-38s %+0.3f  [%+0.3f, %+0.3f]  p=%.3f  %s"
               % (lab, obs, lo, hi, min(p, 1.0), verdict))
 
+    # ---- the confound check that decides whether any of the above is real ----
+    print("\n" + "=" * 78)
+    print("LENGTH-ADJUSTED (binders %.0f aa vs non-binders %.0f aa in this set)"
+          % (df.loc[df.binding == "true", "length"].mean(),
+             df.loc[df.binding == "false", "length"].mean()))
+    print("=" * 78)
+    print("  raw    = plain AUC, inherits whatever length predicts on its own")
+    print("  strat  = pooled within length tertiles")
+    print("  resid  = AUC after regressing length out of the metric")
+    print("  A metric is only real if strat and resid both stay above 0.5.\n")
+    print("%-28s %7s %7s %7s" % ("metric", "raw", "strat", "resid"))
+    print("-" * 78)
+    adj = {}
+    for lab, c in cand:
+        if c == "length":
+            continue
+        raw = auc_df(df, c)
+        st = auc_stratified(df, c)
+        tmp = df.copy()
+        tmp["_r"] = residualize(df, c)
+        rs = auc_df(tmp, "_r")
+        adj[c] = (raw, st, rs)
+        drop = ""
+        if not np.isnan(st) and not np.isnan(rs):
+            if max(st, rs) < 0.55:
+                drop = "   <- collapses; was length"
+            elif min(st, rs) > 0.60:
+                drop = "   <- survives"
+        print("%-28s %7.3f %7.3f %7.3f%s" % (lab, raw, st, rs, drop))
+
     # ---- the decision gate the user set ----
     gate = 0.564  # within 10% of Adaptyv's 0.627
-    best_high = max((auc_df(df, c), lab) for lab, c in cand if c.startswith("high_"))
     print("\n" + "=" * 78)
-    print("DECISION GATE: best high-accuracy metric >= %.3f justifies the RL layer" % gate)
+    print("DECISION GATE: >= %.3f justifies the RL layer" % gate)
     print("=" * 78)
-    a, lab = best_high
-    print("  best high-accuracy metric: %s  AUC %.3f" % (lab.strip(), a))
-    print("  gate %s (%.3f vs %.3f)" % ("CLEARED" if a >= gate else "NOT cleared", a, gate))
-    if a >= gate:
-        c = dict((l, cc) for l, cc in cand)[lab]
-        d = bdist[c][~np.isnan(bdist[c])]
-        print("  fraction of bootstraps above the gate: %.1f%%" % (100 * (d >= gate).mean()))
+    highs = [(lab, c) for lab, c in cand if c.startswith("high_")]
+    best_raw = max(highs, key=lambda lc: auc_df(df, lc[1]))
+    # judged on the weaker of the two adjusted figures: a metric has to clear
+    # the gate on the confound-controlled number, not the flattering one
+    def adjmin(c):
+        _, st, rs = adj[c]
+        v = [x for x in (st, rs) if not np.isnan(x)]
+        return min(v) if v else np.nan
+    best_adj = max(highs, key=lambda lc: (adjmin(lc[1]) if not np.isnan(adjmin(lc[1])) else -1))
+    a_raw = auc_df(df, best_raw[1])
+    a_adj = adjmin(best_adj[1])
+    print("  best on raw AUC       : %-18s %.3f" % (best_raw[0].strip(), a_raw))
+    print("  best length-controlled: %-18s %.3f  (weaker of strat/resid)"
+          % (best_adj[0].strip(), a_adj))
+    ok = (not np.isnan(a_adj)) and a_adj >= gate
+    print("\n  GATE %s on the length-controlled figure (%.3f vs %.3f)"
+          % ("CLEARED" if ok else "NOT cleared", a_adj, gate))
+    if not ok and a_raw >= gate:
+        print("  raw AUC would have cleared it. The gap is the length confound;")
+        print("  do not report the raw figure as the result.")
+    d = bdist[best_adj[1]][~np.isnan(bdist[best_adj[1]])]
+    print("  (raw-AUC bootstraps above gate for that metric: %.1f%%)"
+          % (100 * (d >= gate).mean()))
     print("\n[OK] %s" % args.out)
 
 
