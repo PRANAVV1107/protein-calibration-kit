@@ -59,8 +59,45 @@ def mn(x):
     return float(x) if x is not None else np.nan
 
 
+def load_variance(t):
+    """Variance-study designs: 6 draws per backbone, folded at HIGH ACCURACY.
+
+    This is the correct source and the v2 refold is not. The refold ran
+    --num-models 1 --num-recycle 3 on hybrid a3m, the configuration measured at
+    pDockQ2 AUC 0.461 against real binding outcomes -- below chance. Preference
+    labels drawn from it are close to coin flips, and DPO would learn that
+    noise confidently. The variance study was folded at full accuracy, where
+    the same metric reaches 0.623. Fewer pairs, correctly labelled, beats three
+    times as many mislabelled.
+    """
+    man_p = os.path.join(KIT, "results/variance_study/%s/manifest.csv" % t)
+    fold_d = os.path.join(KIT, "results/variance_study/%s/folds" % t)
+    if not (os.path.exists(man_p) and os.path.isdir(fold_d)):
+        return pd.DataFrame()
+    man = pd.read_csv(man_p)
+    man["stem"] = man.backbone.astype(str) + "__" + man["sample"].astype(str)
+    man = man.set_index("stem")
+    rows = []
+    for f in glob.glob(os.path.join(fold_d, "*_scores_rank_001_*.json")):
+        stem = os.path.basename(f).split("_unrelaxed_")[0].split("_scores_rank_001_")[0]
+        if stem not in man.index:
+            continue
+        d = json.load(open(f))
+        r = man.loc[stem]
+        p = np.array(d.get("plddt", [0.0]))
+        rows.append({
+            "tag": stem, "target": t, "backbone": r["backbone"],
+            "sequence": r["sequence"], "length": int(r["length"]),
+            "composition_penalty": float(r["penalty"]),
+            "ipTM": d.get("iptm"), "pTM": d.get("ptm"),
+            "ipSAE_min": mn(d.get("ipsae")), "pDockQ2_min": mn(d.get("pdockq2")),
+            "pLDDT": float(p.mean()),
+        })
+    return pd.DataFrame(rows)
+
+
 def load_target(t):
-    """Scored designs for one target, joined to their manifest."""
+    """v2 refold designs -- CHEAP screen, retained only behind --source v2."""
     man_p = os.path.join(KIT, "results/queue/v2refold/%s_manifest.csv" % t)
     fold_d = os.path.join(KIT, "results/queue/v2refold_folds_%s" % t)
     if not (os.path.exists(man_p) and os.path.isdir(fold_d)):
@@ -93,6 +130,9 @@ def main():
                     help="minimum score gap for a pair to be kept")
     ap.add_argument("--no-composition", action="store_true",
                     help="rank on the raw metric without the composition penalty")
+    ap.add_argument("--source", default="variance", choices=["variance", "v2"],
+                    help="variance = high-accuracy folds (correct); v2 = cheap "
+                         "screen measured at chance, kept only for comparison")
     ap.add_argument("--targets", default="il7ra,pdl1,rbd")
     ap.add_argument("--holdout-target", default=None,
                     help="exclude this target entirely, for cross-target generalisation")
@@ -105,7 +145,8 @@ def main():
     if args.holdout_target:
         targets = [t for t in targets if t != args.holdout_target]
 
-    frames = [load_target(t) for t in targets]
+    loader = load_variance if args.source == "variance" else load_target
+    frames = [loader(t) for t in targets]
     frames = [f for f in frames if len(f)]
     if not frames:
         raise SystemExit("[FAIL] no v2 refold folds found yet -- run the queue first")
@@ -120,6 +161,9 @@ def main():
     print("  metric  : %s%s" % (args.metric,
                                 "" if args.no_composition else " - composition_penalty"))
     print("  margin  : %.3f" % args.margin)
+    print("  source  : %s%s" % (args.source,
+          "  (HIGH-ACCURACY folds)" if args.source == "variance"
+          else "  *** CHEAP SCREEN -- labels are at chance, do not train on this ***"))
     print("  targets : %s%s" % (", ".join(targets),
                                 "   (held out: %s)" % args.holdout_target
                                 if args.holdout_target else ""))
