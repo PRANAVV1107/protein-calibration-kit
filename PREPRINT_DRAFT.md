@@ -43,6 +43,16 @@ backbone generation. We further show that single-sequence AlphaFold screening �
 common cheap triage step — selects worse than random choice (−0.162 ipTM), and
 trace the cause: without a multiple sequence alignment the *target* fails to fold
 (pLDDT 27.2 versus 84.3), so the interface is scored against a disordered chain.
+Against 164 experimentally characterised designs, cheap-screen interface metrics
+score below chance (ipSAE AUC 0.466) while the same metrics at full accuracy
+reach 0.618, a paired gain of +0.153 (p = 0.001). Finally, among the 55 designs
+that do bind, no metric we examined ranks affinity across four decades of K_D
+(all |ρ| < 0.23, n = 55) — so these scores support triage but not optimisation
+for binding strength.
+
+> The abstract now carries three findings, which is one more than ideal. If it
+> runs long, the affinity null is the one to compress, not cut: it is the
+> result a reader is least likely to have assumed.
 
 ---
 
@@ -161,18 +171,78 @@ that campaign.
 > community remedy. The contribution is the measurement that temperature alone
 > does nothing.
 
-### 3.5 Validation against measured binding `[PARTIAL]`
+### 3.5 Validation against measured binding
 
-Re-scoring 365 experimentally characterised designs from the Adaptyv EGFR
-competition (55 binders, 310 non-binders):
+**[FIGURE 4]** paired AUC, cheap against high accuracy, same designs.
+
+The Adaptyv EGFR competition released 365 designs that were synthesised and
+assayed. We re-scored a balanced subset of 164 (54 binders, 110 non-binders)
+under both settings, so the comparison isolates the accuracy setting rather
+than the design set.
 
 | metric | AUC | 95% CI |
 |---|---|---|
-| ipTM (our cheap screen) | 0.518 | [0.439, 0.600] |
-| ipSAE_min | 0.458 | [0.377, 0.544] |
-| ipTM (competition's own pipeline) | **0.627** | **[0.544, 0.707]** |
+| chain length (confound baseline) | 0.569 | [0.466, 0.667] |
+| cheap ipTM | 0.545 | [0.451, 0.638] |
+| cheap ipSAE_min | 0.466 | [0.371, 0.564] |
+| cheap pDockQ2_min | 0.461 | [0.367, 0.558] |
+| high-accuracy ipTM | 0.614 | [0.528, 0.697] |
+| high-accuracy ipSAE_min | 0.618 | [0.532, 0.701] |
+| high-accuracy pDockQ2_min | 0.623 | [0.536, 0.706] |
+| competition's own reported ipTM | 0.630 | [0.534, 0.720] |
 
-`[PENDING: high-accuracy arm, same 165 designs — the controlled comparison]`
+Paired on identical designs and identical bootstrap resamples:
+
+| comparison | ΔAUC | 95% CI | p |
+|---|---|---|---|
+| high accuracy − cheap (ipSAE) | **+0.153** | [+0.057, +0.249] | **0.001** |
+| high accuracy − cheap (ipTM) | +0.069 | [−0.009, +0.150] | 0.080 |
+| high accuracy − competition's own | −0.016 | [−0.121, +0.090] | 0.791 |
+
+Two results. First, the cheap screen's interface metrics sit **below chance**
+(0.466, 0.461) while the same metrics at full accuracy reach 0.618 and 0.623;
+the paired gain is significant. Second, our high-accuracy scoring is
+statistically indistinguishable from the competition's own production pipeline
+on these designs.
+
+> The second claim needs its caveat stated in the same breath: "not
+> distinguishable" at 54 binders reflects limited power and is not evidence of
+> equivalence. Write it that way or a reviewer will write it for you.
+
+Because binders in this set are longer than non-binders (125 aa against 101),
+every metric is also reported stratified within length tertiles and after
+regressing length out. High-accuracy ipTM holds (0.615 stratified, 0.605
+residualised) and the cheap interface metrics fall further (0.477, 0.466).
+
+> One positive control, Cetuximab_scFv, was excluded. It is an approved
+> anti-EGFR therapeutic spiked into the competition as a benchmark, not a de
+> novo design, and this study evaluates metrics for de novo designs. Say so
+> explicitly; silent exclusions are how papers lose trust.
+
+### 3.6 No metric ranks affinity among binders
+
+**[FIGURE 5]** metric against log K_D, 55 binders.
+
+All 55 binders carry a measured K_D spanning 1.2 nM to 10 µM, nearly four
+decades. Among those binders, Spearman ρ against log10(K_D):
+
+| metric | ρ | p |
+|---|---|---|
+| competition ipTM | +0.150 | 0.28 |
+| competition pLDDT | +0.139 | 0.32 |
+| PAE_interaction | −0.164 | 0.24 |
+| ESM pseudo-likelihood | +0.226 | 0.10 |
+| binder length | −0.155 | 0.25 |
+
+At n=55, significance requires |ρ| > 0.27. None of these reach it. Every metric
+examined separates binders from non-binders to some degree and none ranks how
+tightly a binder binds.
+
+> This is the most consequential negative result here and it belongs in the
+> abstract. The practical implication is concrete: an objective built from
+> these metrics can optimise hit rate but not affinity, so a search or
+> fine-tuning procedure driven by them is free to converge on many weak
+> binders while the objective registers success.
 
 ---
 
@@ -180,15 +250,39 @@ competition (55 binders, 310 non-binders):
 
 **What to recommend.** Draw at least three sequences per backbone. Do not use
 single-sequence AlphaFold as a triage step; if a cheap screen is needed, reuse
-the target's alignment, which costs one MSA search per campaign.
+the target's alignment, which costs one MSA search per campaign. Do not treat
+any of these metrics as an affinity estimate.
 
 **Limitations — state these plainly and first in the paragraph.**
 - Three targets, ten backbones each. The variance direction is consistent but the
   magnitude rests largely on one hard target.
 - The effect narrows under ipSAE on the two easier targets (43.4%, 55.1%).
-- Everything is prediction. No binding assay was performed on our own designs.
+- Everything is prediction. No binding assay was performed on our own designs;
+  the only measured outcomes here are other groups' designs, re-scored.
 - Six draws per backbone; the best-of-N curve is bootstrapped from those six and
   is biased low at N = 6.
+- The validation set is 54 binders. Null results in §3.6 are bounded by that
+  power, and "no detectable relationship" is not "no relationship".
+- All computation ran on one consumer GPU (RTX 3060, 6 GB). That constrains
+  which configurations could be tested, not only how many.
+
+**Future work — search at generation time.** The variance decomposition says
+sequence choice dominates, and best-of-N exploits that only greedily. Test-time
+search over the generation trajectory is the principled generalisation, and
+recent work reports it succeeds specifically on hard targets where single-pass
+generation fails (Proteína-Complexa, arXiv:2603.27950). Our RBD target is that
+regime: single-draw mean ipTM 0.400 against 0.766 and 0.805 for the other two,
+with the largest best-of-N gain (+0.246). An earlier partial-diffusion
+experiment here is a crude instance of the same idea — re-noising a known-good
+backbone gave a 40% hit rate from 15 attempts against near-zero from 200 blind
+designs.
+
+> Two things make this a credible proposal rather than a wish. §3.5 measures
+> why the obvious cheap reward fails, which is the failure mode such a search
+> would hit first. §3.6 bounds what any such objective can optimise. State the
+> compute honestly: at a measured ~5 min per node evaluation, a 500-node search
+> is roughly 42 GPU-hours on this hardware, and whether that is reducible is
+> itself an open question worth answering.
 
 > Reviewers trust papers that find their own weaknesses. Every limitation above
 > is one someone would otherwise raise.
