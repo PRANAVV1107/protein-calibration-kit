@@ -307,19 +307,19 @@ class Search:
                 # like a folding problem rather than a contaminated path.
                 sh("%s/bin/colabfold_batch --model-type alphafold2_multimer_v3 "
                    "--num-models 1 --num-recycle 3 %s %s" % (CF_ENV, ch, fo),
-                   # Stay inside real VRAM. TF_FORCE_UNIFIED_MEMORY with
-                   # MEM_FRACTION 2.0 tells JAX it may allocate twice the 6 GB
-                   # card by spilling into host RAM -- a 12 GB request on a
-                   # 7.6 GB host, which thrashes instead of failing. Those
-                   # settings worked for the Adaptyv folds because those
-                   # binders were 27-58 aa; every node in this search is a
-                   # 290-residue complex and attention memory scales roughly
-                   # quadratically, so the same configuration falls off a
-                   # cliff. At 0.9 a fold that genuinely does not fit now OOMs
-                   # in seconds with a clear error rather than stalling for
-                   # fifteen minutes, which is strictly better information.
-                   {"XLA_PYTHON_CLIENT_PREALLOCATE": "false",
-                    "XLA_PYTHON_CLIENT_MEM_FRACTION": "0.9",
+                   # These are the settings the reward benchmark used for 85
+                   # successful folds, restored after a speculative change to
+                   # MEM_FRACTION=0.9 (and dropping ALLOCATOR=platform) stalled
+                   # every fold indefinitely. An A/B on identical inputs settled
+                   # it: 0 folds in 9 minutes under 0.9, versus 2 folds in 3m44s
+                   # under these. The stall was misread three times as a
+                   # complex-size limit and then as host memory pressure; it was
+                   # neither. Do not tune these without an A/B on the same
+                   # inputs.
+                   {"TF_FORCE_UNIFIED_MEMORY": "1",
+                    "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
+                    "XLA_PYTHON_CLIENT_MEM_FRACTION": "2.0",
+                    "XLA_PYTHON_CLIENT_ALLOCATOR": "platform",
                     "PYTHONPATH": ""},
                    self.log, timeout=self.a.fold_timeout)
             shutil.rmtree(ch, ignore_errors=True)
