@@ -117,4 +117,42 @@ Not permitted, whatever the outcome:
 
 ## Amendments
 
-*(none — append below with date and reason if the protocol changes)*
+### 2026-09-16 — root changed, for a hardware reason, before any result
+
+`binder_15` cannot be folded on this machine. Its binder chain is 96 aa, giving
+a 290-residue complex, and a 6 GB card under WSL2 stalls on it: the GPU
+allocation is carved out of host RAM and appears as `shared`, so a 7.6 GB host
+is left with nothing and thrashes rather than failing. Two smoke attempts ran
+14+ minutes each and produced zero folds.
+
+The size ceiling was then measured rather than guessed. Everything this machine
+has successfully folded is **282 residues or smaller**:
+
+| evidence | complex size |
+|---|---|
+| reward benchmark, 85 successes | 221–282 |
+| variance study RBD (75 aa binder) | 269 |
+| `binder_15` (96 aa binder) | **290 — fails** |
+
+This also explains the reward benchmark's OOM at exactly 85/165: ColabFold
+folds shortest-first, and 85 is where it ran out of designs under the ceiling.
+That was read at the time as a batch-size problem; it was a size limit.
+
+**New root: `binder_47`** — 71 aa binder, 265-residue complex, comfortably
+inside the ceiling. Chosen for being middling with headroom, the same criterion
+originally applied to `binder_15`.
+
+Baselines update accordingly:
+
+| baseline | ipTM | note |
+|---|---|---|
+| root `binder_47`, best of 6 | **0.52** | was 0.71 for `binder_15` |
+| 60 folds blind across 10 RBD backbones | **0.87** | **unchanged** |
+
+The primary bar is unchanged at 0.87, which is the comparison that matters and
+the one a lower root baseline cannot flatter. The root's own best-of-6 falling
+from 0.71 to 0.52 does make "improves on its root" easier to clear, so that
+secondary band is correspondingly weaker evidence than originally written, and
+should be reported as such.
+
+No results existed for either root when this amendment was made.
