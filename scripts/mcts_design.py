@@ -65,6 +65,15 @@ MPNN = os.path.join(ROOT, "external_tools/ProteinMPNN")
 RF_ENV = "/root/miniconda3/envs/rfdiffusion"
 CF_ENV = "/root/miniconda3/envs/colabfold"
 
+def pdb_chain_residues(path):
+    """CA counts and residue ranges per chain."""
+    ch = {}
+    for l in open(path):
+        if l.startswith("ATOM") and l[12:16].strip() == "CA":
+            ch.setdefault(l[21], []).append(int(l[22:26]))
+    return {c: (len(v), min(v), max(v)) for c, v in ch.items()}
+
+
 TARGETS = {
     # name: (target sequence, contigs, hotspots, designed chain)
     "rbd": (
@@ -74,6 +83,16 @@ TARGETS = {
         "[E333-526/0 74-74]",
         "[E449,E493,E496,E498,E501,E505]",
         "A"),
+}
+
+# A complex a3m for each target, used only to donate the TARGET's alignment.
+# Hand-writing a two-line a3m does not work: ColabFold splits a paired a3m into
+# per-chain MSAs and rejects a chain with no alignment ("MSA 0 must contain at
+# least one sequence"). The query header must also be paired (">101	102").
+# make_hybrid_msa.py already handles both, including a3m lowercase insertion
+# columns, so it is reused rather than reimplemented here.
+SOURCE_A3M = {
+    "rbd": os.path.join(KIT, "results/queue/v2refold/rbd/rbd__binder_0__s1.a3m"),
 }
 
 
@@ -109,7 +128,12 @@ class Node:
 class Search:
     def __init__(self, args):
         self.a = args
-        self.out = args.out_dir
+        # MUST be absolute. The ProteinMPNN helper scripts are invoked with
+        # cwd=MPNN, so a relative output path resolves against that directory
+        # instead of the kit. The first run failed with
+        # "No such file or directory: results/rl/mcts_rbd/eval/n0000/parsed.jsonl"
+        # for exactly this reason.
+        self.out = os.path.abspath(args.out_dir)
         os.makedirs(self.out, exist_ok=True)
         self.log = os.path.join(self.out, "search.log")
         self.nodes = {}
@@ -118,6 +142,24 @@ class Search:
         self.folds_used = 0
         tgt = TARGETS[args.target]
         self.tseq, self.contigs, self.hotspots, self.chain = tgt
+        # Partial diffusion requires the contig to match the input structure
+        # EXACTLY -- unlike de novo generation, where the binder length is free.
+        # The first run died on "length of input PDB != length of contig
+        # string: 290 != 268" because the contig hardcoded a 74-residue binder
+        # while binder_15 carries 96. Derive it from the root instead, so any
+        # root works.
+        ch = pdb_chain_residues(args.root_pdb)
+        if self.chain not in ch:
+            raise SystemExit("[FAIL] designed chain %s absent from %s (chains: %s)"
+                             % (self.chain, args.root_pdb, ",".join(sorted(ch))))
+        tch = [c for c in ch if c != self.chain]
+        if not tch:
+            raise SystemExit("[FAIL] no target chain in %s" % args.root_pdb)
+        t = tch[0]
+        n_bind = ch[self.chain][0]
+        self.contigs = "[%s%d-%d/0 %d-%d]" % (t, ch[t][1], ch[t][2], n_bind, n_bind)
+        self.say("contig from root: %s  (binder %d aa, target %s %d aa)"
+                 % (self.contigs, n_bind, t, ch[t][0]))
 
     def say(self, m):
         line = "[%s] %s" % (time.strftime("%F %T"), m)
@@ -208,33 +250,43 @@ class Search:
                   os.path.join(d, "mpnn"), self.a.seqs, os.path.join(d, "bias.jsonl")),
                env_rf, self.log, cwd=MPNN)
 
-        # fold inputs: target MSA is not needed per-design; single-sequence pair
+        # fold inputs: hybrid a3m, target alignment donated by SOURCE_A3M
         fi = os.path.join(d, "fold_in")
         os.makedirs(fi, exist_ok=True)
         pairs = {}
-        for fa in sorted(glob.glob(os.path.join(d, "mpnn", "seqs", "*.fa"))):
-            base = os.path.basename(fa)[:-3]
-            seqs, cur = [], None
-            for line in open(fa):
-                line = line.strip()
-                if line.startswith(">"):
-                    if cur is not None:
-                        seqs.append(cur)
-                    cur = ""
-                elif cur is not None:
-                    cur += line
-            if cur:
-                seqs.append(cur)
-            for i, s in enumerate(seqs[1:]):
-                s = re.sub(r"[^ACDEFGHIKLMNPQRSTVWY]", "", s.upper())
-                if not s:
-                    continue
-                t = "%s__s%d" % (base, i + 1)
-                with open(os.path.join(fi, t + ".a3m"), "w") as f:
-                    f.write("#%d,%d\t1,1\n" % (len(self.tseq), len(s)))
-                    f.write(">101\n%s%s\n" % (self.tseq, s))
-                    f.write(">t\n%s%s\n" % (self.tseq, "-" * len(s)))
-                pairs[t] = base
+        fa_all = os.path.join(d, "binders.fasta")
+        with open(fa_all, "w") as fh:
+            for fa in sorted(glob.glob(os.path.join(d, "mpnn", "seqs", "*.fa"))):
+                base = os.path.basename(fa)[:-3]
+                seqs, cur = [], None
+                for line in open(fa):
+                    line = line.strip()
+                    if line.startswith(">"):
+                        if cur is not None:
+                            seqs.append(cur)
+                        cur = ""
+                    elif cur is not None:
+                        cur += line
+                if cur:
+                    seqs.append(cur)
+                for i, q in enumerate(seqs[1:]):
+                    q = re.sub(r"[^ACDEFGHIKLMNPQRSTVWY]", "", q.upper())
+                    if not q:
+                        continue
+                    t = "%s__s%d" % (base, i + 1)
+                    fh.write(">" + t + "\n" + q + "\n")
+                    pairs[t] = base
+        if pairs and not glob.glob(os.path.join(fi, "*.a3m")):
+            src = SOURCE_A3M.get(self.a.target)
+            if not src or not os.path.exists(src):
+                self.say("  FATAL: no source a3m for target %s" % self.a.target)
+                return {}
+            sh("%s/bin/python %s/scripts/make_hybrid_msa.py --source-a3m %s "
+               "--binders %s --out-dir %s" % (CF_ENV, KIT, src, fa_all, fi),
+               {"PYTHONPATH": ""}, self.log, cwd=KIT)
+        made = len(glob.glob(os.path.join(fi, "*.a3m")))
+        self.say("  %d sequences -> %d hybrid a3m" % (len(pairs), made))
+
         fo = os.path.join(d, "folds")
         os.makedirs(fo, exist_ok=True)
         todo = [t for t in pairs
@@ -246,11 +298,19 @@ class Search:
                 os.makedirs(ch)
                 for t in todo[i:i + self.a.chunk]:
                     shutil.copy(os.path.join(fi, t + ".a3m"), ch)
+                # PYTHONPATH must be cleared, not merely left alone. The side
+                # directory /root/rf_deps holds pandas built against the
+                # rfdiffusion env's Python 3.9; ColabFold runs 3.10, and
+                # inheriting that path breaks its pandas with
+                # "No module named 'pandas._libs.pandas_parser'". Every upstream
+                # step succeeded and only the fold died, which made this look
+                # like a folding problem rather than a contaminated path.
                 sh("%s/bin/colabfold_batch --model-type alphafold2_multimer_v3 "
                    "--num-models 1 --num-recycle 3 %s %s" % (CF_ENV, ch, fo),
                    {"TF_FORCE_UNIFIED_MEMORY": "1",
                     "XLA_PYTHON_CLIENT_PREALLOCATE": "false",
-                    "XLA_PYTHON_CLIENT_MEM_FRACTION": "2.0"},
+                    "XLA_PYTHON_CLIENT_MEM_FRACTION": "2.0",
+                    "PYTHONPATH": ""},
                    self.log, timeout=self.a.fold_timeout)
             shutil.rmtree(ch, ignore_errors=True)
 
