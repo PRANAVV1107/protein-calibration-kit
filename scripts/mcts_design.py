@@ -260,9 +260,12 @@ class Search:
             if t not in pairs:
                 continue
             j = json.load(open(f))
-            v = j.get("ipsae")
-            v = min(float(x) for x in v.values()) if isinstance(v, dict) else (
-                float(v) if v is not None else float(j.get("iptm") or 0.0))
+            if self.a.metric == "ipTM":
+                v = float(j.get("iptm") or 0.0)
+            else:
+                x = j.get("ipsae")
+                v = (min(float(q) for q in x.values()) if isinstance(x, dict)
+                     else (float(x) if x is not None else float(j.get("iptm") or 0.0)))
             b = pairs[t]
             best[b] = max(best.get(b, -1e9), v)
             self.folds_used += 1
@@ -369,6 +372,11 @@ def main():
                     help="re-noising depth; lower stays closer to the parent")
     ap.add_argument("--max-depth", type=int, default=4)
     ap.add_argument("--c-uct", type=float, default=0.6)
+    ap.add_argument("--metric", default="ipTM", choices=["ipTM", "ipSAE"],
+                    help="ipTM by default so results compare directly against "
+                         "the variance study's already-paid-for baselines: "
+                         "best-of-6 on this root is 0.71, and 60 folds of blind "
+                         "sampling across 10 RBD backbones reached 0.87")
     ap.add_argument("--chunk", type=int, default=20)
     ap.add_argument("--rf-timeout", type=int, default=3600)
     ap.add_argument("--fold-timeout", type=int, default=7200)
