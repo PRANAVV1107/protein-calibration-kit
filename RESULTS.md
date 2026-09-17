@@ -45,6 +45,25 @@ The cause, from a four-condition dose-response: without an alignment the
 against a disordered chain. Reusing a precomputed target alignment recovers
 about 47% of the gap.
 
+## 2b. Full accuracy buys nothing once you have the target alignment
+
+Same 164 designs, three configurations:
+
+| config | cost/design | ipTM AUC | length-controlled |
+|---|---|---|---|
+| hybrid a3m, 1 model, 3 recycle | ~120 s | 0.545 | 0.521 |
+| **full MSA, 1 model, 3 recycle** | **~63 s** | **0.627** | **0.620** |
+| full MSA, 3 models, 8 recycles | ~240 s | 0.614 | 0.605 |
+
+The cheap-model configuration matches full accuracy at a quarter of the compute,
+and clears the like-for-like bar more convincingly (+0.021, 73% of bootstraps)
+than the expensive arm did (+0.005, 64%).
+
+So the cheap screen does not fail from under-sampling — it fails from having no
+target alignment. Reuse the alignment and models and recycles are nearly free to
+cut. This is the most directly actionable result here for anyone running the
+pipeline.
+
 ## 3. Our scoring is indistinguishable from the competition's own pipeline
 
 Same 164 designs, paired bootstrap:
@@ -126,9 +145,45 @@ node produced nothing above 0.27 on three occasions; the depth profile is flat
 from depth 2 onward. A backbone's score does not predict its neighbours', so
 UCT propagates noise.
 
+**Preference tuning also does not improve sampling.** The prospective test —
+fresh sequences from the tuned model against the untuned model, paired on 10
+held-out backbones:
+
+    ipTM        base 0.189  tuned 0.206  +0.018  p 0.372  (7/10 backbones)
+    ipSAE_min   base 0.021  tuned 0.028  +0.008  p 0.505  (7/10)
+
+All interface metrics favour the tuned model and none approaches significance.
+Note the limitation is the target, not the method: these are RBD backbones,
+where measurement noise (below) swamps a 0.018 difference. A fair test wants
+IL-7Rα.
+
+**And the search failure has a specific, fixable cause.** 320 folds over 10
+backbones x 16 draws x 2 targets measured how node-score noise behaves:
+
+| target | K=2 | K=4 | K=8 |
+|---|---|---|---|
+| IL-7Rα, `max` | 0.141 | 0.068 | **0.034** |
+| RBD, `max` | 0.120 | 0.167 | **0.214** |
+| RBD, `mean` | 0.071 | 0.059 | **0.044** |
+
+RBD has skew **+3.38** (median 0.14, 91% of draws below 0.3, 3% above 0.7);
+IL-7Rα has skew −0.66. `max` is a **tail statistic**, so on a right-skewed
+target its value depends on whether a subset caught an excursion, and more
+draws make two subsets *more* likely to disagree. `mean` decays properly on
+both.
+
+The search scored nodes by max-of-4 on RBD — the worst case. That single fact
+explains all five of its anomalies without separate stories: parent score not
+predicting children, the best node failing three times, gains arriving from
+weak nodes, the flat depth profile, and the 26% child-beats-parent rate.
+
+`max` is correct for choosing a design to synthesise; `mean` is correct for
+valuing a region to search. Conflating them was the bug. See `NOISE_RESULT.md`.
+
 **Taken together:** search, learned preference, and heuristic value all fail
-for the same reason. Nothing available cheaply predicts which design will fold
-well, which is why the expensive evaluation cannot be avoided.
+here — but not all for the same reason. Two are genuine limits (no cheap value
+function, no cross-target transfer); the third was a statistics error with a
+free fix.
 
 ## 7. Specificity is not free
 
