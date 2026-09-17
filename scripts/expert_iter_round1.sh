@@ -58,6 +58,13 @@ busy(){ ps -eo args --width 400 2>/dev/null \
 mkdir -p "$OUT"
 {
 say "=== EXPERT ITERATION ROUND 1 ==="
+# /root/rf_deps holds pandas built for the rfdiffusion env's Python 3.9.
+# Inheriting it breaks ColabFold's 3.10 with
+# "No module named 'pandas._libs.pandas_parser'". That killed this exact job on
+# 2026-09-16 at the prepare step, and stalled every MCTS fold before that.
+# Cleared here rather than trusted to the caller, since this runs unattended.
+unset PYTHONPATH
+
 say "waiting for MD and the benchmark resume to finish (busy: $(busy))"
 while [ "$(busy)" -gt 0 ]; do sleep 120; done
 say "GPU free."
