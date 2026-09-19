@@ -137,6 +137,7 @@ class Search:
         os.makedirs(self.out, exist_ok=True)
         self.log = os.path.join(self.out, "search.log")
         self.nodes = {}
+        self.node_max = {}      # backbone -> best single-sequence score seen
         self.next_id = 0
         self.root = None
         self.folds_used = 0
@@ -324,7 +325,22 @@ class Search:
                    self.log, timeout=self.a.fold_timeout)
             shutil.rmtree(ch, ignore_errors=True)
 
-        best = {}
+        # Collect ALL per-sequence scores per backbone, then aggregate.
+        #
+        # This is where the first run went wrong. It took max-of-K, which is a
+        # TAIL statistic: on a right-skewed target its value depends on whether
+        # the K draws happened to catch an excursion. The noise PoC measured the
+        # consequence directly -- on RBD (skew +3.38 under this scoring config)
+        # the disagreement between two disjoint sets of K draws from the SAME
+        # backbone GREW with K, 0.120 at K=2 to 0.214 at K=8, while mean-of-K
+        # fell 0.071 to 0.044. Node values were lottery tickets, so UCT
+        # propagated noise.
+        #
+        # max and mean answer different questions and conflating them was the
+        # bug: max is right for choosing a design to synthesise, mean is right
+        # for valuing a region to search. Both are computed from the same folds,
+        # so the correction is free.
+        raw = {}
         for f in glob.glob(os.path.join(fo, "*_scores_rank_001_*.json")):
             t = os.path.basename(f).split("_scores_rank_001_")[0]
             if t not in pairs:
@@ -336,8 +352,14 @@ class Search:
                 x = j.get("ipsae")
                 v = (min(float(q) for q in x.values()) if isinstance(x, dict)
                      else (float(x) if x is not None else float(j.get("iptm") or 0.0)))
-            b = pairs[t]
-            best[b] = max(best.get(b, -1e9), v)
+            raw.setdefault(pairs[t], []).append(v)
+
+        best = {}
+        for b, vals in raw.items():
+            # the design-selection number, always tracked and reported
+            self.node_max[b] = max(vals)
+            best[b] = (float(np.mean(vals)) if self.a.node_value == "mean"
+                       else max(vals))
             self.folds_used += 1
         return best
 
@@ -407,7 +429,9 @@ class Search:
                     continue
                 nd.evaluated = True
                 self.backprop(nd, v)
-                self.say("  child %d -> %.3f" % (nd.id, v))
+                mx = self.node_max.get(os.path.basename(nd.pdb)[:-4], v)
+                self.say("  child %d -> value %.3f  (best seq %.3f)"
+                         % (nd.id, v, mx))
             self.save()
 
         self.report()
@@ -416,7 +440,11 @@ class Search:
         ev = [n for n in self.nodes.values() if n.evaluated]
         ev.sort(key=lambda n: -n.best)
         self.say("=" * 60)
-        self.say("SEARCH COMPLETE: %d nodes, %d folds" % (len(ev), self.folds_used))
+        self.say("SEARCH COMPLETE: %d nodes, %d folds (node-value=%s)"
+                 % (len(ev), self.folds_used, self.a.node_value))
+        if self.node_max:
+            bb, bv = max(self.node_max.items(), key=lambda kv: kv[1])
+            self.say("BEST SINGLE DESIGN: %.3f  (%s)" % (bv, bb))
         for n in ev[:10]:
             self.say("  node %-4d depth %d  best %.3f  mean %.3f  n %d  %s"
                      % (n.id, n.depth, n.best, n.mean, n.n, os.path.basename(n.pdb)))
@@ -447,6 +475,12 @@ def main():
                          "the variance study's already-paid-for baselines: "
                          "best-of-6 on this root is 0.71, and 60 folds of blind "
                          "sampling across 10 RBD backbones reached 0.87")
+    ap.add_argument("--node-value", default="mean", choices=["mean", "max"],
+                    help="statistic used to VALUE a node for search. mean is "
+                         "correct: max is a tail statistic and on a right-skewed "
+                         "target its error grows with the number of draws. The "
+                         "best single sequence is tracked and reported either "
+                         "way, since that is the design you would synthesise.")
     ap.add_argument("--chunk", type=int, default=20)
     ap.add_argument("--rf-timeout", type=int, default=3600)
     ap.add_argument("--fold-timeout", type=int, default=7200)
