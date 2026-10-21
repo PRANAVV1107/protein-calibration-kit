@@ -1,0 +1,29 @@
+[2026-09-14 22:44:01] === QUEUE V11 START (resumed after pause) ===
+[2026-09-14 22:44:01] high-accuracy arm at 70/165
+[2026-09-14 22:44:01] highacc attempt 1 (at 70/165)
+[2026-09-15 08:03:34] === QUEUE V11 START (resumed after pause) ===
+[2026-09-15 08:03:34] high-accuracy arm at 107/165
+[2026-09-15 08:03:34] highacc attempt 1 (at 107/165)
+[2026-09-15 15:03:27]   attempt 1 clean
+[2026-09-15 15:03:28]   now 165/165
+[2026-09-15 15:03:35] high-accuracy arm analysed -> results/ADAPTYV_HIGHACC_RESULT.txt
+[2026-09-15 15:04:58] controlled comparison -> results/ARM_COMPARISON_FINAL.txt
+[2026-09-15 15:05:01] START v2_il7ra: 318 remaining, chunks of 40
+[2026-09-15 15:32:42]   chunk 1 -- 40 total
+[2026-09-15 16:03:04]   chunk 2 -- 80 total
+[2026-09-15 16:35:32]   chunk 3 -- 120 total
+[2026-09-15 17:07:32]   chunk 4 -- 160 total
+[2026-09-15 17:37:58]   chunk 5 -- 200 total
+[2026-09-15 18:08:55]   chunk 6 -- 240 total
+[2026-09-15 18:41:17]   chunk 7 -- 280 total
+[2026-09-15 19:14:50]   chunk 8 -- 318 total
+[2026-09-15 19:14:52] DONE  v2_il7ra (318)
+[2026-09-15 19:14:56] START v2_pdl1: 285 remaining, chunks of 40
+[2026-09-15 19:39:38]   chunk 1 -- 40 total
+scripts/queue_v11.sh: line 38: 14634 Segmentation fault      (core dumped) colabfold_batch --model-type alphafold2_multimer_v3 --num-models 1 --num-recycle 3 "$Q/.c_$name" "$dst" >> "$Q/$name.log" 2>&1
+[2026-09-15 19:47:45]   chunk 2 nonzero (continuing)
+[2026-09-15 19:47:46]   chunk 2 -- 45 total
+[2026-09-15 20:17:02]   chunk 3 -- 85 total
+[2026-09-15 20:38:31]   chunk 4 -- 125 total
+[2026-09-15 21:02:57]   chunk 5 -- 165 total
+[2026-09-15 21:25:45]   chunk 6 -- 205 total

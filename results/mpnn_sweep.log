@@ -1,0 +1,9 @@
+Running ProteinMPNN sweep over 50 IL-7Ra backbones...
+  done: baseline_t0.1 (temp=0.1 bias=none)
+  done: t0.2 (temp=0.2 bias=none)
+  done: t0.3 (temp=0.3 bias=none)
+  done: t0.1_biasA1 (temp=0.1 bias=/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/mpnn_sweep/bias_A1.jsonl)
+  done: t0.2_biasA1 (temp=0.2 bias=/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/mpnn_sweep/bias_A1.jsonl)
+  done: t0.2_biasA2 (temp=0.2 bias=/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/mpnn_sweep/bias_A2.jsonl)
+  done: t0.2_biasA1G (temp=0.2 bias=/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/mpnn_sweep/bias_A1G.jsonl)
+Sweep complete. Results in /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/mpnn_sweep

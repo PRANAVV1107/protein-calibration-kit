@@ -1,0 +1,462 @@
+[2026-09-21 03:47:03] === PARTIAL_T SWEEP ===
+[2026-09-21 03:47:03] T values: 2 4 10 20 | 6 parents x 4 children x 4 seqs
+[2026-09-21 03:47:03] budget: 480 folds
+[2026-09-21 03:47:04] --- t2_p0: parent binder_3 at partial_T=2 ---
+[2026-09-21 03:47:05] contig from root: [E333-526/0 70-70]  (binder 70 aa, target E 194 aa)
+[2026-09-21 03:47:05] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_3.pdb
+[2026-09-21 03:47:50]   4 sequences -> 4 hybrid a3m
+[2026-09-21 03:50:41] root score 0.130 (folds 4)
+[2026-09-21 03:50:41] iter: expanding node 0 (depth 0, mean 0.130, n 1) [folds 4/20]
+[2026-09-21 03:52:33]   16 sequences -> 16 hybrid a3m
+[2026-09-21 04:01:44]   child 1 -> value 0.302  (best seq 0.660)
+[2026-09-21 04:01:44]   child 2 -> value 0.140  (best seq 0.150)
+[2026-09-21 04:01:44]   child 3 -> value 0.203  (best seq 0.400)
+[2026-09-21 04:01:44]   child 4 -> value 0.280  (best seq 0.660)
+[2026-09-21 04:01:44] ============================================================
+[2026-09-21 04:01:44] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 04:01:44] BEST SINGLE DESIGN: 0.660  (child_0)
+[2026-09-21 04:01:44]   node 0    depth 0  best 0.302  mean 0.211  n 5  binder_3.pdb
+[2026-09-21 04:01:44]   node 1    depth 1  best 0.302  mean 0.302  n 1  child_0.pdb
+[2026-09-21 04:01:44]   node 4    depth 1  best 0.280  mean 0.280  n 1  child_3.pdb
+[2026-09-21 04:01:45]   node 3    depth 1  best 0.203  mean 0.203  n 1  child_2.pdb
+[2026-09-21 04:01:45]   node 2    depth 1  best 0.140  mean 0.140  n 1  child_1.pdb
+[2026-09-21 04:01:45] --- t2_p1: parent binder_10 at partial_T=2 ---
+[2026-09-21 04:01:45] contig from root: [E333-526/0 73-73]  (binder 73 aa, target E 194 aa)
+[2026-09-21 04:01:45] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_10.pdb
+[2026-09-21 04:02:00]   4 sequences -> 4 hybrid a3m
+[2026-09-21 04:05:26] root score 0.163 (folds 4)
+[2026-09-21 04:05:26] iter: expanding node 0 (depth 0, mean 0.163, n 1) [folds 4/20]
+[2026-09-21 04:07:00]   16 sequences -> 16 hybrid a3m
+[2026-09-21 04:17:38]   child 1 -> value 0.152  (best seq 0.210)
+[2026-09-21 04:17:38]   child 2 -> value 0.275  (best seq 0.700)
+[2026-09-21 04:17:38]   child 3 -> value 0.265  (best seq 0.610)
+[2026-09-21 04:17:38]   child 4 -> value 0.148  (best seq 0.200)
+[2026-09-21 04:17:38] ============================================================
+[2026-09-21 04:17:38] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 04:17:38] BEST SINGLE DESIGN: 0.700  (child_1)
+[2026-09-21 04:17:38]   node 0    depth 0  best 0.275  mean 0.200  n 5  binder_10.pdb
+[2026-09-21 04:17:38]   node 2    depth 1  best 0.275  mean 0.275  n 1  child_1.pdb
+[2026-09-21 04:17:38]   node 3    depth 1  best 0.265  mean 0.265  n 1  child_2.pdb
+[2026-09-21 04:17:38]   node 1    depth 1  best 0.152  mean 0.152  n 1  child_0.pdb
+[2026-09-21 04:17:38]   node 4    depth 1  best 0.148  mean 0.148  n 1  child_3.pdb
+[2026-09-21 04:17:38] --- t2_p2: parent binder_17 at partial_T=2 ---
+[2026-09-21 04:17:38] contig from root: [E333-526/0 89-89]  (binder 89 aa, target E 194 aa)
+[2026-09-21 04:17:39] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_17.pdb
+[2026-09-21 04:17:53]   4 sequences -> 4 hybrid a3m
+[2026-09-21 04:21:25] root score 0.392 (folds 4)
+[2026-09-21 04:21:25] iter: expanding node 0 (depth 0, mean 0.392, n 1) [folds 4/20]
+[2026-09-21 04:23:03]   16 sequences -> 16 hybrid a3m
+[2026-09-21 04:34:11]   child 1 -> value 0.633  (best seq 0.830)
+[2026-09-21 04:34:11]   child 2 -> value 0.427  (best seq 0.700)
+[2026-09-21 04:34:11]   child 3 -> value 0.370  (best seq 0.590)
+[2026-09-21 04:34:11]   child 4 -> value 0.507  (best seq 0.830)
+[2026-09-21 04:34:11] ============================================================
+[2026-09-21 04:34:11] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 04:34:11] BEST SINGLE DESIGN: 0.830  (child_0)
+[2026-09-21 04:34:11]   node 0    depth 0  best 0.633  mean 0.466  n 5  binder_17.pdb
+[2026-09-21 04:34:11]   node 1    depth 1  best 0.633  mean 0.633  n 1  child_0.pdb
+[2026-09-21 04:34:11]   node 4    depth 1  best 0.507  mean 0.507  n 1  child_3.pdb
+[2026-09-21 04:34:11]   node 2    depth 1  best 0.427  mean 0.427  n 1  child_1.pdb
+[2026-09-21 04:34:11]   node 3    depth 1  best 0.370  mean 0.370  n 1  child_2.pdb
+[2026-09-21 04:34:12] --- t2_p3: parent binder_24 at partial_T=2 ---
+[2026-09-21 04:34:12] contig from root: [E333-526/0 78-78]  (binder 78 aa, target E 194 aa)
+[2026-09-21 04:34:12] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_24.pdb
+[2026-09-21 04:34:26]   4 sequences -> 4 hybrid a3m
+[2026-09-21 04:37:18] root score 0.150 (folds 4)
+[2026-09-21 04:37:18] iter: expanding node 0 (depth 0, mean 0.150, n 1) [folds 4/20]
+[2026-09-21 04:38:50]   16 sequences -> 16 hybrid a3m
+[2026-09-21 04:47:52]   child 1 -> value 0.138  (best seq 0.180)
+[2026-09-21 04:47:52]   child 2 -> value 0.160  (best seq 0.270)
+[2026-09-21 04:47:52]   child 3 -> value 0.117  (best seq 0.140)
+[2026-09-21 04:47:52]   child 4 -> value 0.143  (best seq 0.190)
+[2026-09-21 04:47:52] ============================================================
+[2026-09-21 04:47:52] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 04:47:52] BEST SINGLE DESIGN: 0.270  (child_1)
+[2026-09-21 04:47:52]   node 0    depth 0  best 0.160  mean 0.142  n 5  binder_24.pdb
+[2026-09-21 04:47:52]   node 2    depth 1  best 0.160  mean 0.160  n 1  child_1.pdb
+[2026-09-21 04:47:52]   node 4    depth 1  best 0.143  mean 0.143  n 1  child_3.pdb
+[2026-09-21 04:47:52]   node 1    depth 1  best 0.138  mean 0.138  n 1  child_0.pdb
+[2026-09-21 04:47:52]   node 3    depth 1  best 0.117  mean 0.117  n 1  child_2.pdb
+[2026-09-21 04:47:53] --- t2_p4: parent binder_31 at partial_T=2 ---
+[2026-09-21 04:47:53] contig from root: [E333-526/0 86-86]  (binder 86 aa, target E 194 aa)
+[2026-09-21 04:47:53] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_31.pdb
+[2026-09-21 04:48:08]   4 sequences -> 4 hybrid a3m
+[2026-09-21 04:51:05] root score 0.147 (folds 4)
+[2026-09-21 04:51:05] iter: expanding node 0 (depth 0, mean 0.147, n 1) [folds 4/20]
+[2026-09-21 04:52:40]   16 sequences -> 16 hybrid a3m
+[2026-09-21 05:02:04]   child 1 -> value 0.175  (best seq 0.250)
+[2026-09-21 05:02:04]   child 2 -> value 0.182  (best seq 0.270)
+[2026-09-21 05:02:04]   child 3 -> value 0.245  (best seq 0.340)
+[2026-09-21 05:02:04]   child 4 -> value 0.238  (best seq 0.280)
+[2026-09-21 05:02:04] ============================================================
+[2026-09-21 05:02:04] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 05:02:04] BEST SINGLE DESIGN: 0.340  (child_2)
+[2026-09-21 05:02:05]   node 0    depth 0  best 0.245  mean 0.198  n 5  binder_31.pdb
+[2026-09-21 05:02:05]   node 3    depth 1  best 0.245  mean 0.245  n 1  child_2.pdb
+[2026-09-21 05:02:05]   node 4    depth 1  best 0.238  mean 0.238  n 1  child_3.pdb
+[2026-09-21 05:02:05]   node 2    depth 1  best 0.182  mean 0.182  n 1  child_1.pdb
+[2026-09-21 05:02:05]   node 1    depth 1  best 0.175  mean 0.175  n 1  child_0.pdb
+[2026-09-21 05:02:05] --- t2_p5: parent binder_38 at partial_T=2 ---
+[2026-09-21 05:02:05] contig from root: [E333-526/0 84-84]  (binder 84 aa, target E 194 aa)
+[2026-09-21 05:02:05] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_38.pdb
+[2026-09-21 05:02:21]   4 sequences -> 4 hybrid a3m
+[2026-09-21 05:05:43] root score 0.145 (folds 4)
+[2026-09-21 05:05:43] iter: expanding node 0 (depth 0, mean 0.145, n 1) [folds 4/20]
+[2026-09-21 05:07:17]   16 sequences -> 16 hybrid a3m
+[2026-09-21 05:17:47]   child 1 -> value 0.213  (best seq 0.320)
+[2026-09-21 05:17:47]   child 2 -> value 0.198  (best seq 0.270)
+[2026-09-21 05:17:47]   child 3 -> value 0.128  (best seq 0.150)
+[2026-09-21 05:17:47]   child 4 -> value 0.190  (best seq 0.250)
+[2026-09-21 05:17:47] ============================================================
+[2026-09-21 05:17:47] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 05:17:47] BEST SINGLE DESIGN: 0.320  (child_0)
+[2026-09-21 05:17:47]   node 0    depth 0  best 0.213  mean 0.175  n 5  binder_38.pdb
+[2026-09-21 05:17:47]   node 1    depth 1  best 0.213  mean 0.213  n 1  child_0.pdb
+[2026-09-21 05:17:47]   node 2    depth 1  best 0.198  mean 0.198  n 1  child_1.pdb
+[2026-09-21 05:17:47]   node 4    depth 1  best 0.190  mean 0.190  n 1  child_3.pdb
+[2026-09-21 05:17:47]   node 3    depth 1  best 0.128  mean 0.128  n 1  child_2.pdb
+[2026-09-21 05:17:47] --- t4_p0: parent binder_3 at partial_T=4 ---
+[2026-09-21 05:17:47] contig from root: [E333-526/0 70-70]  (binder 70 aa, target E 194 aa)
+[2026-09-21 05:17:47] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_3.pdb
+[2026-09-21 05:18:03]   4 sequences -> 4 hybrid a3m
+[2026-09-21 05:20:52] root score 0.202 (folds 4)
+[2026-09-21 05:20:52] iter: expanding node 0 (depth 0, mean 0.202, n 1) [folds 4/20]
+[2026-09-21 05:22:51]   16 sequences -> 16 hybrid a3m
+[2026-09-21 05:31:43]   child 1 -> value 0.135  (best seq 0.150)
+[2026-09-21 05:31:43]   child 2 -> value 0.188  (best seq 0.330)
+[2026-09-21 05:31:43]   child 3 -> value 0.140  (best seq 0.170)
+[2026-09-21 05:31:43]   child 4 -> value 0.240  (best seq 0.470)
+[2026-09-21 05:31:43] ============================================================
+[2026-09-21 05:31:44] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 05:31:44] BEST SINGLE DESIGN: 0.470  (child_3)
+[2026-09-21 05:31:44]   node 0    depth 0  best 0.240  mean 0.181  n 5  binder_3.pdb
+[2026-09-21 05:31:44]   node 4    depth 1  best 0.240  mean 0.240  n 1  child_3.pdb
+[2026-09-21 05:31:44]   node 2    depth 1  best 0.188  mean 0.188  n 1  child_1.pdb
+[2026-09-21 05:31:44]   node 3    depth 1  best 0.140  mean 0.140  n 1  child_2.pdb
+[2026-09-21 05:31:44]   node 1    depth 1  best 0.135  mean 0.135  n 1  child_0.pdb
+[2026-09-21 05:31:44] --- t4_p1: parent binder_10 at partial_T=4 ---
+[2026-09-21 05:31:44] contig from root: [E333-526/0 73-73]  (binder 73 aa, target E 194 aa)
+[2026-09-21 05:31:44] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_10.pdb
+[2026-09-21 05:31:57]   4 sequences -> 4 hybrid a3m
+[2026-09-21 05:35:22] root score 0.138 (folds 4)
+[2026-09-21 05:35:22] iter: expanding node 0 (depth 0, mean 0.138, n 1) [folds 4/20]
+[2026-09-21 05:37:23]   16 sequences -> 16 hybrid a3m
+[2026-09-21 05:47:56]   child 1 -> value 0.117  (best seq 0.120)
+[2026-09-21 05:47:56]   child 2 -> value 0.137  (best seq 0.210)
+[2026-09-21 05:47:56]   child 3 -> value 0.120  (best seq 0.120)
+[2026-09-21 05:47:56]   child 4 -> value 0.147  (best seq 0.200)
+[2026-09-21 05:47:56] ============================================================
+[2026-09-21 05:47:56] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 05:47:56] BEST SINGLE DESIGN: 0.210  (child_1)
+[2026-09-21 05:47:56]   node 0    depth 0  best 0.147  mean 0.132  n 5  binder_10.pdb
+[2026-09-21 05:47:56]   node 4    depth 1  best 0.147  mean 0.147  n 1  child_3.pdb
+[2026-09-21 05:47:56]   node 2    depth 1  best 0.137  mean 0.137  n 1  child_1.pdb
+[2026-09-21 05:47:56]   node 3    depth 1  best 0.120  mean 0.120  n 1  child_2.pdb
+[2026-09-21 05:47:56]   node 1    depth 1  best 0.117  mean 0.117  n 1  child_0.pdb
+[2026-09-21 05:47:57] --- t4_p2: parent binder_17 at partial_T=4 ---
+[2026-09-21 05:47:57] contig from root: [E333-526/0 89-89]  (binder 89 aa, target E 194 aa)
+[2026-09-21 05:47:57] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_17.pdb
+[2026-09-21 05:48:13]   4 sequences -> 4 hybrid a3m
+[2026-09-21 05:51:44] root score 0.170 (folds 4)
+[2026-09-21 05:51:44] iter: expanding node 0 (depth 0, mean 0.170, n 1) [folds 4/20]
+[2026-09-21 05:53:47]   16 sequences -> 16 hybrid a3m
+[2026-09-21 06:04:56]   child 1 -> value 0.547  (best seq 0.640)
+[2026-09-21 06:04:56]   child 2 -> value 0.372  (best seq 0.580)
+[2026-09-21 06:04:56]   child 3 -> value 0.560  (best seq 0.820)
+[2026-09-21 06:04:56]   child 4 -> value 0.420  (best seq 0.880)
+[2026-09-21 06:04:56] ============================================================
+[2026-09-21 06:04:56] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 06:04:56] BEST SINGLE DESIGN: 0.880  (child_3)
+[2026-09-21 06:04:56]   node 0    depth 0  best 0.560  mean 0.414  n 5  binder_17.pdb
+[2026-09-21 06:04:56]   node 3    depth 1  best 0.560  mean 0.560  n 1  child_2.pdb
+[2026-09-21 06:04:56]   node 1    depth 1  best 0.547  mean 0.547  n 1  child_0.pdb
+[2026-09-21 06:04:56]   node 4    depth 1  best 0.420  mean 0.420  n 1  child_3.pdb
+[2026-09-21 06:04:56]   node 2    depth 1  best 0.372  mean 0.372  n 1  child_1.pdb
+[2026-09-21 06:04:56] --- t4_p3: parent binder_24 at partial_T=4 ---
+[2026-09-21 06:04:57] contig from root: [E333-526/0 78-78]  (binder 78 aa, target E 194 aa)
+[2026-09-21 06:04:57] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_24.pdb
+[2026-09-21 06:05:10]   4 sequences -> 4 hybrid a3m
+[2026-09-21 06:08:02] root score 0.128 (folds 4)
+[2026-09-21 06:08:02] iter: expanding node 0 (depth 0, mean 0.128, n 1) [folds 4/20]
+[2026-09-21 06:10:11]   16 sequences -> 16 hybrid a3m
+[2026-09-21 06:19:16]   child 1 -> value 0.145  (best seq 0.170)
+[2026-09-21 06:19:16]   child 2 -> value 0.180  (best seq 0.320)
+[2026-09-21 06:19:16]   child 3 -> value 0.122  (best seq 0.140)
+[2026-09-21 06:19:16]   child 4 -> value 0.125  (best seq 0.140)
+[2026-09-21 06:19:16] ============================================================
+[2026-09-21 06:19:16] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 06:19:16] BEST SINGLE DESIGN: 0.320  (child_1)
+[2026-09-21 06:19:16]   node 0    depth 0  best 0.180  mean 0.140  n 5  binder_24.pdb
+[2026-09-21 06:19:16]   node 2    depth 1  best 0.180  mean 0.180  n 1  child_1.pdb
+[2026-09-21 06:19:16]   node 1    depth 1  best 0.145  mean 0.145  n 1  child_0.pdb
+[2026-09-21 06:19:16]   node 4    depth 1  best 0.125  mean 0.125  n 1  child_3.pdb
+[2026-09-21 06:19:16]   node 3    depth 1  best 0.122  mean 0.122  n 1  child_2.pdb
+[2026-09-21 06:19:16] --- t4_p4: parent binder_31 at partial_T=4 ---
+[2026-09-21 06:19:16] contig from root: [E333-526/0 86-86]  (binder 86 aa, target E 194 aa)
+[2026-09-21 06:19:16] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_31.pdb
+[2026-09-21 06:19:31]   4 sequences -> 4 hybrid a3m
+[2026-09-21 06:22:28] root score 0.230 (folds 4)
+[2026-09-21 06:22:29] iter: expanding node 0 (depth 0, mean 0.230, n 1) [folds 4/20]
+[2026-09-21 06:24:32]   16 sequences -> 16 hybrid a3m
+[2026-09-21 06:33:55]   child 1 -> value 0.263  (best seq 0.430)
+[2026-09-21 06:33:55]   child 2 -> value 0.198  (best seq 0.230)
+[2026-09-21 06:33:55]   child 3 -> value 0.190  (best seq 0.240)
+[2026-09-21 06:33:55]   child 4 -> value 0.230  (best seq 0.300)
+[2026-09-21 06:33:55] ============================================================
+[2026-09-21 06:33:55] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 06:33:55] BEST SINGLE DESIGN: 0.430  (child_0)
+[2026-09-21 06:33:55]   node 0    depth 0  best 0.263  mean 0.222  n 5  binder_31.pdb
+[2026-09-21 06:33:55]   node 1    depth 1  best 0.263  mean 0.263  n 1  child_0.pdb
+[2026-09-21 06:33:55]   node 4    depth 1  best 0.230  mean 0.230  n 1  child_3.pdb
+[2026-09-21 06:33:55]   node 2    depth 1  best 0.198  mean 0.198  n 1  child_1.pdb
+[2026-09-21 06:33:55]   node 3    depth 1  best 0.190  mean 0.190  n 1  child_2.pdb
+[2026-09-21 06:33:55] --- t4_p5: parent binder_38 at partial_T=4 ---
+[2026-09-21 06:33:55] contig from root: [E333-526/0 84-84]  (binder 84 aa, target E 194 aa)
+[2026-09-21 06:33:55] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_38.pdb
+[2026-09-21 06:34:10]   4 sequences -> 4 hybrid a3m
+[2026-09-21 06:37:32] root score 0.173 (folds 4)
+[2026-09-21 06:37:32] iter: expanding node 0 (depth 0, mean 0.173, n 1) [folds 4/20]
+[2026-09-21 06:39:33]   16 sequences -> 16 hybrid a3m
+[2026-09-21 06:50:03]   child 1 -> value 0.165  (best seq 0.200)
+[2026-09-21 06:50:03]   child 2 -> value 0.217  (best seq 0.270)
+[2026-09-21 06:50:03]   child 3 -> value 0.210  (best seq 0.390)
+[2026-09-21 06:50:03]   child 4 -> value 0.150  (best seq 0.210)
+[2026-09-21 06:50:03] ============================================================
+[2026-09-21 06:50:03] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 06:50:03] BEST SINGLE DESIGN: 0.390  (child_2)
+[2026-09-21 06:50:03]   node 0    depth 0  best 0.217  mean 0.183  n 5  binder_38.pdb
+[2026-09-21 06:50:03]   node 2    depth 1  best 0.217  mean 0.217  n 1  child_1.pdb
+[2026-09-21 06:50:03]   node 3    depth 1  best 0.210  mean 0.210  n 1  child_2.pdb
+[2026-09-21 06:50:03]   node 1    depth 1  best 0.165  mean 0.165  n 1  child_0.pdb
+[2026-09-21 06:50:03]   node 4    depth 1  best 0.150  mean 0.150  n 1  child_3.pdb
+[2026-09-21 06:50:03] --- t10_p0: parent binder_3 at partial_T=10 ---
+[2026-09-21 06:50:03] contig from root: [E333-526/0 70-70]  (binder 70 aa, target E 194 aa)
+[2026-09-21 06:50:03] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_3.pdb
+[2026-09-21 06:50:17]   4 sequences -> 4 hybrid a3m
+[2026-09-21 06:53:08] root score 0.253 (folds 4)
+[2026-09-21 06:53:08] iter: expanding node 0 (depth 0, mean 0.253, n 1) [folds 4/20]
+[2026-09-21 06:56:22]   16 sequences -> 16 hybrid a3m
+[2026-09-21 07:05:15]   child 1 -> value 0.225  (best seq 0.340)
+[2026-09-21 07:05:15]   child 2 -> value 0.170  (best seq 0.220)
+[2026-09-21 07:05:15]   child 3 -> value 0.443  (best seq 0.660)
+[2026-09-21 07:05:15]   child 4 -> value 0.312  (best seq 0.740)
+[2026-09-21 07:05:15] ============================================================
+[2026-09-21 07:05:15] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 07:05:15] BEST SINGLE DESIGN: 0.740  (child_3)
+[2026-09-21 07:05:15]   node 0    depth 0  best 0.443  mean 0.280  n 5  binder_3.pdb
+[2026-09-21 07:05:15]   node 3    depth 1  best 0.443  mean 0.443  n 1  child_2.pdb
+[2026-09-21 07:05:15]   node 4    depth 1  best 0.312  mean 0.312  n 1  child_3.pdb
+[2026-09-21 07:05:15]   node 1    depth 1  best 0.225  mean 0.225  n 1  child_0.pdb
+[2026-09-21 07:05:15]   node 2    depth 1  best 0.170  mean 0.170  n 1  child_1.pdb
+[2026-09-21 07:05:15] --- t10_p1: parent binder_10 at partial_T=10 ---
+[2026-09-21 07:05:15] contig from root: [E333-526/0 73-73]  (binder 73 aa, target E 194 aa)
+[2026-09-21 07:05:15] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_10.pdb
+[2026-09-21 07:05:30]   4 sequences -> 4 hybrid a3m
+[2026-09-21 07:08:56] root score 0.122 (folds 4)
+[2026-09-21 07:08:56] iter: expanding node 0 (depth 0, mean 0.122, n 1) [folds 4/20]
+[2026-09-21 07:12:09]   16 sequences -> 16 hybrid a3m
+[2026-09-21 07:22:43]   child 1 -> value 0.128  (best seq 0.150)
+[2026-09-21 07:22:43]   child 2 -> value 0.125  (best seq 0.140)
+[2026-09-21 07:22:43]   child 3 -> value 0.135  (best seq 0.150)
+[2026-09-21 07:22:44]   child 4 -> value 0.128  (best seq 0.130)
+[2026-09-21 07:22:44] ============================================================
+[2026-09-21 07:22:44] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 07:22:44] BEST SINGLE DESIGN: 0.150  (binder_10)
+[2026-09-21 07:22:44]   node 0    depth 0  best 0.135  mean 0.128  n 5  binder_10.pdb
+[2026-09-21 07:22:44]   node 3    depth 1  best 0.135  mean 0.135  n 1  child_2.pdb
+[2026-09-21 07:22:44]   node 1    depth 1  best 0.128  mean 0.128  n 1  child_0.pdb
+[2026-09-21 07:22:44]   node 4    depth 1  best 0.128  mean 0.128  n 1  child_3.pdb
+[2026-09-21 07:22:44]   node 2    depth 1  best 0.125  mean 0.125  n 1  child_1.pdb
+[2026-09-21 07:22:44] --- t10_p2: parent binder_17 at partial_T=10 ---
+[2026-09-21 07:22:44] contig from root: [E333-526/0 89-89]  (binder 89 aa, target E 194 aa)
+[2026-09-21 07:22:44] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_17.pdb
+[2026-09-21 07:22:59]   4 sequences -> 4 hybrid a3m
+[2026-09-21 07:26:30] root score 0.505 (folds 4)
+[2026-09-21 07:26:30] iter: expanding node 0 (depth 0, mean 0.505, n 1) [folds 4/20]
+[2026-09-21 07:30:03]   16 sequences -> 16 hybrid a3m
+[2026-09-21 07:41:11]   child 1 -> value 0.430  (best seq 0.720)
+[2026-09-21 07:41:11]   child 2 -> value 0.623  (best seq 0.770)
+[2026-09-21 07:41:11]   child 3 -> value 0.615  (best seq 0.810)
+[2026-09-21 07:41:11]   child 4 -> value 0.380  (best seq 0.840)
+[2026-09-21 07:41:11] ============================================================
+[2026-09-21 07:41:11] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 07:41:11] BEST SINGLE DESIGN: 0.840  (child_3)
+[2026-09-21 07:41:11]   node 0    depth 0  best 0.623  mean 0.511  n 5  binder_17.pdb
+[2026-09-21 07:41:11]   node 2    depth 1  best 0.623  mean 0.623  n 1  child_1.pdb
+[2026-09-21 07:41:11]   node 3    depth 1  best 0.615  mean 0.615  n 1  child_2.pdb
+[2026-09-21 07:41:11]   node 1    depth 1  best 0.430  mean 0.430  n 1  child_0.pdb
+[2026-09-21 07:41:11]   node 4    depth 1  best 0.380  mean 0.380  n 1  child_3.pdb
+[2026-09-21 07:41:12] --- t10_p3: parent binder_24 at partial_T=10 ---
+[2026-09-21 07:41:12] contig from root: [E333-526/0 78-78]  (binder 78 aa, target E 194 aa)
+[2026-09-21 07:41:12] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_24.pdb
+[2026-09-21 07:41:27]   4 sequences -> 4 hybrid a3m
+[2026-09-21 07:44:20] root score 0.128 (folds 4)
+[2026-09-21 07:44:20] iter: expanding node 0 (depth 0, mean 0.128, n 1) [folds 4/20]
+[2026-09-21 07:47:44]   16 sequences -> 16 hybrid a3m
+[2026-09-21 07:56:49]   child 1 -> value 0.128  (best seq 0.140)
+[2026-09-21 07:56:49]   child 2 -> value 0.168  (best seq 0.250)
+[2026-09-21 07:56:49]   child 3 -> value 0.145  (best seq 0.200)
+[2026-09-21 07:56:49]   child 4 -> value 0.133  (best seq 0.190)
+[2026-09-21 07:56:49] ============================================================
+[2026-09-21 07:56:49] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 07:56:49] BEST SINGLE DESIGN: 0.250  (child_1)
+[2026-09-21 07:56:49]   node 0    depth 0  best 0.168  mean 0.140  n 5  binder_24.pdb
+[2026-09-21 07:56:49]   node 2    depth 1  best 0.168  mean 0.168  n 1  child_1.pdb
+[2026-09-21 07:56:49]   node 3    depth 1  best 0.145  mean 0.145  n 1  child_2.pdb
+[2026-09-21 07:56:49]   node 4    depth 1  best 0.133  mean 0.133  n 1  child_3.pdb
+[2026-09-21 07:56:49]   node 1    depth 1  best 0.128  mean 0.128  n 1  child_0.pdb
+[2026-09-21 07:56:49] --- t10_p4: parent binder_31 at partial_T=10 ---
+[2026-09-21 07:56:49] contig from root: [E333-526/0 86-86]  (binder 86 aa, target E 194 aa)
+[2026-09-21 07:56:49] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_31.pdb
+[2026-09-21 07:57:03]   4 sequences -> 4 hybrid a3m
+[2026-09-21 08:00:01] root score 0.155 (folds 4)
+[2026-09-21 08:00:01] iter: expanding node 0 (depth 0, mean 0.155, n 1) [folds 4/20]
+[2026-09-21 08:03:27]   16 sequences -> 16 hybrid a3m
+[2026-09-21 08:12:51]   child 1 -> value 0.193  (best seq 0.250)
+[2026-09-21 08:12:51]   child 2 -> value 0.225  (best seq 0.470)
+[2026-09-21 08:12:51]   child 3 -> value 0.128  (best seq 0.170)
+[2026-09-21 08:12:51]   child 4 -> value 0.172  (best seq 0.210)
+[2026-09-21 08:12:51] ============================================================
+[2026-09-21 08:12:51] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 08:12:51] BEST SINGLE DESIGN: 0.470  (child_1)
+[2026-09-21 08:12:51]   node 0    depth 0  best 0.225  mean 0.174  n 5  binder_31.pdb
+[2026-09-21 08:12:51]   node 2    depth 1  best 0.225  mean 0.225  n 1  child_1.pdb
+[2026-09-21 08:12:51]   node 1    depth 1  best 0.193  mean 0.193  n 1  child_0.pdb
+[2026-09-21 08:12:51]   node 4    depth 1  best 0.172  mean 0.172  n 1  child_3.pdb
+[2026-09-21 08:12:51]   node 3    depth 1  best 0.128  mean 0.128  n 1  child_2.pdb
+[2026-09-21 08:12:51] --- t10_p5: parent binder_38 at partial_T=10 ---
+[2026-09-21 08:12:52] contig from root: [E333-526/0 84-84]  (binder 84 aa, target E 194 aa)
+[2026-09-21 08:12:52] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_38.pdb
+[2026-09-21 08:13:09]   4 sequences -> 4 hybrid a3m
+[2026-09-21 08:16:33] root score 0.175 (folds 4)
+[2026-09-21 08:16:33] iter: expanding node 0 (depth 0, mean 0.175, n 1) [folds 4/20]
+[2026-09-21 08:20:11]   16 sequences -> 16 hybrid a3m
+[2026-09-21 08:30:39]   child 1 -> value 0.147  (best seq 0.180)
+[2026-09-21 08:30:39]   child 2 -> value 0.125  (best seq 0.140)
+[2026-09-21 08:30:39]   child 3 -> value 0.220  (best seq 0.270)
+[2026-09-21 08:30:39]   child 4 -> value 0.228  (best seq 0.260)
+[2026-09-21 08:30:39] ============================================================
+[2026-09-21 08:30:39] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 08:30:39] BEST SINGLE DESIGN: 0.270  (child_2)
+[2026-09-21 08:30:39]   node 0    depth 0  best 0.228  mean 0.179  n 5  binder_38.pdb
+[2026-09-21 08:30:39]   node 4    depth 1  best 0.228  mean 0.228  n 1  child_3.pdb
+[2026-09-21 08:30:39]   node 3    depth 1  best 0.220  mean 0.220  n 1  child_2.pdb
+[2026-09-21 08:30:39]   node 1    depth 1  best 0.147  mean 0.147  n 1  child_0.pdb
+[2026-09-21 08:30:39]   node 2    depth 1  best 0.125  mean 0.125  n 1  child_1.pdb
+[2026-09-21 08:30:39] --- t20_p0: parent binder_3 at partial_T=20 ---
+[2026-09-21 08:30:40] contig from root: [E333-526/0 70-70]  (binder 70 aa, target E 194 aa)
+[2026-09-21 08:30:40] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_3.pdb
+[2026-09-21 08:30:53]   4 sequences -> 4 hybrid a3m
+[2026-09-21 08:33:44] root score 0.155 (folds 4)
+[2026-09-21 08:33:44] iter: expanding node 0 (depth 0, mean 0.155, n 1) [folds 4/20]
+[2026-09-21 08:39:11]   16 sequences -> 16 hybrid a3m
+[2026-09-21 08:48:04]   child 1 -> value 0.170  (best seq 0.260)
+[2026-09-21 08:48:04]   child 2 -> value 0.200  (best seq 0.290)
+[2026-09-21 08:48:04]   child 3 -> value 0.147  (best seq 0.230)
+[2026-09-21 08:48:04]   child 4 -> value 0.155  (best seq 0.190)
+[2026-09-21 08:48:04] ============================================================
+[2026-09-21 08:48:04] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 08:48:04] BEST SINGLE DESIGN: 0.290  (child_1)
+[2026-09-21 08:48:04]   node 0    depth 0  best 0.200  mean 0.166  n 5  binder_3.pdb
+[2026-09-21 08:48:04]   node 2    depth 1  best 0.200  mean 0.200  n 1  child_1.pdb
+[2026-09-21 08:48:05]   node 1    depth 1  best 0.170  mean 0.170  n 1  child_0.pdb
+[2026-09-21 08:48:05]   node 4    depth 1  best 0.155  mean 0.155  n 1  child_3.pdb
+[2026-09-21 08:48:05]   node 3    depth 1  best 0.147  mean 0.147  n 1  child_2.pdb
+[2026-09-21 08:48:05] --- t20_p1: parent binder_10 at partial_T=20 ---
+[2026-09-21 08:48:05] contig from root: [E333-526/0 73-73]  (binder 73 aa, target E 194 aa)
+[2026-09-21 08:48:05] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_10.pdb
+[2026-09-21 08:48:17]   4 sequences -> 4 hybrid a3m
+[2026-09-21 08:51:41] root score 0.145 (folds 4)
+[2026-09-21 08:51:42] iter: expanding node 0 (depth 0, mean 0.145, n 1) [folds 4/20]
+[2026-09-21 08:57:05]   16 sequences -> 16 hybrid a3m
+[2026-09-21 09:07:47]   child 1 -> value 0.130  (best seq 0.150)
+[2026-09-21 09:07:47]   child 2 -> value 0.170  (best seq 0.240)
+[2026-09-21 09:07:47]   child 3 -> value 0.140  (best seq 0.160)
+[2026-09-21 09:07:47]   child 4 -> value 0.155  (best seq 0.170)
+[2026-09-21 09:07:47] ============================================================
+[2026-09-21 09:07:47] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 09:07:47] BEST SINGLE DESIGN: 0.240  (child_1)
+[2026-09-21 09:07:47]   node 0    depth 0  best 0.170  mean 0.148  n 5  binder_10.pdb
+[2026-09-21 09:07:47]   node 2    depth 1  best 0.170  mean 0.170  n 1  child_1.pdb
+[2026-09-21 09:07:47]   node 4    depth 1  best 0.155  mean 0.155  n 1  child_3.pdb
+[2026-09-21 09:07:47]   node 3    depth 1  best 0.140  mean 0.140  n 1  child_2.pdb
+[2026-09-21 09:07:47]   node 1    depth 1  best 0.130  mean 0.130  n 1  child_0.pdb
+[2026-09-21 09:07:47] --- t20_p2: parent binder_17 at partial_T=20 ---
+[2026-09-21 09:07:47] contig from root: [E333-526/0 89-89]  (binder 89 aa, target E 194 aa)
+[2026-09-21 09:07:47] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_17.pdb
+[2026-09-21 09:08:02]   4 sequences -> 4 hybrid a3m
+[2026-09-21 09:11:38] root score 0.400 (folds 4)
+[2026-09-21 09:11:38] iter: expanding node 0 (depth 0, mean 0.400, n 1) [folds 4/20]
+[2026-09-21 09:17:35]   16 sequences -> 16 hybrid a3m
+[2026-09-21 09:28:45]   child 1 -> value 0.505  (best seq 0.790)
+[2026-09-21 09:28:45]   child 2 -> value 0.802  (best seq 0.880)
+[2026-09-21 09:28:45]   child 3 -> value 0.557  (best seq 0.820)
+[2026-09-21 09:28:45]   child 4 -> value 0.595  (best seq 0.730)
+[2026-09-21 09:28:45] ============================================================
+[2026-09-21 09:28:45] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 09:28:45] BEST SINGLE DESIGN: 0.880  (child_1)
+[2026-09-21 09:28:45]   node 0    depth 0  best 0.802  mean 0.572  n 5  binder_17.pdb
+[2026-09-21 09:28:45]   node 2    depth 1  best 0.802  mean 0.802  n 1  child_1.pdb
+[2026-09-21 09:28:45]   node 4    depth 1  best 0.595  mean 0.595  n 1  child_3.pdb
+[2026-09-21 09:28:45]   node 3    depth 1  best 0.557  mean 0.557  n 1  child_2.pdb
+[2026-09-21 09:28:45]   node 1    depth 1  best 0.505  mean 0.505  n 1  child_0.pdb
+[2026-09-21 09:28:45] --- t20_p3: parent binder_24 at partial_T=20 ---
+[2026-09-21 09:28:46] contig from root: [E333-526/0 78-78]  (binder 78 aa, target E 194 aa)
+[2026-09-21 09:28:46] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_24.pdb
+[2026-09-21 09:29:03]   4 sequences -> 4 hybrid a3m
+[2026-09-21 09:31:58] root score 0.143 (folds 4)
+[2026-09-21 09:31:58] iter: expanding node 0 (depth 0, mean 0.143, n 1) [folds 4/20]
+[2026-09-21 09:37:41]   16 sequences -> 16 hybrid a3m
+[2026-09-21 09:46:50]   child 1 -> value 0.138  (best seq 0.210)
+[2026-09-21 09:46:50]   child 2 -> value 0.158  (best seq 0.260)
+[2026-09-21 09:46:50]   child 3 -> value 0.225  (best seq 0.420)
+[2026-09-21 09:46:50]   child 4 -> value 0.138  (best seq 0.200)
+[2026-09-21 09:46:50] ============================================================
+[2026-09-21 09:46:50] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 09:46:50] BEST SINGLE DESIGN: 0.420  (child_2)
+[2026-09-21 09:46:50]   node 0    depth 0  best 0.225  mean 0.160  n 5  binder_24.pdb
+[2026-09-21 09:46:50]   node 3    depth 1  best 0.225  mean 0.225  n 1  child_2.pdb
+[2026-09-21 09:46:50]   node 2    depth 1  best 0.158  mean 0.158  n 1  child_1.pdb
+[2026-09-21 09:46:50]   node 1    depth 1  best 0.138  mean 0.138  n 1  child_0.pdb
+[2026-09-21 09:46:50]   node 4    depth 1  best 0.138  mean 0.138  n 1  child_3.pdb
+[2026-09-21 09:46:50] --- t20_p4: parent binder_31 at partial_T=20 ---
+[2026-09-21 09:46:51] contig from root: [E333-526/0 86-86]  (binder 86 aa, target E 194 aa)
+[2026-09-21 09:46:51] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_31.pdb
+[2026-09-21 09:47:10]   4 sequences -> 4 hybrid a3m
+[2026-09-21 09:50:08] root score 0.253 (folds 4)
+[2026-09-21 09:50:08] iter: expanding node 0 (depth 0, mean 0.253, n 1) [folds 4/20]
+[2026-09-21 09:55:57]   16 sequences -> 16 hybrid a3m
+[2026-09-21 10:05:23]   child 1 -> value 0.238  (best seq 0.490)
+[2026-09-21 10:05:23]   child 2 -> value 0.205  (best seq 0.210)
+[2026-09-21 10:05:23]   child 3 -> value 0.190  (best seq 0.230)
+[2026-09-21 10:05:23]   child 4 -> value 0.222  (best seq 0.300)
+[2026-09-21 10:05:23] ============================================================
+[2026-09-21 10:05:23] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 10:05:23] BEST SINGLE DESIGN: 0.490  (child_0)
+[2026-09-21 10:05:23]   node 0    depth 0  best 0.253  mean 0.222  n 5  binder_31.pdb
+[2026-09-21 10:05:23]   node 1    depth 1  best 0.238  mean 0.238  n 1  child_0.pdb
+[2026-09-21 10:05:23]   node 4    depth 1  best 0.222  mean 0.222  n 1  child_3.pdb
+[2026-09-21 10:05:23]   node 2    depth 1  best 0.205  mean 0.205  n 1  child_1.pdb
+[2026-09-21 10:05:23]   node 3    depth 1  best 0.190  mean 0.190  n 1  child_2.pdb
+[2026-09-21 10:05:23] --- t20_p5: parent binder_38 at partial_T=20 ---
+[2026-09-21 10:05:23] contig from root: [E333-526/0 84-84]  (binder 84 aa, target E 194 aa)
+[2026-09-21 10:05:23] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_38.pdb
+[2026-09-21 10:05:37]   4 sequences -> 4 hybrid a3m
+[2026-09-21 10:09:02] root score 0.200 (folds 4)
+[2026-09-21 10:09:02] iter: expanding node 0 (depth 0, mean 0.200, n 1) [folds 4/20]
+[2026-09-21 10:14:49]   16 sequences -> 16 hybrid a3m
+[2026-09-21 10:25:20]   child 1 -> value 0.135  (best seq 0.170)
+[2026-09-21 10:25:20]   child 2 -> value 0.230  (best seq 0.320)
+[2026-09-21 10:25:20]   child 3 -> value 0.168  (best seq 0.240)
+[2026-09-21 10:25:20]   child 4 -> value 0.322  (best seq 0.800)
+[2026-09-21 10:25:20] ============================================================
+[2026-09-21 10:25:20] SEARCH COMPLETE: 5 nodes, 20 folds (node-value=mean)
+[2026-09-21 10:25:20] BEST SINGLE DESIGN: 0.800  (child_3)
+[2026-09-21 10:25:20]   node 0    depth 0  best 0.322  mean 0.211  n 5  binder_38.pdb
+[2026-09-21 10:25:20]   node 4    depth 1  best 0.322  mean 0.322  n 1  child_3.pdb
+[2026-09-21 10:25:20]   node 2    depth 1  best 0.230  mean 0.230  n 1  child_1.pdb
+[2026-09-21 10:25:20]   node 3    depth 1  best 0.168  mean 0.168  n 1  child_2.pdb
+[2026-09-21 10:25:20]   node 1    depth 1  best 0.135  mean 0.135  n 1  child_0.pdb
+[2026-09-21 10:25:22] folds on disk: 480
+[2026-09-21 10:25:23] analysed -> results/PARTIAL_T_RESULT.txt
+[2026-09-21 10:25:23] === SWEEP COMPLETE ===

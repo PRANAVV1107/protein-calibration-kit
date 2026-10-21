@@ -21,7 +21,7 @@ ROOT_BASE = 0.52    # pre-registered: binder_47 best-of-6
 
 own = {}
 for line in open(LOG, errors="ignore"):
-    m = re.search(r"child (\d+) -> ([0-9.]+)", line)
+    m = re.search(r"child (\d+) -> (?:value )?([0-9.]+)", line)
     if m:
         own[int(m.group(1))] = float(m.group(2))
     m = re.search(r"root score ([0-9.]+)", line)

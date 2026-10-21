@@ -1,0 +1,124 @@
+cwd=/mnt/c/Users/prana/Downloads/proteinfoldingexp/external_tools/ProteinMPNN
+parsed exists: yes
+assigned exists: yes
+----------------------------------------
+fixed_positions_jsonl is NOT loaded
+----------------------------------------
+pssm_jsonl is NOT loaded
+----------------------------------------
+omit_AA_jsonl is NOT loaded
+----------------------------------------
+tied_positions_jsonl is NOT loaded
+----------------------------------------
+bias by residue dictionary is not loaded, or not provided
+----------------------------------------
+discarded {'bad_chars': 0, 'too_long': 0, 'bad_seq_length': 0}
+----------------------------------------
+Number of edges: 48
+Training noise level: 0.2A
+Generating sequences for: binder_0
+6 sequences of length 269 generated in 16.8695 seconds
+Generating sequences for: binder_1
+6 sequences of length 267 generated in 16.5899 seconds
+Generating sequences for: binder_10
+6 sequences of length 267 generated in 16.7018 seconds
+Generating sequences for: binder_11
+6 sequences of length 289 generated in 18.0165 seconds
+Generating sequences for: binder_12
+6 sequences of length 273 generated in 16.9557 seconds
+Generating sequences for: binder_13
+6 sequences of length 268 generated in 16.3686 seconds
+Generating sequences for: binder_14
+6 sequences of length 272 generated in 17.0373 seconds
+Generating sequences for: binder_15
+6 sequences of length 290 generated in 18.1465 seconds
+Generating sequences for: binder_16
+6 sequences of length 271 generated in 16.4491 seconds
+Generating sequences for: binder_17
+6 sequences of length 283 generated in 17.7711 seconds
+Generating sequences for: binder_18
+6 sequences of length 294 generated in 18.1475 seconds
+Generating sequences for: binder_19
+6 sequences of length 274 generated in 17.069 seconds
+Generating sequences for: binder_2
+6 sequences of length 266 generated in 16.6103 seconds
+Generating sequences for: binder_20
+6 sequences of length 280 generated in 17.5748 seconds
+Generating sequences for: binder_21
+6 sequences of length 277 generated in 17.0737 seconds
+Generating sequences for: binder_22
+6 sequences of length 268 generated in 16.8156 seconds
+Generating sequences for: binder_23
+6 sequences of length 285 generated in 17.834 seconds
+Generating sequences for: binder_24
+6 sequences of length 272 generated in 16.9089 seconds
+Generating sequences for: binder_25
+6 sequences of length 286 generated in 17.701 seconds
+Generating sequences for: binder_26
+6 sequences of length 284 generated in 17.5876 seconds
+Generating sequences for: binder_27
+6 sequences of length 291 generated in 17.9383 seconds
+Generating sequences for: binder_28
+6 sequences of length 284 generated in 17.7873 seconds
+Generating sequences for: binder_29
+6 sequences of length 279 generated in 17.3005 seconds
+Generating sequences for: binder_3
+6 sequences of length 264 generated in 16.5288 seconds
+Generating sequences for: binder_30
+6 sequences of length 284 generated in 17.7617 seconds
+Generating sequences for: binder_31
+6 sequences of length 280 generated in 17.4188 seconds
+Generating sequences for: binder_32
+6 sequences of length 288 generated in 18.0419 seconds
+Generating sequences for: binder_33
+6 sequences of length 288 generated in 17.9906 seconds
+Generating sequences for: binder_34
+6 sequences of length 281 generated in 17.5918 seconds
+Generating sequences for: binder_35
+6 sequences of length 274 generated in 17.119 seconds
+Generating sequences for: binder_36
+6 sequences of length 275 generated in 17.3045 seconds
+Generating sequences for: binder_37
+6 sequences of length 275 generated in 17.0948 seconds
+Generating sequences for: binder_38
+6 sequences of length 278 generated in 17.4673 seconds
+Generating sequences for: binder_39
+6 sequences of length 264 generated in 16.4839 seconds
+Generating sequences for: binder_4
+6 sequences of length 292 generated in 18.1757 seconds
+Generating sequences for: binder_40
+6 sequences of length 275 generated in 17.1805 seconds
+Generating sequences for: binder_41
+6 sequences of length 279 generated in 17.5001 seconds
+Generating sequences for: binder_42
+6 sequences of length 272 generated in 16.8563 seconds
+Generating sequences for: binder_43
+6 sequences of length 264 generated in 16.5906 seconds
+Generating sequences for: binder_44
+6 sequences of length 276 generated in 17.2835 seconds
+Generating sequences for: binder_45
+6 sequences of length 279 generated in 17.4252 seconds
+Generating sequences for: binder_46
+6 sequences of length 275 generated in 17.2579 seconds
+Generating sequences for: binder_47
+6 sequences of length 265 generated in 16.6038 seconds
+Generating sequences for: binder_48
+6 sequences of length 284 generated in 17.7142 seconds
+Generating sequences for: binder_49
+6 sequences of length 281 generated in 17.6282 seconds
+Generating sequences for: binder_5
+6 sequences of length 271 generated in 16.9997 seconds
+Generating sequences for: binder_6
+6 sequences of length 279 generated in 17.366 seconds
+Generating sequences for: binder_7
+6 sequences of length 293 generated in 18.3268 seconds
+Generating sequences for: binder_8
+6 sequences of length 275 generated in 17.0359 seconds
+Generating sequences for: binder_9
+6 sequences of length 264 generated in 16.5851 seconds
+EXIT=0
+seqs dir:
+total 0
+drwxrwxrwx 1 root root 4096 Sep 16 11:20 .
+drwxrwxrwx 1 root root 4096 Sep 16 11:20 ..
+drwxrwxrwx 1 root root 4096 Sep 16 11:48 seqs

@@ -1,0 +1,67 @@
+{
+ "next_id": 5,
+ "folds_used": 20,
+ "root": 0,
+ "nodes": [
+  {
+   "id": 0,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_38.pdb",
+   "parent": null,
+   "children": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n": 5,
+   "total": 0.8725,
+   "best": 0.21250000000000002,
+   "depth": 0,
+   "evaluated": true
+  },
+  {
+   "id": 1,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/partial_t/t2_p5/nodes/n0000/child_0.pdb",
+   "parent": 0,
+   "children": [],
+   "n": 1,
+   "total": 0.21250000000000002,
+   "best": 0.21250000000000002,
+   "depth": 1,
+   "evaluated": true
+  },
+  {
+   "id": 2,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/partial_t/t2_p5/nodes/n0000/child_1.pdb",
+   "parent": 0,
+   "children": [],
+   "n": 1,
+   "total": 0.1975,
+   "best": 0.1975,
+   "depth": 1,
+   "evaluated": true
+  },
+  {
+   "id": 3,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/partial_t/t2_p5/nodes/n0000/child_2.pdb",
+   "parent": 0,
+   "children": [],
+   "n": 1,
+   "total": 0.1275,
+   "best": 0.1275,
+   "depth": 1,
+   "evaluated": true
+  },
+  {
+   "id": 4,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/partial_t/t2_p5/nodes/n0000/child_3.pdb",
+   "parent": 0,
+   "children": [],
+   "n": 1,
+   "total": 0.19,
+   "best": 0.19,
+   "depth": 1,
+   "evaluated": true
+  }
+ ]
+}

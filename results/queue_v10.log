@@ -1,0 +1,8 @@
+[2026-09-14 11:19:43] === QUEUE V10 START ===
+[2026-09-14 11:47:44] GPU free.
+[2026-09-14 11:47:50] START adaptyv_val: 79 remaining, chunks of 40
+[2026-09-14 13:04:10]   chunk 1 -- 326 total
+[2026-09-14 14:26:11]   chunk 2 -- 365 total
+[2026-09-14 14:26:12] DONE  adaptyv_val (365)
+[2026-09-14 14:26:26] hybrid arm analysed -> results/ADAPTYV_HYBRID_RESULT.txt
+[2026-09-14 14:26:26] START adaptyv_highacc (165 folds, 3 models / 8 recycles / full MSA)

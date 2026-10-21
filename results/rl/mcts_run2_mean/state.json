@@ -1,0 +1,2909 @@
+{
+ "next_id": 237,
+ "folds_used": 237,
+ "root": 0,
+ "nodes": [
+  {
+   "id": 0,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_47.pdb",
+   "parent": null,
+   "children": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n": 237,
+   "total": 46.964999999999996,
+   "best": 0.4275,
+   "depth": 0,
+   "evaluated": true
+  },
+  {
+   "id": 1,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0000/child_0.pdb",
+   "parent": 0,
+   "children": [
+    21,
+    22,
+    23,
+    24
+   ],
+   "n": 9,
+   "total": 1.4275000000000002,
+   "best": 0.35750000000000004,
+   "depth": 1,
+   "evaluated": true
+  },
+  {
+   "id": 2,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0000/child_1.pdb",
+   "parent": 0,
+   "children": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "n": 121,
+   "total": 26.1,
+   "best": 0.4275,
+   "depth": 1,
+   "evaluated": true
+  },
+  {
+   "id": 3,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0000/child_2.pdb",
+   "parent": 0,
+   "children": [
+    13,
+    14,
+    15,
+    16
+   ],
+   "n": 5,
+   "total": 0.975,
+   "best": 0.23,
+   "depth": 1,
+   "evaluated": true
+  },
+  {
+   "id": 4,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0000/child_3.pdb",
+   "parent": 0,
+   "children": [
+    17,
+    18,
+    19,
+    20
+   ],
+   "n": 101,
+   "total": 18.345000000000002,
+   "best": 0.375,
+   "depth": 1,
+   "evaluated": true
+  },
+  {
+   "id": 5,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0002/child_0.pdb",
+   "parent": 2,
+   "children": [
+    133,
+    134,
+    135,
+    136
+   ],
+   "n": 5,
+   "total": 1.055,
+   "best": 0.2825,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 6,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0002/child_1.pdb",
+   "parent": 2,
+   "children": [
+    141,
+    142,
+    143,
+    144
+   ],
+   "n": 5,
+   "total": 0.7175,
+   "best": 0.1675,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 7,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0002/child_2.pdb",
+   "parent": 2,
+   "children": [
+    137,
+    138,
+    139,
+    140
+   ],
+   "n": 85,
+   "total": 19.09499999999999,
+   "best": 0.4275,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 8,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0002/child_3.pdb",
+   "parent": 2,
+   "children": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "n": 25,
+   "total": 5.062500000000001,
+   "best": 0.3425,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 9,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0008/child_0.pdb",
+   "parent": 8,
+   "children": [
+    153,
+    154,
+    155,
+    156
+   ],
+   "n": 5,
+   "total": 0.9775,
+   "best": 0.27499999999999997,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 10,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0008/child_1.pdb",
+   "parent": 8,
+   "children": [
+    149,
+    150,
+    151,
+    152
+   ],
+   "n": 5,
+   "total": 0.9500000000000002,
+   "best": 0.2725,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 11,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0008/child_2.pdb",
+   "parent": 8,
+   "children": [
+    125,
+    126,
+    127,
+    128
+   ],
+   "n": 9,
+   "total": 1.8525,
+   "best": 0.3425,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 12,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0008/child_3.pdb",
+   "parent": 8,
+   "children": [
+    145,
+    146,
+    147,
+    148
+   ],
+   "n": 5,
+   "total": 0.9700000000000001,
+   "best": 0.29000000000000004,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 13,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0003/child_0.pdb",
+   "parent": 3,
+   "children": [],
+   "n": 1,
+   "total": 0.23,
+   "best": 0.23,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 14,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0003/child_1.pdb",
+   "parent": 3,
+   "children": [],
+   "n": 1,
+   "total": 0.21750000000000003,
+   "best": 0.21750000000000003,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 15,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0003/child_2.pdb",
+   "parent": 3,
+   "children": [],
+   "n": 1,
+   "total": 0.1575,
+   "best": 0.1575,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 16,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0003/child_3.pdb",
+   "parent": 3,
+   "children": [],
+   "n": 1,
+   "total": 0.2225,
+   "best": 0.2225,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 17,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0004/child_0.pdb",
+   "parent": 4,
+   "children": [
+    37,
+    38,
+    39,
+    40
+   ],
+   "n": 5,
+   "total": 0.9199999999999999,
+   "best": 0.29,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 18,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0004/child_1.pdb",
+   "parent": 4,
+   "children": [
+    41,
+    42,
+    43,
+    44
+   ],
+   "n": 69,
+   "total": 12.767500000000002,
+   "best": 0.375,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 19,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0004/child_2.pdb",
+   "parent": 4,
+   "children": [
+    33,
+    34,
+    35,
+    36
+   ],
+   "n": 5,
+   "total": 0.8225,
+   "best": 0.2275,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 20,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0004/child_3.pdb",
+   "parent": 4,
+   "children": [
+    29,
+    30,
+    31,
+    32
+   ],
+   "n": 21,
+   "total": 3.695000000000001,
+   "best": 0.2975,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 21,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0001/child_0.pdb",
+   "parent": 1,
+   "children": [
+    25,
+    26,
+    27,
+    28
+   ],
+   "n": 5,
+   "total": 0.8775000000000001,
+   "best": 0.35750000000000004,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 22,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0001/child_1.pdb",
+   "parent": 1,
+   "children": [],
+   "n": 1,
+   "total": 0.1325,
+   "best": 0.1325,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 23,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0001/child_2.pdb",
+   "parent": 1,
+   "children": [],
+   "n": 1,
+   "total": 0.1525,
+   "best": 0.1525,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 24,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0001/child_3.pdb",
+   "parent": 1,
+   "children": [],
+   "n": 1,
+   "total": 0.1475,
+   "best": 0.1475,
+   "depth": 2,
+   "evaluated": true
+  },
+  {
+   "id": 25,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0021/child_0.pdb",
+   "parent": 21,
+   "children": [],
+   "n": 1,
+   "total": 0.1225,
+   "best": 0.1225,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 26,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0021/child_1.pdb",
+   "parent": 21,
+   "children": [],
+   "n": 1,
+   "total": 0.13,
+   "best": 0.13,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 27,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0021/child_2.pdb",
+   "parent": 21,
+   "children": [],
+   "n": 1,
+   "total": 0.1275,
+   "best": 0.1275,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 28,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0021/child_3.pdb",
+   "parent": 21,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 29,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0020/child_0.pdb",
+   "parent": 20,
+   "children": [
+    81,
+    82,
+    83,
+    84
+   ],
+   "n": 5,
+   "total": 0.8675,
+   "best": 0.22,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 30,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0020/child_1.pdb",
+   "parent": 20,
+   "children": [
+    89,
+    90,
+    91,
+    92
+   ],
+   "n": 5,
+   "total": 0.8400000000000001,
+   "best": 0.22000000000000003,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 31,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0020/child_2.pdb",
+   "parent": 20,
+   "children": [
+    77,
+    78,
+    79,
+    80
+   ],
+   "n": 5,
+   "total": 0.84,
+   "best": 0.2975,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 32,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0020/child_3.pdb",
+   "parent": 20,
+   "children": [
+    85,
+    86,
+    87,
+    88
+   ],
+   "n": 5,
+   "total": 0.8525,
+   "best": 0.22,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 33,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0019/child_0.pdb",
+   "parent": 19,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 34,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0019/child_1.pdb",
+   "parent": 19,
+   "children": [],
+   "n": 1,
+   "total": 0.2275,
+   "best": 0.2275,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 35,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0019/child_2.pdb",
+   "parent": 19,
+   "children": [],
+   "n": 1,
+   "total": 0.1325,
+   "best": 0.1325,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 36,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0019/child_3.pdb",
+   "parent": 19,
+   "children": [],
+   "n": 1,
+   "total": 0.125,
+   "best": 0.125,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 37,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0017/child_0.pdb",
+   "parent": 17,
+   "children": [],
+   "n": 1,
+   "total": 0.1575,
+   "best": 0.1575,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 38,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0017/child_1.pdb",
+   "parent": 17,
+   "children": [],
+   "n": 1,
+   "total": 0.29,
+   "best": 0.29,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 39,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0017/child_2.pdb",
+   "parent": 17,
+   "children": [],
+   "n": 1,
+   "total": 0.14750000000000002,
+   "best": 0.14750000000000002,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 40,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0017/child_3.pdb",
+   "parent": 17,
+   "children": [],
+   "n": 1,
+   "total": 0.14500000000000002,
+   "best": 0.14500000000000002,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 41,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0018/child_0.pdb",
+   "parent": 18,
+   "children": [
+    57,
+    58,
+    59,
+    60
+   ],
+   "n": 37,
+   "total": 6.892500000000001,
+   "best": 0.375,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 42,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0018/child_1.pdb",
+   "parent": 18,
+   "children": [
+    49,
+    50,
+    51,
+    52
+   ],
+   "n": 5,
+   "total": 0.925,
+   "best": 0.2325,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 43,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0018/child_2.pdb",
+   "parent": 18,
+   "children": [
+    53,
+    54,
+    55,
+    56
+   ],
+   "n": 21,
+   "total": 3.7500000000000004,
+   "best": 0.345,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 44,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0018/child_3.pdb",
+   "parent": 18,
+   "children": [
+    45,
+    46,
+    47,
+    48
+   ],
+   "n": 5,
+   "total": 1.0575,
+   "best": 0.30500000000000005,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 45,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0044/child_0.pdb",
+   "parent": 44,
+   "children": [],
+   "n": 1,
+   "total": 0.2275,
+   "best": 0.2275,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 46,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0044/child_1.pdb",
+   "parent": 44,
+   "children": [],
+   "n": 1,
+   "total": 0.21,
+   "best": 0.21,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 47,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0044/child_2.pdb",
+   "parent": 44,
+   "children": [],
+   "n": 1,
+   "total": 0.1625,
+   "best": 0.1625,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 48,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0044/child_3.pdb",
+   "parent": 44,
+   "children": [],
+   "n": 1,
+   "total": 0.15250000000000002,
+   "best": 0.15250000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 49,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0042/child_0.pdb",
+   "parent": 42,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 50,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0042/child_1.pdb",
+   "parent": 42,
+   "children": [],
+   "n": 1,
+   "total": 0.1225,
+   "best": 0.1225,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 51,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0042/child_2.pdb",
+   "parent": 42,
+   "children": [],
+   "n": 1,
+   "total": 0.2325,
+   "best": 0.2325,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 52,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0042/child_3.pdb",
+   "parent": 42,
+   "children": [],
+   "n": 1,
+   "total": 0.2025,
+   "best": 0.2025,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 53,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0043/child_0.pdb",
+   "parent": 43,
+   "children": [
+    61,
+    62,
+    63,
+    64
+   ],
+   "n": 5,
+   "total": 1.0074999999999998,
+   "best": 0.345,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 54,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0043/child_1.pdb",
+   "parent": 43,
+   "children": [
+    65,
+    66,
+    67,
+    68
+   ],
+   "n": 5,
+   "total": 0.9000000000000001,
+   "best": 0.23500000000000001,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 55,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0043/child_2.pdb",
+   "parent": 43,
+   "children": [
+    69,
+    70,
+    71,
+    72
+   ],
+   "n": 5,
+   "total": 0.7625000000000001,
+   "best": 0.16,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 56,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0043/child_3.pdb",
+   "parent": 43,
+   "children": [
+    73,
+    74,
+    75,
+    76
+   ],
+   "n": 5,
+   "total": 0.9275,
+   "best": 0.2625,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 57,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0041/child_0.pdb",
+   "parent": 41,
+   "children": [
+    105,
+    106,
+    107,
+    108
+   ],
+   "n": 5,
+   "total": 0.665,
+   "best": 0.14250000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 58,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0041/child_1.pdb",
+   "parent": 41,
+   "children": [
+    97,
+    98,
+    99,
+    100
+   ],
+   "n": 5,
+   "total": 0.8700000000000001,
+   "best": 0.2525,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 59,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0041/child_2.pdb",
+   "parent": 41,
+   "children": [
+    101,
+    102,
+    103,
+    104
+   ],
+   "n": 5,
+   "total": 0.7900000000000001,
+   "best": 0.2025,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 60,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0041/child_3.pdb",
+   "parent": 41,
+   "children": [
+    93,
+    94,
+    95,
+    96
+   ],
+   "n": 21,
+   "total": 4.4325,
+   "best": 0.375,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 61,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0053/child_0.pdb",
+   "parent": 53,
+   "children": [],
+   "n": 1,
+   "total": 0.22999999999999998,
+   "best": 0.22999999999999998,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 62,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0053/child_1.pdb",
+   "parent": 53,
+   "children": [],
+   "n": 1,
+   "total": 0.16,
+   "best": 0.16,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 63,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0053/child_2.pdb",
+   "parent": 53,
+   "children": [],
+   "n": 1,
+   "total": 0.1325,
+   "best": 0.1325,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 64,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0053/child_3.pdb",
+   "parent": 53,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 65,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0054/child_0.pdb",
+   "parent": 54,
+   "children": [],
+   "n": 1,
+   "total": 0.23500000000000001,
+   "best": 0.23500000000000001,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 66,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0054/child_1.pdb",
+   "parent": 54,
+   "children": [],
+   "n": 1,
+   "total": 0.1375,
+   "best": 0.1375,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 67,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0054/child_2.pdb",
+   "parent": 54,
+   "children": [],
+   "n": 1,
+   "total": 0.18000000000000002,
+   "best": 0.18000000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 68,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0054/child_3.pdb",
+   "parent": 54,
+   "children": [],
+   "n": 1,
+   "total": 0.1375,
+   "best": 0.1375,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 69,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0055/child_0.pdb",
+   "parent": 55,
+   "children": [],
+   "n": 1,
+   "total": 0.1475,
+   "best": 0.1475,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 70,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0055/child_1.pdb",
+   "parent": 55,
+   "children": [],
+   "n": 1,
+   "total": 0.16,
+   "best": 0.16,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 71,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0055/child_2.pdb",
+   "parent": 55,
+   "children": [],
+   "n": 1,
+   "total": 0.14750000000000002,
+   "best": 0.14750000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 72,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0055/child_3.pdb",
+   "parent": 55,
+   "children": [],
+   "n": 1,
+   "total": 0.15000000000000002,
+   "best": 0.15000000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 73,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0056/child_0.pdb",
+   "parent": 56,
+   "children": [],
+   "n": 1,
+   "total": 0.12,
+   "best": 0.12,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 74,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0056/child_1.pdb",
+   "parent": 56,
+   "children": [],
+   "n": 1,
+   "total": 0.2475,
+   "best": 0.2475,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 75,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0056/child_2.pdb",
+   "parent": 56,
+   "children": [],
+   "n": 1,
+   "total": 0.1525,
+   "best": 0.1525,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 76,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0056/child_3.pdb",
+   "parent": 56,
+   "children": [],
+   "n": 1,
+   "total": 0.2625,
+   "best": 0.2625,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 77,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0031/child_0.pdb",
+   "parent": 31,
+   "children": [],
+   "n": 1,
+   "total": 0.1275,
+   "best": 0.1275,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 78,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0031/child_1.pdb",
+   "parent": 31,
+   "children": [],
+   "n": 1,
+   "total": 0.1225,
+   "best": 0.1225,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 79,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0031/child_2.pdb",
+   "parent": 31,
+   "children": [],
+   "n": 1,
+   "total": 0.14250000000000002,
+   "best": 0.14250000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 80,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0031/child_3.pdb",
+   "parent": 31,
+   "children": [],
+   "n": 1,
+   "total": 0.15000000000000002,
+   "best": 0.15000000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 81,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0029/child_0.pdb",
+   "parent": 29,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 82,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0029/child_1.pdb",
+   "parent": 29,
+   "children": [],
+   "n": 1,
+   "total": 0.22,
+   "best": 0.22,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 83,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0029/child_2.pdb",
+   "parent": 29,
+   "children": [],
+   "n": 1,
+   "total": 0.1625,
+   "best": 0.1625,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 84,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0029/child_3.pdb",
+   "parent": 29,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 85,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0032/child_0.pdb",
+   "parent": 32,
+   "children": [],
+   "n": 1,
+   "total": 0.12,
+   "best": 0.12,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 86,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0032/child_1.pdb",
+   "parent": 32,
+   "children": [],
+   "n": 1,
+   "total": 0.17500000000000002,
+   "best": 0.17500000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 87,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0032/child_2.pdb",
+   "parent": 32,
+   "children": [],
+   "n": 1,
+   "total": 0.17,
+   "best": 0.17,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 88,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0032/child_3.pdb",
+   "parent": 32,
+   "children": [],
+   "n": 1,
+   "total": 0.22,
+   "best": 0.22,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 89,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0030/child_0.pdb",
+   "parent": 30,
+   "children": [],
+   "n": 1,
+   "total": 0.1575,
+   "best": 0.1575,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 90,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0030/child_1.pdb",
+   "parent": 30,
+   "children": [],
+   "n": 1,
+   "total": 0.18,
+   "best": 0.18,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 91,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0030/child_2.pdb",
+   "parent": 30,
+   "children": [],
+   "n": 1,
+   "total": 0.22000000000000003,
+   "best": 0.22000000000000003,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 92,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0030/child_3.pdb",
+   "parent": 30,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 93,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0060/child_0.pdb",
+   "parent": 60,
+   "children": [
+    121,
+    122,
+    123,
+    124
+   ],
+   "n": 5,
+   "total": 0.93,
+   "best": 0.24000000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 94,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0060/child_1.pdb",
+   "parent": 60,
+   "children": [
+    117,
+    118,
+    119,
+    120
+   ],
+   "n": 5,
+   "total": 0.8350000000000001,
+   "best": 0.26,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 95,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0060/child_2.pdb",
+   "parent": 60,
+   "children": [
+    109,
+    110,
+    111,
+    112
+   ],
+   "n": 5,
+   "total": 1.1549999999999998,
+   "best": 0.37,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 96,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0060/child_3.pdb",
+   "parent": 60,
+   "children": [
+    113,
+    114,
+    115,
+    116
+   ],
+   "n": 5,
+   "total": 1.2149999999999999,
+   "best": 0.375,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 97,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0058/child_0.pdb",
+   "parent": 58,
+   "children": [],
+   "n": 1,
+   "total": 0.1325,
+   "best": 0.1325,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 98,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0058/child_1.pdb",
+   "parent": 58,
+   "children": [],
+   "n": 1,
+   "total": 0.16,
+   "best": 0.16,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 99,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0058/child_2.pdb",
+   "parent": 58,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 100,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0058/child_3.pdb",
+   "parent": 58,
+   "children": [],
+   "n": 1,
+   "total": 0.185,
+   "best": 0.185,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 101,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0059/child_0.pdb",
+   "parent": 59,
+   "children": [],
+   "n": 1,
+   "total": 0.14750000000000002,
+   "best": 0.14750000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 102,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0059/child_1.pdb",
+   "parent": 59,
+   "children": [],
+   "n": 1,
+   "total": 0.1475,
+   "best": 0.1475,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 103,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0059/child_2.pdb",
+   "parent": 59,
+   "children": [],
+   "n": 1,
+   "total": 0.14250000000000002,
+   "best": 0.14250000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 104,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0059/child_3.pdb",
+   "parent": 59,
+   "children": [],
+   "n": 1,
+   "total": 0.15000000000000002,
+   "best": 0.15000000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 105,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0057/child_0.pdb",
+   "parent": 57,
+   "children": [],
+   "n": 1,
+   "total": 0.125,
+   "best": 0.125,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 106,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0057/child_1.pdb",
+   "parent": 57,
+   "children": [],
+   "n": 1,
+   "total": 0.1375,
+   "best": 0.1375,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 107,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0057/child_2.pdb",
+   "parent": 57,
+   "children": [],
+   "n": 1,
+   "total": 0.1325,
+   "best": 0.1325,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 108,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0057/child_3.pdb",
+   "parent": 57,
+   "children": [],
+   "n": 1,
+   "total": 0.1275,
+   "best": 0.1275,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 109,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0095/child_0.pdb",
+   "parent": 95,
+   "children": [],
+   "n": 1,
+   "total": 0.155,
+   "best": 0.155,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 110,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0095/child_1.pdb",
+   "parent": 95,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 111,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0095/child_2.pdb",
+   "parent": 95,
+   "children": [],
+   "n": 1,
+   "total": 0.185,
+   "best": 0.185,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 112,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0095/child_3.pdb",
+   "parent": 95,
+   "children": [],
+   "n": 1,
+   "total": 0.37,
+   "best": 0.37,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 113,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0096/child_0.pdb",
+   "parent": 96,
+   "children": [],
+   "n": 1,
+   "total": 0.375,
+   "best": 0.375,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 114,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0096/child_1.pdb",
+   "parent": 96,
+   "children": [],
+   "n": 1,
+   "total": 0.1175,
+   "best": 0.1175,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 115,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0096/child_2.pdb",
+   "parent": 96,
+   "children": [],
+   "n": 1,
+   "total": 0.2975,
+   "best": 0.2975,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 116,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0096/child_3.pdb",
+   "parent": 96,
+   "children": [],
+   "n": 1,
+   "total": 0.1275,
+   "best": 0.1275,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 117,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0094/child_0.pdb",
+   "parent": 94,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 118,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0094/child_1.pdb",
+   "parent": 94,
+   "children": [],
+   "n": 1,
+   "total": 0.16,
+   "best": 0.16,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 119,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0094/child_2.pdb",
+   "parent": 94,
+   "children": [],
+   "n": 1,
+   "total": 0.13,
+   "best": 0.13,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 120,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0094/child_3.pdb",
+   "parent": 94,
+   "children": [],
+   "n": 1,
+   "total": 0.15,
+   "best": 0.15,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 121,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0093/child_0.pdb",
+   "parent": 93,
+   "children": [],
+   "n": 1,
+   "total": 0.1275,
+   "best": 0.1275,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 122,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0093/child_1.pdb",
+   "parent": 93,
+   "children": [],
+   "n": 1,
+   "total": 0.24000000000000002,
+   "best": 0.24000000000000002,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 123,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0093/child_2.pdb",
+   "parent": 93,
+   "children": [],
+   "n": 1,
+   "total": 0.2275,
+   "best": 0.2275,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 124,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0093/child_3.pdb",
+   "parent": 93,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 125,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0011/child_0.pdb",
+   "parent": 11,
+   "children": [
+    129,
+    130,
+    131,
+    132
+   ],
+   "n": 5,
+   "total": 1.0375,
+   "best": 0.3425,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 126,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0011/child_1.pdb",
+   "parent": 11,
+   "children": [],
+   "n": 1,
+   "total": 0.2125,
+   "best": 0.2125,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 127,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0011/child_2.pdb",
+   "parent": 11,
+   "children": [],
+   "n": 1,
+   "total": 0.17500000000000002,
+   "best": 0.17500000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 128,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0011/child_3.pdb",
+   "parent": 11,
+   "children": [],
+   "n": 1,
+   "total": 0.1375,
+   "best": 0.1375,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 129,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0125/child_0.pdb",
+   "parent": 125,
+   "children": [],
+   "n": 1,
+   "total": 0.125,
+   "best": 0.125,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 130,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0125/child_1.pdb",
+   "parent": 125,
+   "children": [],
+   "n": 1,
+   "total": 0.275,
+   "best": 0.275,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 131,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0125/child_2.pdb",
+   "parent": 125,
+   "children": [],
+   "n": 1,
+   "total": 0.17500000000000002,
+   "best": 0.17500000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 132,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0125/child_3.pdb",
+   "parent": 125,
+   "children": [],
+   "n": 1,
+   "total": 0.12,
+   "best": 0.12,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 133,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0005/child_0.pdb",
+   "parent": 5,
+   "children": [],
+   "n": 1,
+   "total": 0.265,
+   "best": 0.265,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 134,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0005/child_1.pdb",
+   "parent": 5,
+   "children": [],
+   "n": 1,
+   "total": 0.185,
+   "best": 0.185,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 135,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0005/child_2.pdb",
+   "parent": 5,
+   "children": [],
+   "n": 1,
+   "total": 0.15750000000000003,
+   "best": 0.15750000000000003,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 136,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0005/child_3.pdb",
+   "parent": 5,
+   "children": [],
+   "n": 1,
+   "total": 0.2825,
+   "best": 0.2825,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 137,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0007/child_0.pdb",
+   "parent": 7,
+   "children": [
+    157,
+    158,
+    159,
+    160
+   ],
+   "n": 5,
+   "total": 1.3275,
+   "best": 0.325,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 138,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0007/child_1.pdb",
+   "parent": 7,
+   "children": [
+    161,
+    162,
+    163,
+    164
+   ],
+   "n": 37,
+   "total": 8.275,
+   "best": 0.3975,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 139,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0007/child_2.pdb",
+   "parent": 7,
+   "children": [
+    165,
+    166,
+    167,
+    168
+   ],
+   "n": 37,
+   "total": 8.370000000000001,
+   "best": 0.4275,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 140,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0007/child_3.pdb",
+   "parent": 7,
+   "children": [
+    169,
+    170,
+    171,
+    172
+   ],
+   "n": 5,
+   "total": 0.9750000000000001,
+   "best": 0.2425,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 141,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0006/child_0.pdb",
+   "parent": 6,
+   "children": [],
+   "n": 1,
+   "total": 0.14250000000000002,
+   "best": 0.14250000000000002,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 142,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0006/child_1.pdb",
+   "parent": 6,
+   "children": [],
+   "n": 1,
+   "total": 0.1675,
+   "best": 0.1675,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 143,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0006/child_2.pdb",
+   "parent": 6,
+   "children": [],
+   "n": 1,
+   "total": 0.12,
+   "best": 0.12,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 144,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0006/child_3.pdb",
+   "parent": 6,
+   "children": [],
+   "n": 1,
+   "total": 0.15,
+   "best": 0.15,
+   "depth": 3,
+   "evaluated": true
+  },
+  {
+   "id": 145,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0012/child_0.pdb",
+   "parent": 12,
+   "children": [],
+   "n": 1,
+   "total": 0.25,
+   "best": 0.25,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 146,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0012/child_1.pdb",
+   "parent": 12,
+   "children": [],
+   "n": 1,
+   "total": 0.29000000000000004,
+   "best": 0.29000000000000004,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 147,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0012/child_2.pdb",
+   "parent": 12,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 148,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0012/child_3.pdb",
+   "parent": 12,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 149,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0010/child_0.pdb",
+   "parent": 10,
+   "children": [],
+   "n": 1,
+   "total": 0.1675,
+   "best": 0.1675,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 150,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0010/child_1.pdb",
+   "parent": 10,
+   "children": [],
+   "n": 1,
+   "total": 0.2725,
+   "best": 0.2725,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 151,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0010/child_2.pdb",
+   "parent": 10,
+   "children": [],
+   "n": 1,
+   "total": 0.17500000000000002,
+   "best": 0.17500000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 152,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0010/child_3.pdb",
+   "parent": 10,
+   "children": [],
+   "n": 1,
+   "total": 0.1875,
+   "best": 0.1875,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 153,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0009/child_0.pdb",
+   "parent": 9,
+   "children": [],
+   "n": 1,
+   "total": 0.15,
+   "best": 0.15,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 154,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0009/child_1.pdb",
+   "parent": 9,
+   "children": [],
+   "n": 1,
+   "total": 0.2725,
+   "best": 0.2725,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 155,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0009/child_2.pdb",
+   "parent": 9,
+   "children": [],
+   "n": 1,
+   "total": 0.27499999999999997,
+   "best": 0.27499999999999997,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 156,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0009/child_3.pdb",
+   "parent": 9,
+   "children": [],
+   "n": 1,
+   "total": 0.14250000000000002,
+   "best": 0.14250000000000002,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 157,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0137/child_0.pdb",
+   "parent": 137,
+   "children": [],
+   "n": 1,
+   "total": 0.165,
+   "best": 0.165,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 158,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0137/child_1.pdb",
+   "parent": 137,
+   "children": [],
+   "n": 1,
+   "total": 0.285,
+   "best": 0.285,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 159,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0137/child_2.pdb",
+   "parent": 137,
+   "children": [],
+   "n": 1,
+   "total": 0.31,
+   "best": 0.31,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 160,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0137/child_3.pdb",
+   "parent": 137,
+   "children": [],
+   "n": 1,
+   "total": 0.2425,
+   "best": 0.2425,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 161,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0138/child_0.pdb",
+   "parent": 138,
+   "children": [
+    173,
+    174,
+    175,
+    176
+   ],
+   "n": 5,
+   "total": 1.1475,
+   "best": 0.355,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 162,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0138/child_1.pdb",
+   "parent": 138,
+   "children": [
+    177,
+    178,
+    179,
+    180
+   ],
+   "n": 5,
+   "total": 1.08,
+   "best": 0.29500000000000004,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 163,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0138/child_2.pdb",
+   "parent": 138,
+   "children": [
+    225,
+    226,
+    227,
+    228
+   ],
+   "n": 13,
+   "total": 2.5400000000000005,
+   "best": 0.3675,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 164,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0138/child_3.pdb",
+   "parent": 138,
+   "children": [
+    213,
+    214,
+    215,
+    216
+   ],
+   "n": 13,
+   "total": 3.275,
+   "best": 0.3975,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 165,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0139/child_0.pdb",
+   "parent": 139,
+   "children": [
+    193,
+    194,
+    195,
+    196
+   ],
+   "n": 5,
+   "total": 0.8425,
+   "best": 0.2425,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 166,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0139/child_1.pdb",
+   "parent": 139,
+   "children": [
+    197,
+    198,
+    199,
+    200
+   ],
+   "n": 5,
+   "total": 1.0025,
+   "best": 0.295,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 167,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0139/child_2.pdb",
+   "parent": 139,
+   "children": [
+    181,
+    182,
+    183,
+    184
+   ],
+   "n": 21,
+   "total": 5.5424999999999995,
+   "best": 0.4275,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 168,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0139/child_3.pdb",
+   "parent": 139,
+   "children": [
+    201,
+    202,
+    203,
+    204
+   ],
+   "n": 5,
+   "total": 0.765,
+   "best": 0.23500000000000001,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 169,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0140/child_0.pdb",
+   "parent": 140,
+   "children": [],
+   "n": 1,
+   "total": 0.1625,
+   "best": 0.1625,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 170,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0140/child_1.pdb",
+   "parent": 140,
+   "children": [],
+   "n": 1,
+   "total": 0.2425,
+   "best": 0.2425,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 171,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0140/child_2.pdb",
+   "parent": 140,
+   "children": [],
+   "n": 1,
+   "total": 0.165,
+   "best": 0.165,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 172,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0140/child_3.pdb",
+   "parent": 140,
+   "children": [],
+   "n": 1,
+   "total": 0.1975,
+   "best": 0.1975,
+   "depth": 4,
+   "evaluated": true
+  },
+  {
+   "id": 173,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0161/child_0.pdb",
+   "parent": 161,
+   "children": [],
+   "n": 1,
+   "total": 0.1475,
+   "best": 0.1475,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 174,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0161/child_1.pdb",
+   "parent": 161,
+   "children": [],
+   "n": 1,
+   "total": 0.2125,
+   "best": 0.2125,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 175,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0161/child_2.pdb",
+   "parent": 161,
+   "children": [],
+   "n": 1,
+   "total": 0.2925,
+   "best": 0.2925,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 176,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0161/child_3.pdb",
+   "parent": 161,
+   "children": [],
+   "n": 1,
+   "total": 0.14,
+   "best": 0.14,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 177,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0162/child_0.pdb",
+   "parent": 162,
+   "children": [],
+   "n": 1,
+   "total": 0.2625,
+   "best": 0.2625,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 178,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0162/child_1.pdb",
+   "parent": 162,
+   "children": [],
+   "n": 1,
+   "total": 0.16,
+   "best": 0.16,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 179,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0162/child_2.pdb",
+   "parent": 162,
+   "children": [],
+   "n": 1,
+   "total": 0.2175,
+   "best": 0.2175,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 180,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0162/child_3.pdb",
+   "parent": 162,
+   "children": [],
+   "n": 1,
+   "total": 0.14500000000000002,
+   "best": 0.14500000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 181,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0167/child_0.pdb",
+   "parent": 167,
+   "children": [
+    209,
+    210,
+    211,
+    212
+   ],
+   "n": 5,
+   "total": 1.175,
+   "best": 0.3175,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 182,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0167/child_1.pdb",
+   "parent": 167,
+   "children": [
+    205,
+    206,
+    207,
+    208
+   ],
+   "n": 5,
+   "total": 1.1325,
+   "best": 0.3075,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 183,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0167/child_2.pdb",
+   "parent": 167,
+   "children": [
+    189,
+    190,
+    191,
+    192
+   ],
+   "n": 5,
+   "total": 1.3325,
+   "best": 0.4275,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 184,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0167/child_3.pdb",
+   "parent": 167,
+   "children": [
+    185,
+    186,
+    187,
+    188
+   ],
+   "n": 5,
+   "total": 1.5624999999999998,
+   "best": 0.3975,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 185,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0184/child_0.pdb",
+   "parent": 184,
+   "children": [],
+   "n": 1,
+   "total": 0.355,
+   "best": 0.355,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 186,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0184/child_1.pdb",
+   "parent": 184,
+   "children": [],
+   "n": 1,
+   "total": 0.2425,
+   "best": 0.2425,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 187,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0184/child_2.pdb",
+   "parent": 184,
+   "children": [],
+   "n": 1,
+   "total": 0.3075,
+   "best": 0.3075,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 188,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0184/child_3.pdb",
+   "parent": 184,
+   "children": [],
+   "n": 1,
+   "total": 0.26,
+   "best": 0.26,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 189,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0183/child_0.pdb",
+   "parent": 183,
+   "children": [],
+   "n": 1,
+   "total": 0.1675,
+   "best": 0.1675,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 190,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0183/child_1.pdb",
+   "parent": 183,
+   "children": [],
+   "n": 1,
+   "total": 0.185,
+   "best": 0.185,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 191,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0183/child_2.pdb",
+   "parent": 183,
+   "children": [],
+   "n": 1,
+   "total": 0.1925,
+   "best": 0.1925,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 192,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0183/child_3.pdb",
+   "parent": 183,
+   "children": [],
+   "n": 1,
+   "total": 0.4275,
+   "best": 0.4275,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 193,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0165/child_0.pdb",
+   "parent": 165,
+   "children": [],
+   "n": 1,
+   "total": 0.1625,
+   "best": 0.1625,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 194,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0165/child_1.pdb",
+   "parent": 165,
+   "children": [],
+   "n": 1,
+   "total": 0.14750000000000002,
+   "best": 0.14750000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 195,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0165/child_2.pdb",
+   "parent": 165,
+   "children": [],
+   "n": 1,
+   "total": 0.15500000000000003,
+   "best": 0.15500000000000003,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 196,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0165/child_3.pdb",
+   "parent": 165,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 197,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0166/child_0.pdb",
+   "parent": 166,
+   "children": [],
+   "n": 1,
+   "total": 0.1275,
+   "best": 0.1275,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 198,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0166/child_1.pdb",
+   "parent": 166,
+   "children": [],
+   "n": 1,
+   "total": 0.2025,
+   "best": 0.2025,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 199,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0166/child_2.pdb",
+   "parent": 166,
+   "children": [],
+   "n": 1,
+   "total": 0.295,
+   "best": 0.295,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 200,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0166/child_3.pdb",
+   "parent": 166,
+   "children": [],
+   "n": 1,
+   "total": 0.14750000000000002,
+   "best": 0.14750000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 201,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0168/child_0.pdb",
+   "parent": 168,
+   "children": [],
+   "n": 1,
+   "total": 0.1225,
+   "best": 0.1225,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 202,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0168/child_1.pdb",
+   "parent": 168,
+   "children": [],
+   "n": 1,
+   "total": 0.23500000000000001,
+   "best": 0.23500000000000001,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 203,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0168/child_2.pdb",
+   "parent": 168,
+   "children": [],
+   "n": 1,
+   "total": 0.135,
+   "best": 0.135,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 204,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0168/child_3.pdb",
+   "parent": 168,
+   "children": [],
+   "n": 1,
+   "total": 0.125,
+   "best": 0.125,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 205,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0182/child_0.pdb",
+   "parent": 182,
+   "children": [],
+   "n": 1,
+   "total": 0.16,
+   "best": 0.16,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 206,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0182/child_1.pdb",
+   "parent": 182,
+   "children": [],
+   "n": 1,
+   "total": 0.1725,
+   "best": 0.1725,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 207,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0182/child_2.pdb",
+   "parent": 182,
+   "children": [],
+   "n": 1,
+   "total": 0.3075,
+   "best": 0.3075,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 208,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0182/child_3.pdb",
+   "parent": 182,
+   "children": [],
+   "n": 1,
+   "total": 0.23750000000000002,
+   "best": 0.23750000000000002,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 209,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0181/child_0.pdb",
+   "parent": 181,
+   "children": [],
+   "n": 1,
+   "total": 0.2375,
+   "best": 0.2375,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 210,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0181/child_1.pdb",
+   "parent": 181,
+   "children": [],
+   "n": 1,
+   "total": 0.3175,
+   "best": 0.3175,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 211,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0181/child_2.pdb",
+   "parent": 181,
+   "children": [],
+   "n": 1,
+   "total": 0.29000000000000004,
+   "best": 0.29000000000000004,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 212,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0181/child_3.pdb",
+   "parent": 181,
+   "children": [],
+   "n": 1,
+   "total": 0.17500000000000002,
+   "best": 0.17500000000000002,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 213,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0164/child_0.pdb",
+   "parent": 164,
+   "children": [
+    221,
+    222,
+    223,
+    224
+   ],
+   "n": 5,
+   "total": 1.2825,
+   "best": 0.33999999999999997,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 214,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0164/child_1.pdb",
+   "parent": 164,
+   "children": [],
+   "n": 1,
+   "total": 0.1875,
+   "best": 0.1875,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 215,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0164/child_2.pdb",
+   "parent": 164,
+   "children": [],
+   "n": 1,
+   "total": 0.16,
+   "best": 0.16,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 216,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0164/child_3.pdb",
+   "parent": 164,
+   "children": [
+    217,
+    218,
+    219,
+    220
+   ],
+   "n": 5,
+   "total": 1.49,
+   "best": 0.3975,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 217,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0216/child_0.pdb",
+   "parent": 216,
+   "children": [],
+   "n": 1,
+   "total": 0.22499999999999998,
+   "best": 0.22499999999999998,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 218,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0216/child_1.pdb",
+   "parent": 216,
+   "children": [],
+   "n": 1,
+   "total": 0.3975,
+   "best": 0.3975,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 219,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0216/child_2.pdb",
+   "parent": 216,
+   "children": [],
+   "n": 1,
+   "total": 0.3225,
+   "best": 0.3225,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 220,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0216/child_3.pdb",
+   "parent": 216,
+   "children": [],
+   "n": 1,
+   "total": 0.18999999999999997,
+   "best": 0.18999999999999997,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 221,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0213/child_0.pdb",
+   "parent": 213,
+   "children": [],
+   "n": 1,
+   "total": 0.33999999999999997,
+   "best": 0.33999999999999997,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 222,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0213/child_1.pdb",
+   "parent": 213,
+   "children": [],
+   "n": 1,
+   "total": 0.255,
+   "best": 0.255,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 223,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0213/child_2.pdb",
+   "parent": 213,
+   "children": [],
+   "n": 1,
+   "total": 0.21250000000000002,
+   "best": 0.21250000000000002,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 224,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0213/child_3.pdb",
+   "parent": 213,
+   "children": [],
+   "n": 1,
+   "total": 0.145,
+   "best": 0.145,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 225,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0163/child_0.pdb",
+   "parent": 163,
+   "children": [
+    229,
+    230,
+    231,
+    232
+   ],
+   "n": 5,
+   "total": 1.0675000000000001,
+   "best": 0.3675,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 226,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0163/child_1.pdb",
+   "parent": 163,
+   "children": [
+    233,
+    234,
+    235,
+    236
+   ],
+   "n": 5,
+   "total": 0.9650000000000001,
+   "best": 0.2825,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 227,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0163/child_2.pdb",
+   "parent": 163,
+   "children": [],
+   "n": 1,
+   "total": 0.14250000000000002,
+   "best": 0.14250000000000002,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 228,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0163/child_3.pdb",
+   "parent": 163,
+   "children": [],
+   "n": 1,
+   "total": 0.24,
+   "best": 0.24,
+   "depth": 5,
+   "evaluated": true
+  },
+  {
+   "id": 229,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0225/child_0.pdb",
+   "parent": 225,
+   "children": [],
+   "n": 1,
+   "total": 0.14250000000000002,
+   "best": 0.14250000000000002,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 230,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0225/child_1.pdb",
+   "parent": 225,
+   "children": [],
+   "n": 1,
+   "total": 0.255,
+   "best": 0.255,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 231,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0225/child_2.pdb",
+   "parent": 225,
+   "children": [],
+   "n": 1,
+   "total": 0.15500000000000003,
+   "best": 0.15500000000000003,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 232,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0225/child_3.pdb",
+   "parent": 225,
+   "children": [],
+   "n": 1,
+   "total": 0.14750000000000002,
+   "best": 0.14750000000000002,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 233,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0226/child_0.pdb",
+   "parent": 226,
+   "children": [],
+   "n": 1,
+   "total": 0.14250000000000002,
+   "best": 0.14250000000000002,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 234,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0226/child_1.pdb",
+   "parent": 226,
+   "children": [],
+   "n": 1,
+   "total": 0.15500000000000003,
+   "best": 0.15500000000000003,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 235,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0226/child_2.pdb",
+   "parent": 226,
+   "children": [],
+   "n": 1,
+   "total": 0.2475,
+   "best": 0.2475,
+   "depth": 6,
+   "evaluated": true
+  },
+  {
+   "id": 236,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/rl/mcts_run2_mean/nodes/n0226/child_3.pdb",
+   "parent": 226,
+   "children": [],
+   "n": 1,
+   "total": 0.1375,
+   "best": 0.1375,
+   "depth": 6,
+   "evaluated": true
+  }
+ ]
+}

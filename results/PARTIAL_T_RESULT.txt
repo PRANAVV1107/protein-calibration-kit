@@ -1,0 +1,52 @@
+========================================================================
+SCORE-LANDSCAPE LOCALITY vs partial_T
+========================================================================
+  Does a parent's value predict its children's?
+  Reference: run 3 at partial_T=10 gave rho = 0.168, p = 0.384, n = 42
+
+  T      parents        rho          p  mean gap kid>parent
+  --------------------------------------------------------
+  2            6      0.257      0.623     0.117      100%
+  4            6      0.600      0.208     0.094      100%
+  10           6      1.000      0.000     0.081      100%
+  20           6      0.771      0.072     0.110       83%
+
+========================================================================
+DOES GAIN DEPEND ON PARENT QUALITY?
+========================================================================
+  Reference, run 3 within one tree (n=42):
+    top-quartile parents 0.342 -> best child 0.279   (lost 0.063)
+    average parents                                  (gained ~0.05)
+
+  T      parents        rho          p  gain slope
+  --------------------------------------------------
+  2            6      0.257      0.623       0.577
+  4            6     -0.314      0.544      -0.153
+  10           6      0.886      0.019       0.249
+  20           6      0.257      0.623       1.230
+
+  pooled over all T: rho = +0.364 (p = 0.0802, n = 24)
+  better-than-median parents: mean gain +0.144
+  worse-than-median parents : mean gain +0.057
+
+  Strongly negative rho means the search only helps when the starting
+  point is bad, so seeding it from good roots buys nothing and
+  Experiment 5 would be measuring regression to the mean. Flat or
+  positive rho means the gain is real across the quality range and
+  multi-root search is worth building.
+
+
+========================================================================
+READ THIS AS
+========================================================================
+  rho climbing as T falls   -> the landscape has a correlation length and
+                               partial_T = 10 was simply past it. Re-run the
+                               search at the T where rho is highest.
+  rho flat and null at all T -> no locality at any step size tested. Tree search
+                               over these backbones cannot work, and the reason
+                               is measured rather than inferred.
+
+  Caveat that belongs in any writeup: with 6 parents per T this detects only
+  large correlations. A null here bounds the effect, it does not prove zero.
+
+[OK] results/partial_t_pairs.csv

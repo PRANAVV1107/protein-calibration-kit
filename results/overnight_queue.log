@@ -1,0 +1,10 @@
+[2026-09-13 14:09:16] === OVERNIGHT QUEUE START ===
+[2026-09-13 14:09:16] waiting for in-flight fold to finish...
+[2026-09-13 14:35:16] GPU free.
+[2026-09-13 14:35:16] START rewardchannel_rbd  (fast screen, no MSA server)
+[2026-09-13 14:53:32] === OVERNIGHT QUEUE START ===
+[2026-09-13 14:53:32] waiting for in-flight fold to finish...
+[2026-09-13 14:59:03] GPU free.
+[2026-09-13 14:59:03] START rewardchannel_rbd  (fast screen, no MSA server)
+[2026-09-13 14:59:05] DONE  rewardchannel_rbd  (60 folds)
+[2026-09-13 14:59:05] START rbd_null  (high accuracy, uses MSA server)

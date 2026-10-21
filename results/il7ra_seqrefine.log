@@ -1,0 +1,36 @@
+======================================================================
+SEQUENCE REFINEMENT
+======================================================================
+Backbones from : /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_real_pilot50
+Samples/backbone: 8   keep/backbone: 3
+Alanine bias   : -1.0    temp: 0.2    max composition penalty: 0.05
+Start: Sat Sep 12 09:16:00 EDT 2026
+
+[Sat Sep 12 09:16:00 EDT 2026] Stage 1: ProteinMPNN (8 samples/backbone, A bias -1.0, temp 0.2)...
+  sequences generated: 50 backbone files
+
+[Sat Sep 12 09:22:16 EDT 2026] Stage 2: composition filter...
+Restricted to 5 requested backbone(s)
+Parsed 40 sequences across 5 backbones
+Composition penalty: mean=0.023  median=0.004  max=0.111
+Sequences exceeding --max-penalty 0.05: 7/40
+
+[OK] kept 15 sequences (3 per backbone x 5 backbones)
+[OK] fold input : /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/to_fold.fasta
+[OK] manifest   : /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/manifest.csv
+     estimated fold time: ~75 min (1.2 h) at 5.0 min/fold
+
+======================================================================
+Stages 1-2 done. Fold input ready: /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/to_fold.fasta
+======================================================================
+Next (high-accuracy fold, then select):
+
+  export TF_FORCE_UNIFIED_MEMORY=1 XLA_PYTHON_CLIENT_PREALLOCATE=false \
+         XLA_PYTHON_CLIENT_MEM_FRACTION=4.0 XLA_PYTHON_CLIENT_ALLOCATOR=platform
+  colabfold_batch --msa-mode mmseqs2_uniref_env --model-type alphafold2_multimer_v3 \
+    --num-models 3 --num-recycle 8 /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/to_fold.fasta /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/folds
+
+  python scripts/seq_select.py select --fold-dir /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/folds \
+    --manifest /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/manifest.csv --out-csv /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/il7ra_seqrefine/ranked.csv
+
+Finish: Sat Sep 12 09:22:17 EDT 2026

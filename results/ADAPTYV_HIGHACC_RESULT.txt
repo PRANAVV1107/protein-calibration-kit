@@ -1,0 +1,33 @@
+==========================================================================
+ADAPTYV EGFR VALIDATION -- measured outcomes
+==========================================================================
+  folded: 165 of 165 labelled   binders 55   non-binders 110
+
+metric                   AUC           95% CI binder vs non-binder mean
+--------------------------------------------------------------------------
+ipTM                   0.620        [0.535, 0.702]   0.756 vs 0.621  <-- best
+ipSAE_min              0.625        [0.542, 0.708]   0.479 vs 0.355  <-- best
+pDockQ2_min            0.629        [0.546, 0.711]   0.515 vs 0.372  <-- best
+pTM                    0.541        [0.452, 0.629]   0.835 vs 0.812
+pLDDT                  0.555        [0.468, 0.640]   90.030 vs 88.289
+shaped_pDockQ2         0.603        [0.518, 0.690]   0.475 vs 0.359
+shaped_ipSAE           0.593        [0.508, 0.682]   0.439 vs 0.341
+adaptyv_iptm           0.630        [0.538, 0.722]   0.799 vs 0.706  <-- best
+
+  best separator: adaptyv_iptm (AUC 0.630)
+  note: adaptyv_iptm is the competition's OWN reported ipTM, so it is
+        a baseline for what re-scoring under our settings adds.
+
+==========================================================================
+CALIBRATION on measured outcomes -- adaptyv_iptm
+==========================================================================
+bin                             n  binders observed hit rate
+(0.199, 0.484]                 33        6    18.2%
+(0.484, 0.78]                  33       11    33.3%
+(0.78, 0.9]                    34        8    23.5%
+(0.9, 0.93]                    34       13    38.2%
+(0.93, 0.96]                   29       15    51.7%
+
+  overall base rate: 33.3%
+
+[OK] results/adaptyv_highacc_validation.csv

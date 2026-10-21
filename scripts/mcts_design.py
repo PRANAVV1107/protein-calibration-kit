@@ -360,24 +360,84 @@ class Search:
             self.node_max[b] = max(vals)
             best[b] = (float(np.mean(vals)) if self.a.node_value == "mean"
                        else max(vals))
-            self.folds_used += 1
+            # One fold per sequence drawn, not one per backbone. This counted
+            # backbones until 2026-09-19, so --budget was silently in units of
+            # --seqs: run 2's "--budget 1000" meant 4000 real folds. Budgets
+            # written for the old behaviour must be multiplied by --seqs.
+            self.folds_used += len(vals)
         return best
 
     # ---------- search ----------
-    def uct(self, node):
-        """Standard UCT, on nodes that have been evaluated and can be expanded."""
-        c = self.a.c_uct
-        best, bv = None, -1e9
-        for n in self.nodes.values():
-            if not n.evaluated or n.depth >= self.a.max_depth:
-                continue
-            if n.children and len(n.children) >= self.a.children:
-                continue
+    def expandable(self, n):
+        """Can this node itself be expanded?"""
+        return (n.evaluated and n.depth < self.a.max_depth
+                and len(n.children) < self.a.children)
+
+    def live(self, n):
+        """Does this node's subtree contain anything still expandable?"""
+        if self.expandable(n):
+            return True
+        return any(self.live(k) for k in n.children if k.evaluated)
+
+    def uct(self, node=None):
+        """Standard UCT: descend from the root, taking the best child at each
+        level, until reaching an expandable node.
+
+        Runs 1 and 2 used a global argmax over every expandable node in the
+        tree, scoring each against ITS OWN parent's visit count:
+
             parent_n = max(1, n.parent.n if n.parent else n.n)
-            v = n.mean + c * math.sqrt(math.log(parent_n + 1) / max(1, n.n))
-            if v > bv:
-                best, bv = n, v
-        return best
+            v = n.mean + c * sqrt(log(parent_n + 1) / max(1, n.n))
+
+        That is not UCT. Because expansion evaluates each node exactly once,
+        every candidate sits at n.n == 1 permanently, so the exploration term
+        reduced to sqrt(log(parent_n + 1)) -- a function of the PARENT's visit
+        count alone. A node hanging off a heavily-visited parent therefore
+        outranked a better node hanging off a lightly-visited one, which
+        inverts the intent: exploration was pulled toward regions already
+        explored. In run 2 this left node 192 -- the highest-valued node in the
+        tree at 0.427 -- unselected across roughly ten subsequent chances.
+
+        Comparing exploration bonuses across different parents is only
+        meaningful when the counts share a reference. Descending the tree gives
+        them one: at each step the candidates are siblings, so log(cur.n) is the
+        same for all of them and the comparison is the one UCT is derived for.
+        """
+        c = self.a.c_uct
+        cur = self.root
+        if cur is None or not self.live(cur):
+            return None
+        lo, hi = self.value_range()
+        span = (hi - lo) or 1.0
+        while True:
+            if self.expandable(cur):
+                return cur
+            kids = [k for k in cur.children if k.evaluated and self.live(k)]
+            if not kids:
+                return None            # live() said otherwise; nothing left here
+            parent_n = cur.n
+            cur = max(kids, key=lambda k: (k.mean - lo) / span + c * math.sqrt(
+                math.log(parent_n + 1) / max(1, k.n)))
+
+    def value_range(self):
+        """Observed spread of node values, for normalising UCT's two terms.
+
+        The second half of the run-1/run-2 selection bug, and the half that
+        survives fixing the descent. UCT's constant is defined against rewards
+        in [0, 1]; ipTM node values here span roughly 0.10 to 0.45. At c = 0.6 a
+        never-revisited node (n = 1) carries an exploration bonus near 1.2 --
+        several times the entire spread of the values it is added to -- so the
+        value term cannot affect the argmax and selection degenerates to
+        breadth-first no matter how good the estimates are. Both runs were
+        breadth-first searches wearing UCT's clothes, which is the simplest
+        explanation for run 2's depth signal appearing with no matching gain in
+        the best design found.
+
+        Rescaling the values to the observed [min, max] makes c mean what it is
+        documented to mean without having to retune it per target or metric.
+        """
+        v = [n.mean for n in self.nodes.values() if n.evaluated and n.n]
+        return (min(v), max(v)) if v else (0.0, 1.0)
 
     def backprop(self, node, score):
         cur = node
@@ -463,7 +523,9 @@ def main():
     ap.add_argument("--root-pdb", required=True, help="starting backbone")
     ap.add_argument("--target", default="rbd", choices=sorted(TARGETS))
     ap.add_argument("--out-dir", default="results/rl/mcts_rbd")
-    ap.add_argument("--budget", type=int, default=120, help="total folds to spend")
+    ap.add_argument("--budget", type=int, default=120,
+                    help="total folds to spend -- ColabFold predictions, not "
+                         "backbones. One backbone costs --seqs of these.")
     ap.add_argument("--children", type=int, default=4, help="neighbours per expansion")
     ap.add_argument("--seqs", type=int, default=4, help="MPNN draws per backbone")
     ap.add_argument("--partial-t", type=int, default=10,

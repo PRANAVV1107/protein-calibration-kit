@@ -1,0 +1,7 @@
+[2026-09-14 08:08:25] MD screen: 15 complexes, 1.0 ns each, 7 threads x2 concurrent
+[08:08:25] starting il7ra_binder_10__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+[08:08:25] starting il7ra_binder_10__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+scripts/run_md_screen.sh: line 42: 105591 Killed                  "$PY" scripts/md_stability.py "$p" --ns "$NS" --equil-ps "$EQUIL" --threads "$THREADS" --out-dir results/md
+scripts/run_md_screen.sh: line 35: 105593 Killed                  "$PY" scripts/md_stability.py "$p" --ns "$NS" --equil-ps "$EQUIL" --threads "$THREADS" --out-dir results/md
+[09:52:02] starting il7ra_binder_34__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+[09:52:02] starting il7ra_binder_10__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb

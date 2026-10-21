@@ -1,0 +1,5 @@
+[2026-09-17 08:36:36] === CHAIN: reward benchmark -> expert iteration r1 ===
+[2026-09-17 08:36:36] --- 1. reward benchmark (80 remaining of 165) ---
+[2026-09-17 11:09:42] benchmark now 165/165
+[2026-09-17 11:09:42] --- 2. expert iteration round 1 (120 folds) ---
+[2026-09-17 11:10:07] === CHAIN COMPLETE ===

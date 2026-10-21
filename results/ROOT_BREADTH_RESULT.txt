@@ -1,0 +1,76 @@
+==========================================================================
+ROOT-BREADTH SWEEP
+==========================================================================
+  50 backbones, 4-4 draws each, 200 folds
+  full MSA, 1 model, 3 recycles
+
+--------------------------------------------------------------------------
+1. INSTRUMENT CALIBRATION (the 10 backbones also in the variance study)
+--------------------------------------------------------------------------
+  backbone        max new    max var     mean new   mean var
+  binder_42         0.210      0.870        0.175      0.457
+  binder_5          0.190      0.860        0.150      0.570
+  binder_13         0.140      0.810        0.122      0.373
+  binder_9          0.830      0.770        0.455      0.598
+  binder_0          0.140      0.730        0.120      0.478
+  binder_15         0.140      0.710        0.125      0.333
+  binder_34         0.210      0.710        0.140      0.370
+  binder_10         0.150      0.540        0.130      0.262
+  binder_47         0.130      0.520        0.117      0.298
+  binder_14         0.160      0.460        0.140      0.223
+
+  n=10  offset on max -0.468   Spearman +0.398 (p=0.254)
+  A near-zero offset and a high rho mean the two configurations
+  are interchangeable and results may be pooled. Otherwise not.
+
+--------------------------------------------------------------------------
+2. E[best] AT FIXED BUDGET: spend on ROOTS or on DRAWS?
+--------------------------------------------------------------------------
+  budget       R=5,K=1    R=10,K=1    R=25,K=1    R=50,K=1     R=5,K=2    R=10,K=2
+  ------------------------------------------------------------------------------
+  20                 -           -           -           -           -       0.522
+  40                 -           -           -           -           -           -
+  80                 -           -           -           -           -           -
+  160                -           -           -           -           -           -
+  200                -           -           -           -           -           -
+
+  R axis at fixed K (the prediction):
+    K=1   R=5   0.333   R=10  0.435   R=25  0.613   R=50  0.763
+    K=2   R=5   0.397   R=10  0.521   R=25  0.719   R=50  0.835
+    K=4   R=5   0.446   R=10  0.588   R=25  0.786   R=50  0.855
+
+  K axis at fixed R (the comparison):
+    R=5   K=1  0.337   K=2  0.398   K=3  0.429   K=4  0.453
+    R=10  K=1  0.440   K=2  0.517   K=3  0.562   K=4  0.594
+    R=25  K=1  0.629   K=2  0.720   K=3  0.764   K=4  0.783
+    R=50  K=1  0.765   K=2  0.836   K=3  0.852   K=4  0.856
+
+  If E[best] rises faster along R than along K at equal budget, breadth beats
+  depth and the tail argument holds. If the R axis flattens by R=50, the
+  recommendation has a ceiling and the paper must say where it is.
+
+--------------------------------------------------------------------------
+3. BETWEEN-ROOT DISTRIBUTION (n=50)
+--------------------------------------------------------------------------
+  best-of-4 per root: min 0.120  median 0.210  max 0.860  sd 0.180
+  fraction of roots reaching >0.7: 6%   >0.8: 6%
+
+  top 8 roots: binder_23(0.86), binder_22(0.86), binder_9(0.83), binder_28(0.65), binder_1(0.43), binder_31(0.43), binder_3(0.42), binder_21(0.35)
+  bottom 5   : binder_29(0.14), binder_24(0.13), binder_36(0.13), binder_47(0.13), binder_39(0.12)
+
+--------------------------------------------------------------------------
+4. DOES ANY CHEAP FEATURE PREDICT ROOT QUALITY? (n=50, now powered)
+--------------------------------------------------------------------------
+  feature              rho         p   
+  ----------------------------------------------
+  length             0.148     0.304   
+  rog               -0.482     0.000   **
+  contacts           0.191     0.185   
+  hotspot_c          0.203     0.158   
+  helix_frac        -0.254     0.075   
+  contact_dens       0.030     0.837   
+
+  * p<0.05 uncorrected, ** survives Bonferroni over 6 features.
+  At n=50, |rho| >= 0.28 reaches p<0.05 uncorrected.
+
+[OK] results/root_breadth_per_root.csv

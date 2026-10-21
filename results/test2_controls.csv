@@ -1,0 +1,3 @@
+target_system,reference_sequence,score_on_own,percentile_on_own,mean_percentile_on_other,n_positive_examples,prediction
+rbd,TNLCPFGEVFNATRFASVYAWNRKRISNCV...,0.103,65.2,40.0,20,FAIL
+pdl1,AFTVTVPKDLYVVEYGSNMTIECKFPVEKQ...,0.212,96.4,10.6,8,PASS

@@ -1,0 +1,13 @@
+==========================================================================
+EXPERT ITERATION ROUND 1 -- tuned vs untuned SAMPLING
+==========================================================================
+  folds 120   base 60   tuned 60   backbones 10
+
+pDockQ2_min    base 0.024  tuned 0.030  paired diff +0.005  se 0.012  p 0.657  (tuned better on 5/10 backbones)
+ipSAE_min      base 0.021  tuned 0.028  paired diff +0.008  se 0.012  p 0.505  (tuned better on 7/10 backbones)
+ipTM           base 0.189  tuned 0.206  paired diff +0.018  se 0.020  p 0.372  (tuned better on 7/10 backbones)
+pLDDT          base 74.257  tuned 74.145  paired diff -0.112  se 0.931  p 0.904  (tuned better on 5/10 backbones)
+
+  Paired by backbone; n = number of backbones, not sequences.
+  A positive difference means the tuned model samples better sequences
+  on structures it was never trained on.

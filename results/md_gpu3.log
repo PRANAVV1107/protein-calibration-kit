@@ -1,0 +1,119 @@
+[2026-09-15 18:38:06] === GPU MD v3 START (panel, 2 ns) ===
+[2026-09-15 18:38:06] 37 complexes queued
+[2026-09-15 18:38:06] waiting for folding to finish (seen: 1)
+[2026-09-16 01:15:51] === GPU MD v3 START (panel, 2 ns) ===
+[2026-09-16 01:15:51] 37 complexes queued
+[2026-09-16 01:15:51] waiting for folding to finish (seen: 0)
+[2026-09-16 01:15:51] GPU free.
+[2026-09-16 01:15:51]   START [1/37] il7ra_binder_34__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[01:15:54] starting il7ra_binder_34__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 127 -> 184 (145% retained)   binder RMSD 1.20 nm   COM 3.90 -> 3.86 nm   stable   [22.8 min]
+[2026-09-16 01:41:05]   START [2/37] il7ra_binder_0__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[01:41:05] starting il7ra_binder_0__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 251 -> 292 (116% retained)   binder RMSD 0.46 nm   COM 2.38 -> 2.41 nm   stable   [17.9 min]
+[2026-09-16 02:01:03]   START [3/37] il7ra_binder_10__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[02:01:04] starting il7ra_binder_10__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 222 -> 241 (109% retained)   binder RMSD 0.67 nm   COM 2.82 -> 2.94 nm   stable   [24.9 min]
+[2026-09-16 02:28:47]   START [4/37] il7ra_binder_10__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[02:28:48] starting il7ra_binder_10__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 202 -> 330 (163% retained)   binder RMSD 0.28 nm   COM 3.00 -> 3.04 nm   stable   [24.6 min]
+[2026-09-16 02:56:10]   START [5/37] il7ra_binder_9__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[02:56:10] starting il7ra_binder_9__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 293 -> 448 (153% retained)   binder RMSD 0.41 nm   COM 2.87 -> 2.68 nm   stable   [23.9 min]
+[2026-09-16 03:22:39]   START [6/37] il7ra_binder_5__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[03:22:39] starting il7ra_binder_5__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 301 -> 269 (89% retained)   binder RMSD 1.00 nm   COM 2.71 -> 2.55 nm   stable   [21.6 min]
+[2026-09-16 03:46:32]   START [7/37] il7ra_binder_34__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[03:46:33] starting il7ra_binder_34__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 341 -> 211 (62% retained)   binder RMSD 0.29 nm   COM 3.63 -> 3.66 nm   stable   [22.9 min]
+[2026-09-16 04:11:54]   START [8/37] il7ra_binder_14__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[04:11:55] starting il7ra_binder_14__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 257 -> 213 (83% retained)   binder RMSD 0.29 nm   COM 2.82 -> 2.87 nm   stable   [18.0 min]
+[2026-09-16 04:31:52]   START [9/37] il7ra_binder_47__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[04:31:53] starting il7ra_binder_47__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 332 -> 369 (111% retained)   binder RMSD 0.63 nm   COM 2.97 -> 3.00 nm   stable   [25.2 min]
+[2026-09-16 04:59:45]   START [10/37] il7ra_binder_14__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[04:59:45] starting il7ra_binder_14__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 187 -> 289 (154% retained)   binder RMSD 0.21 nm   COM 2.84 -> 2.79 nm   stable   [17.9 min]
+[2026-09-16 05:19:40]   START [11/37] il7ra_binder_13__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[05:19:41] starting il7ra_binder_13__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 255 -> 339 (133% retained)   binder RMSD 0.43 nm   COM 2.98 -> 2.97 nm   stable   [25.2 min]
+[2026-09-16 05:47:33]   START [12/37] il7ra_binder_47__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[05:47:34] starting il7ra_binder_47__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 351 -> 340 (97% retained)   binder RMSD 0.35 nm   COM 3.02 -> 2.90 nm   stable   [24.9 min]
+[2026-09-16 06:15:07]   START [13/37] il7ra_binder_13__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[06:15:07] starting il7ra_binder_13__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 253 -> 262 (104% retained)   binder RMSD 0.40 nm   COM 3.04 -> 2.90 nm   stable   [25.2 min]
+[2026-09-16 06:42:59]   START [14/37] binder_9__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[06:42:59] starting binder_9__s1_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 344 -> 353 (103% retained)   binder RMSD 0.25 nm   COM 2.26 -> 2.27 nm   stable   [12.2 min]
+[2026-09-16 06:56:32]   START [15/37] binder_5__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[06:56:32] starting binder_5__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 302 -> 244 (81% retained)   binder RMSD 0.75 nm   COM 2.03 -> 2.18 nm   stable   [9.4 min]
+[2026-09-16 07:07:06]   START [16/37] binder_5__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[07:07:06] starting binder_5__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 268 -> 249 (93% retained)   binder RMSD 0.36 nm   COM 2.12 -> 2.09 nm   stable   [10.1 min]
+[2026-09-16 07:18:22]   START [17/37] binder_5__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[07:18:22] starting binder_5__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 252 -> 375 (149% retained)   binder RMSD 0.27 nm   COM 2.15 -> 2.04 nm   stable   [10.1 min]
+[2026-09-16 07:29:39]   START [18/37] binder_13__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[07:29:40] starting binder_13__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 226 -> 164 (73% retained)   binder RMSD 1.67 nm   COM 2.93 -> 3.28 nm   stable   [15.1 min]
+[2026-09-16 07:46:25]   START [19/37] binder_15__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[07:46:25] starting binder_15__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 367 -> 425 (116% retained)   binder RMSD 0.26 nm   COM 1.77 -> 1.71 nm   stable   [9.0 min]
+[2026-09-16 07:56:30]   START [20/37] binder_13__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[07:56:30] starting binder_13__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 203 -> 178 (88% retained)   binder RMSD 0.67 nm   COM 2.46 -> 2.48 nm   stable   [15.1 min]
+[2026-09-16 08:13:16]   START [21/37] binder_13__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[08:13:16] starting binder_13__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 261 -> 252 (97% retained)   binder RMSD 0.35 nm   COM 2.77 -> 2.78 nm   stable   [15.1 min]
+[2026-09-16 08:30:04]   START [22/37] binder_15__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[08:30:04] starting binder_15__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 326 -> 420 (129% retained)   binder RMSD 0.26 nm   COM 1.79 -> 1.67 nm   stable   [8.8 min]
+[2026-09-16 08:39:56]   START [23/37] binder_34__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[08:39:56] starting binder_34__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 329 -> 369 (112% retained)   binder RMSD 0.21 nm   COM 1.98 -> 1.97 nm   stable   [11.5 min]
+[2026-09-16 08:52:40]   START [24/37] binder_34__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[08:52:41] starting binder_34__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 339 -> 378 (112% retained)   binder RMSD 0.32 nm   COM 2.07 -> 2.01 nm   stable   [10.7 min]
+[2026-09-16 09:04:33]   START [25/37] binder_15__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[09:04:34] starting binder_15__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 295 -> 549 (186% retained)   binder RMSD 2.08 nm   COM 2.71 -> 1.70 nm   stable   [22.2 min]
+[2026-09-16 09:29:15]   START [26/37] binder_47__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[09:29:15] starting binder_47__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 385 -> 549 (143% retained)   binder RMSD 0.64 nm   COM 2.81 -> 2.95 nm   stable   [18.6 min]
+[2026-09-16 09:50:06]   START [27/37] binder_0__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[09:50:06] starting binder_0__s5_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 563 -> 447 (79% retained)   binder RMSD 0.62 nm   COM 2.49 -> 2.58 nm   stable   [19.5 min]
+[2026-09-16 10:11:57]   START [28/37] binder_34__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[10:11:57] starting binder_34__s2_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 359 -> 395 (110% retained)   binder RMSD 1.11 nm   COM 3.04 -> 2.85 nm   stable   [20.4 min]
+[2026-09-16 10:34:37]   START [29/37] binder_14__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[10:34:37] starting binder_14__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 440 -> 396 (90% retained)   binder RMSD 0.50 nm   COM 2.68 -> 2.81 nm   stable   [19.7 min]
+[2026-09-16 10:56:28]   START [30/37] binder_42__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[10:56:28] starting binder_42__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 138 -> 350 (254% retained)   binder RMSD 0.66 nm   COM 3.23 -> 2.95 nm   stable   [19.8 min]
+[2026-09-16 11:18:29]   START [31/37] binder_47__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[11:18:30] starting binder_47__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 457 -> 429 (94% retained)   binder RMSD 0.35 nm   COM 2.60 -> 2.52 nm   stable   [30.4 min]
+[2026-09-16 11:51:07]   START [32/37] binder_14__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[11:51:07] starting binder_14__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 255 -> 324 (127% retained)   binder RMSD 0.61 nm   COM 2.59 -> 2.68 nm   stable   [20.7 min]
+[2026-09-16 12:14:15]   START [33/37] binder_10__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[12:14:15] starting binder_10__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 323 -> 470 (146% retained)   binder RMSD 0.39 nm   COM 2.42 -> 2.42 nm   stable   [19.4 min]
+[2026-09-16 12:35:43]   START [34/37] binder_5__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000
+[12:35:44] starting binder_5__s3_unrelaxed_rank_001_alphafold2_multimer_v3_model_1_seed_000.pdb
+   contacts 508 -> 453 (89% retained)   binder RMSD 0.45 nm   COM 2.66 -> 2.65 nm   stable   [19.3 min]
+[2026-09-16 12:57:12]   START [35/37] binder_15__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000
+[12:57:12] starting binder_15__s4_unrelaxed_rank_001_alphafold2_multimer_v3_model_3_seed_000.pdb
+   contacts 403 -> 498 (124% retained)   binder RMSD 0.82 nm   COM 1.91 -> 1.70 nm   stable   [23.4 min]
+[2026-09-16 13:23:09]   START [36/37] binder_9__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[13:23:09] starting binder_9__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 553 -> 515 (93% retained)   binder RMSD 0.24 nm   COM 2.37 -> 2.36 nm   stable   [19.3 min]
+[2026-09-16 13:44:33]   START [37/37] binder_13__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000
+[13:44:34] starting binder_13__s6_unrelaxed_rank_001_alphafold2_multimer_v3_model_2_seed_000.pdb
+   contacts 486 -> 514 (106% retained)   binder RMSD 0.39 nm   COM 2.59 -> 2.57 nm   stable   [19.7 min]
+[2026-09-16 14:06:33] === GPU MD v3 COMPLETE: 37 systems ===

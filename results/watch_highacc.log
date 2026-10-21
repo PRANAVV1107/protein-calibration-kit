@@ -1,0 +1,16 @@
+[2026-09-14 18:51:31] === WATCH HIGHACC START (target 165) ===
+[2026-09-14 19:41:31] interim at 52/165
+[2026-09-14 19:41:55]   -> results/ARM_COMPARISON_interim_52.txt
+[2026-09-14 22:44:01] === WATCH HIGHACC START (target 165) ===
+[2026-09-14 22:44:01] interim at 70/165
+[2026-09-14 22:44:27]   -> results/ARM_COMPARISON_interim_70.txt
+[2026-09-15 01:04:31] interim at 95/165
+[2026-09-15 01:04:51]   -> results/ARM_COMPARISON_interim_95.txt
+[2026-09-15 08:03:34] === WATCH HIGHACC START (target 165) ===
+[2026-09-15 08:03:34] interim at 107/165
+[2026-09-15 08:04:11]   -> results/ARM_COMPARISON_interim_107.txt
+[2026-09-15 10:42:57] interim at 132/165
+[2026-09-15 10:43:32]   -> results/ARM_COMPARISON_interim_132.txt
+[2026-09-15 13:58:21] interim at 157/165
+[2026-09-15 13:58:57]   -> results/ARM_COMPARISON_interim_157.txt
+[2026-09-15 15:06:27] high-accuracy arm at 165/165. Waiting for the fold process to exit.

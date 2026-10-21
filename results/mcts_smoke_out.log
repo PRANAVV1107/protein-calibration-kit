@@ -1,0 +1,7 @@
+[2026-09-16 17:28:14] contig from root: [E333-526/0 71-71]  (binder 71 aa, target E 194 aa)
+[2026-09-16 17:28:14] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_47.pdb
+[2026-09-16 17:29:05]   2 sequences -> 2 hybrid a3m
+[2026-09-16 17:34:53] root score 0.150 (folds 2)
+[2026-09-16 17:34:53] iter: expanding node 0 (depth 0, mean 0.150, n 1) [folds 2/6]
+[2026-09-16 17:40:21]   4 sequences -> 4 hybrid a3m
+/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/scripts/_mcts_smoke.sh: line 8:  1792 Killed                  /root/miniconda3/envs/colabfold/bin/python scripts/mcts_design.py --root-pdb /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_47.pdb --target rbd --out-dir results/rl/mcts_smoke2 --budget 6 --children 2 --seqs 2 --partial-t 10 --max-depth 2 --metric ipTM --chunk 6

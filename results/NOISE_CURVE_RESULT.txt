@@ -1,0 +1,33 @@
+========================================================================
+NODE-SCORE NOISE vs NUMBER OF SEQUENCE DRAWS
+========================================================================
+  metric ipTM
+  il7ra   10 backbones, 16-16 draws each, 160 folds
+  rbd     10 backbones, 16-16 draws each, 160 folds
+
+  |max(K draws) - max(K other draws)| on the SAME backbone.
+  Lower is better. Compare against the score differences a search
+  would try to resolve -- typically 0.05-0.15.
+
+target       K     mean   median      p90   vs K=2
+------------------------------------------------------------------------
+il7ra        2    0.141    0.116    0.307   --
+il7ra        4    0.068    0.039    0.170   0.48x
+il7ra        8    0.034    0.023    0.049   0.24x
+rbd          2    0.120    0.064    0.325   --
+rbd          4    0.167    0.205    0.319   1.39x
+rbd          8    0.214    0.173    0.266   1.78x
+
+========================================================================
+READ THIS AS
+========================================================================
+  ~1/sqrt(K) decay  -> sampling error, a larger K fixes it
+                       (K=8 should be about 0.50x the K=2 noise)
+  plateau           -> irreducible backbone spread; no budget fixes it,
+                       and tree search over backbones is not viable here
+
+  This does NOT show whether search beats random sampling.
+  It shows whether node evaluation can be made reliable enough
+  for that question to be worth asking.
+
+[OK] results/noise_curve.csv

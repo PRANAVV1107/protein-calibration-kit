@@ -1,0 +1,17 @@
+[2026-09-21 00:08:47] === CHAIN: exp1 (rescore) -> exp3 (partial_T) ===
+[2026-09-21 00:08:47] waiting for 60 re-folds
+[2026-09-21 00:13:42] === CHAIN: exp1 (rescore) -> exp3 (partial_T) ===
+[2026-09-21 00:13:42] waiting for 60 re-folds
+[2026-09-21 00:43:44]   ... 10/60 folds, 1800s elapsed
+[2026-09-21 01:13:46]   ... 17/60 folds, 3600s elapsed
+[2026-09-21 01:43:52]   ... 25/60 folds, 5400s elapsed
+[2026-09-21 02:13:57]   ... 34/60 folds, 7200s elapsed
+[2026-09-21 02:44:05]   ... 42/60 folds, 9000s elapsed
+[2026-09-21 03:14:15]   ... 51/60 folds, 10800s elapsed
+[2026-09-21 03:44:25]   ... 59/60 folds, 12600s elapsed
+[2026-09-21 03:46:29] exp 1 complete: 60/60 folds, GPU idle
+[2026-09-21 03:46:31] --- running exp 1 analysis ---
+[2026-09-21 03:46:33]   -> results/RESCORE_RESULT.txt
+[2026-09-21 03:46:33] --- starting exp 3: partial_T sweep ---
+[2026-09-21 03:48:03] exp 3 running
+[2026-09-21 03:48:03] === CHAIN DONE ===

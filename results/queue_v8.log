@@ -1,0 +1,6 @@
+[2026-09-14 07:15:26] === QUEUE V8 START (OOM fixed: chunked, MEM_FRACTION 4.0 -> 2.0) ===
+[2026-09-14 07:15:26] waiting for in-flight fold...
+[2026-09-14 07:26:06] GPU free.
+[2026-09-14 07:26:11] START adaptyv_val: 199 remaining of 365, chunks of 40
+[2026-09-14 09:01:15]   chunk 1 done -- 206 total
+[2026-09-14 10:32:51]   chunk 2 done -- 246 total

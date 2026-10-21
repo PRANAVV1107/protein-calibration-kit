@@ -2,18 +2,22 @@
 
 **Format target:** short methods paper, ~4 pages + figures (MLSB / Bioinformatics
 Applications Note length). Everything below is real measured data from this
-repository unless marked `[PENDING]`.
+repository.
 
 **Convention notes are in blockquotes like this** — they explain why a section is
 written the way it is. Delete them before submitting.
 
-> **Restructured 2026-09-18** after a literature check. The previous draft led
-> with a variance decomposition whose premise — "roughly eight sequences per
-> backbone is standard" — could not be confirmed; published sources describe
-> 1–5, and some pipelines use one. That finding survives as supporting evidence
-> but can no longer carry the paper. The three claims that survived the check
-> lead instead, and they share a theme: every cheap shortcut in this pipeline
-> fails for a specific, measurable reason, and two of the three have free fixes.
+> **Restructured 2026-09-21.** The 2026-09-18 draft was three loosely-related
+> claims about cheap shortcuts. Two experiments run on 2026-09-20/21 — re-scoring
+> the search's designs on the baseline's own instrument, and simulating
+> allocation policies over roots — turned those into **one thesis with four
+> independent measurements**. The escalating structure below (screen → search →
+> allocate → mechanism) is the change; most individual numbers survive.
+>
+> An earlier version of §3.3 reported that the search *lost* to blind sampling.
+> That comparison was invalid: the search and the baseline were scored with
+> different AlphaFold configurations. Re-measured properly it is a tie. The
+> correction is in the text, not hidden.
 
 ---
 
@@ -21,13 +25,16 @@ written the way it is. Delete them before submitting.
 
 Working options, strongest first:
 
-1. **Where cheap shortcuts fail in de novo binder design, and how to fix two of them**
-2. Three failure modes of low-cost screening in AlphaFold-filtered binder design
-3. Tail statistics break value estimation in test-time search over binder backbones
+1. **Cleverness does not pay: test-time search and adaptive allocation both lose
+   to uniform sampling in AlphaFold-filtered binder design**
+2. The objective is a maximum: why selection, search and allocation all fail in
+   de novo binder design
+3. Use your cheap screen as a filter, never as an estimator
 
-> Option 1 promises a practitioner something actionable. Option 3 is narrower
-> but more striking to an ML audience — worth splitting into a second short
-> paper if the first grows past four pages.
+> Option 1 states the result and is the one an ML audience forwards. Option 3 is
+> the practitioner's version and makes a good subtitle. The previous draft's
+> "where cheap shortcuts fail" is now too weak — we can say something sharper
+> than "these things fail".
 
 ---
 
@@ -36,20 +43,25 @@ Working options, strongest first:
 > ~150–200 words. Numbers are what make people read on.
 
 De novo binder design pipelines generate backbones with RFdiffusion, assign
-sequences with ProteinMPNN, and filter with AlphaFold2. Each stage admits a
-cheaper approximation, and we measure where three of them fail. First,
-single-sequence AlphaFold screening — a common triage step — selects *worse than
-random* (−0.162 ipTM); we trace this to the **target** failing to fold without an
-alignment (pLDDT 27.2 versus 84.3), so the interface is scored against a
-disordered chain. Second, on 164 experimentally characterised designs, reusing a
-precomputed target alignment at 1 model and 3 recycles matches full-accuracy
-scoring (ipTM AUC 0.627 against 0.614) at **one quarter the compute** — models
-and recycles are nearly free to cut once the alignment is present. Third, in a
-pre-registered test-time search over denoising trajectories, scoring nodes by the
-*maximum* of K sequence draws causes estimation error to **increase** with K on a
-right-skewed target (skew +3.38); the mean decays normally. That single error
-explains why the search lost to blind sampling at 17× the compute. All
-computation ran on one consumer GPU.
+sequences with ProteinMPNN, and score complexes with AlphaFold2. A natural
+instinct is to spend that scoring budget cleverly — screen cheaply, search over
+promising regions, allocate toward promising starting points. We measure three
+such strategies against uniform sampling on one consumer GPU and find that none
+of them pays.
+
+A single-sequence screen selects **worse than random** (−0.162 ipTM), because
+the *target* fails to fold without an alignment (pLDDT 27.2 versus 84.3). A
+pre-registered test-time search over denoising trajectories, run three times
+across ~2,900 folds and two corrected implementation bugs, **ties** 60 folds of
+blind sampling (0.870 versus 0.870). Simulated allocation over roots is worse
+still: no bandit policy beats uniform, and spending every fold on the root with
+the best true mean reaches **0.770 where uniform across ten roots reaches
+0.869** — perfect knowledge, exploited perfectly, loses.
+
+One mechanism explains all three. The objective is a **maximum** over designs, a
+tail statistic, while every clever strategy optimises a **mean**. Selecting on a
+cheap score is worth +0.194 as a filter and −0.26 as an estimate of the same
+quantity.
 
 ---
 
@@ -61,13 +73,15 @@ computation ran on one consumer GPU.
 sequences; AlphaFold2-multimer scores the complex and top-scoring designs go
 forward. Cite Watson 2023, Dauparas 2022, Evans 2021, Bennett 2023.
 
-**¶2 — the gap.** Each stage has a cheaper variant adopted for throughput:
-screening without an MSA, fewer models and recycles, and test-time search in
-place of exhaustive sampling. Whether these approximations preserve the ranking
-they are used to produce is largely unmeasured.
+**¶2 — the gap.** AlphaFold scoring dominates the compute budget, so every
+practical pipeline economises: screening without an MSA, fewer models and
+recycles, test-time search in place of exhaustive sampling, adaptive allocation
+toward promising regions. Each is adopted on the premise that a cheap score
+identifies where to spend next. Whether it does is largely unmeasured.
 
-**¶3 — contribution.** We measure three, against 164 designs with experimental
-binding outcomes and a pre-registered search protocol.
+**¶3 — contribution.** We measure four such strategies against a uniform
+baseline at matched budget, with pre-registered success criteria, against 164
+designs with experimental binding outcomes.
 
 ---
 
@@ -79,22 +93,28 @@ binding outcomes and a pre-registered search protocol.
   and assayed by their submitters; 55 binders, 310 non-binders. A balanced
   subset of 164 (54/110) was folded under every configuration compared. One
   positive control (Cetuximab, an approved anti-EGFR therapeutic) was excluded.
-- **Scoring.** ColabFold 1.6.2, AlphaFold2-multimer v3. Configurations compared:
-  single-sequence; hybrid (precomputed target alignment, single-sequence
-  binder); full MSA at 1 model / 3 recycles; full MSA at 3 models / 8 recycles.
+- **Scoring configurations.** ColabFold 1.6.2, AlphaFold2-multimer v3.
+  *single-sequence*; *hybrid* (precomputed target alignment, single-sequence
+  binder, 1 model / 3 recycles); *full MSA* at 1 model / 3 recycles; *full MSA*
+  at 3 models / 8 recycles. **These are different instruments and we treat them
+  as such** — §3.3 measures the offset between them.
 - **Statistics.** ROC AUC via the rank-sum identity. Paired bootstrap resampling
   *designs*, not scores. Because binders in this set are longer than
-  non-binders (125 aa against 101), every AUC is also reported stratified
-  within length tertiles and after regressing length out.
-- **Hardware.** One RTX 3060, 6 GB, under WSL2.
+  non-binders (125 aa against 101), every AUC is also reported stratified within
+  length tertiles and after regressing length out.
+- **Hardware.** One RTX 3060, 6 GB, under WSL2. ~6,000 AlphaFold predictions.
 
 ---
 
 ## 3. Results
 
-### 3.1 Single-sequence screening selects worse than random
+> The arc is deliberate: each subsection tries to be cleverer than the last, and
+> each fails by a larger margin. §3.5 explains why all of them had to.
 
-**[FIGURE 1]** target pLDDT against selection quality, four conditions.
+### 3.1 A cheap screen is a good filter and a bad estimator
+
+**[FIGURE 1]** target pLDDT against selection quality (four conditions), beside
+the cheap-versus-accurate regression line.
 
 Scoring the same 60 RBD complexes under four conditions differing only in how
 the target's structure is supplied:
@@ -106,16 +126,12 @@ the target's structure is supplied:
 | precomputed target MSA | 79.2 | +0.141 |
 | full MSA (reference) | 84.3 | — |
 
-pLDDT below 50 indicates a disordered prediction. The cheap screen was scoring
-interfaces against an unfolded target.
+pLDDT below 50 indicates a disordered prediction. **The cheap screen was scoring
+interfaces against an unfolded target**, and selecting on it is worse than
+choosing at random.
 
-Independently, folding the fast screen's top and bottom deciles at high accuracy
-gave means of 0.670 and 0.671 (Mann–Whitney p = 0.970, n = 20). The single
-lowest-ranked design of fifty scored 0.870 at high accuracy — the joint best in
-that campaign.
-
-Against measured outcomes on the 164-design set, cheap-screen interface metrics
-fall *below* chance while the same metrics at full accuracy do not:
+Against measured binding outcomes on the 164-design set, cheap-screen interface
+metrics fall *below* chance while the same metrics at full accuracy do not:
 
 | metric | cheap screen | full accuracy |
 |---|---|---|
@@ -125,14 +141,61 @@ fall *below* chance while the same metrics at full accuracy do not:
 Paired on identical designs, full accuracy beats the cheap screen by **+0.155
 on ipSAE (p = 0.001)**.
 
-> The dose–response across four conditions is what turns this from an
-> observation into a mechanism. Lead with it.
+**But a screen that is useless as an estimator can still be useful as a filter,
+and conflating the two is the field's error as much as ours.** We separated them
+by re-folding 60 designs at full accuracy: 45 chosen for high cheap-screen score
+and 15 drawn at random across the range.
+
+| | value |
+|---|---|
+| as a **filter** — selected versus unselected designs | **+0.194 ipTM**, p = 0.0027 |
+| as an **estimator** — over-optimism above cheap score 0.75 | **−0.260** |
+
+The error regresses on the score itself:
+
+    Δ = −0.694 × (cheap score) + 0.282,   crossover at 0.406,   p = 0.0001
+
+Designs the screen rates below 0.41 **improve** when measured properly; those
+above it decline. Two designs the screen ranked near the bottom (0.120, 0.140)
+scored **0.750** at full accuracy.
+
+**Replicated on an independent dataset, and the single number is the wrong
+summary.** Our AUC rests on one competition against one target family, so we
+re-tested it against 3,760 experimentally characterised designs across 15
+targets from an independent meta-analysis (Overath, Rygaard et al. 2025), which
+publishes per-design ColabFold, AF2, AF3 and Boltz-1 confidence metrics.
+
+Our own competition data appears in theirs, giving a direct replication rather
+than a comparison: on the Adaptyv subset their pipeline gives ipTM AUC **0.659**
+(round 2, n = 175) where we measure **0.627**. Base-rate matched to our 1:2
+design, their 21 studies have median AUC **0.676** with a range of **0.489 to
+1.000**, and **two fall below chance** — including *Cao et al EGFR* at 0.489, the
+same target family as the competition.
+
+**ipTM's usefulness is target-dependent to a degree no single AUC conveys.** Our
+0.627 is unremarkable inside that distribution, which is the point: reporting one
+number from one target family — ours or anyone's — overstates how well this is
+known. Their larger set does resolve a metric ordering we could not (ipSAE above
+ipTM and ipAE); on 164 designs from one family those three were
+indistinguishable, which is consistent rather than contradictory.
+
+**Use the screen to choose what to measure. Never report its numbers.**
+
+> The four-condition dose–response turns the first half into a mechanism. The
+> filter/estimator split is the half that is genuinely new, and it is the
+> practitioner's takeaway.
 
 ### 3.2 Models and recycles are nearly free to cut
 
 **[FIGURE 2]** AUC against compute, three configurations.
 
 Same 164 designs, same alignment, varying only model count and recycles:
+
+> **Cost column excludes MSA acquisition.** Measured end-to-end against the
+> public mmseqs2 server, a fresh alignment costs roughly 130 s per design:
+> 1 model / 3 recycles runs ~190 s and 3 models / 8 recycles ~600 s. The 4×
+> ratio holds; the absolute figures below do not, and must be relabelled or
+> re-measured before submission.
 
 | configuration | cost/design | ipTM AUC | length-controlled |
 |---|---|---|---|
@@ -141,27 +204,164 @@ Same 164 designs, same alignment, varying only model count and recycles:
 | full MSA, 3 models, 8 recycles | ~240 s | 0.614 | 0.605 |
 
 The cheap-model configuration matches full accuracy at a quarter of the compute.
-Combined with §3.1, the alignment is doing the work; sampling depth is not.
+Combined with §3.1, **the alignment is doing the work; sampling depth is not.**
 
-> The practical recommendation is one sentence: compute the target's alignment
-> once per campaign and fold at 1 model / 3 recycles. Readers want a number to
-> act on.
+**But "matches" means one specific thing, and we checked.** Re-folding 60
+identical de novo RBD designs under both configurations, they are **not
+interchangeable**:
 
-### 3.3 Tail statistics break value estimation in test-time search
+    1 model / 3 recycles     mean 0.158   sd 0.104   max 0.580
+    3 models / 8 recycles    mean 0.396   sd 0.252   max 0.870
+    Spearman -0.053 (p = 0.69)    fit: cheap = 0.066 x expensive + 0.132
 
-**[FIGURE 3]** node-score disagreement against K, two targets, max vs mean.
+Thirteen designs score above 0.7 under the expensive configuration; **one of
+them scores even above 0.3 under the cheap one.** The best backbone in the set
+(0.870) is scored 0.160. Roughly half the offset is arithmetic — ColabFold's
+`rank_001` under `--num-models 3` is a max over three models, worth a measured
++0.132 — but a constant offset would preserve ranking, and what remains is rank
+disagreement, which cannot be subtracted away.
+
+Two weak signals can each beat chance against binding outcomes without agreeing
+with each other, and at AUC ≈ 0.62 that is what happens. **The licensed claim is
+narrow: for separating characterised binders from non-binders, the cheap
+configuration is as good and four times cheaper. It is not licensed for ranking
+de novo designs against one another.**
+
+> The paper's one unambiguously positive, immediately actionable result. One
+> sentence: compute the target's alignment once per campaign and fold at 1 model
+> / 3 recycles.
+
+### 3.3 Test-time search ties blind sampling at 17× the compute
+
+**[FIGURE 3]** best-so-far against folds, three search runs versus the blind
+baseline.
 
 We pre-registered a guided best-first search over RFdiffusion denoising
 trajectories (`diffuser.partial_T`), with nodes evaluated by folding ProteinMPNN
-sequences. Success criteria and the comparison baseline were fixed in advance
-and committed before any result existed.
+sequences. Success criteria and the comparison baseline were fixed in advance and
+committed before any result existed. Three runs, ~2,900 folds:
 
-**The search lost.** 1012 folds over 253 backbones reached ipTM 0.860, against
-0.870 for blind sampling at 60 folds — indistinguishable, at 17× the compute.
+| | run 1 | run 2 | run 3 |
+|---|---|---|---|
+| node value statistic | `max` | `mean` | `mean` |
+| UCT selection | broken | broken | **corrected** |
+| folds | 1012 | 955 | 1012 |
+| children beating their own parent | 26% | 40% | 46% |
+| **best design, baseline instrument** | **0.870** | 0.820 | 0.820 |
 
-The cause is a statistics error. Scoring a backbone by the maximum of K sequence
-draws, the disagreement between two disjoint sets of K draws from the *same*
-backbone:
+Blind sampling across ten backbones at **60 folds** reaches **0.870**. The search
+matches it at seventeen times the budget and does not exceed it.
+
+**Establishing even that required rebuilding the comparison.** The searches
+scored designs with a donated target alignment at 1 model / 3 recycles; the
+baseline was measured at full MSA, 3 models, 8 recycles. On ten backbones both
+had scored, the instruments differ by a clean **+0.139 offset on unselected
+designs** and disagree in rank. Re-folding the search's designs on the
+baseline's instrument is what produces the table above.
+
+Three explanations were tested and eliminated:
+
+- **Wrong statistic.** Scoring nodes by `max`-of-K rather than `mean` (§3.5).
+  Corrected in run 2; node values became estimable and the best design did not
+  improve.
+- **Broken selection.** The UCT exploration term reduced to a function of the
+  parent's visit count alone, producing a rich-get-richer loop that funnelled
+  92–94% of nodes into two of the root's four branches. Corrected in run 3;
+  subtree concentration fell to 74%, the search began expanding its own
+  best-valued nodes, and the best design did not improve.
+- **Wrong step size.** `partial_T = 10` was never chosen on evidence. Sweeping
+  T ∈ {2, 4, 10, 20}, parent→child correlation shows **no trend with T**
+  (ρ = 0.257, 0.600, 1.000, 0.771 at n = 6 each) — and is *lowest* at the
+  shortest step, the opposite of what a correlation length predicts.
+
+**What the sweep did find is a distinction between two regimes:**
+
+| | ρ | n |
+|---|---|---|
+| across **independently generated** backbones | **+0.771** (Pearson +0.989, p = 0.0002) | 6 |
+| within **one lineage** of re-diffused variants | +0.185 (p = 0.146) | 62 |
+
+Parent spreads are comparable (0.098, 0.087), so this is not restriction of
+range. Within a lineage every node shares the original backbone's quality and
+only noise varies; across backbones the variation is real. **A tree search
+descending within one lineage operates precisely where there is no signal.**
+
+> Report the pre-registration, the two corrected bugs and the tie plainly. A
+> negative result that survived two implementation fixes and an instrument
+> correction is worth far more than one that did not, and reviewers can tell.
+
+### 3.4 Adaptive allocation is worse than not choosing
+
+**[FIGURE 4]** E[best] against budget for each policy, with the oracle marked.
+
+§3.3 found signal *between* independently generated backbones. The natural
+exploitation is a bandit over roots: evaluate several, then spend the remaining
+budget on the ones scoring well. Simulated on 3,000 replicates over ten RBD
+roots at full accuracy:
+
+| budget | single root | **uniform** | halving | greedy | UCB | oracle |
+|---|---|---|---|---|---|---|
+| 20 | 0.696 | **0.833** | 0.830 | 0.832 | 0.834 | 0.770 |
+| 80 | 0.694 | **0.866** | 0.858 | 0.843 | 0.858 | 0.770 |
+| 160 | 0.697 | **0.869** | 0.866 | 0.844 | 0.863 | 0.770 |
+
+**No policy beats uniform at any budget.** Greedy is materially worse.
+
+The `oracle` column spends every fold on the root with the **best true mean** —
+perfect knowledge, unavailable to any real policy. It reaches 0.770 where
+uniform reaches 0.869.
+
+**Knowing exactly which starting point is best, and exploiting it perfectly, is
+worse than spreading folds evenly and not choosing at all.**
+
+
+**What to do instead, measured.** Extending to 50 roots × 4 draws (200 folds)
+gives the positive counterpart. E[best] for a budget spent as R roots × K draws:
+
+| | K=1 | K=2 | K=3 | K=4 |
+|---|---|---|---|---|
+| R=5 | 0.337 | 0.398 | 0.429 | 0.453 |
+| R=10 | 0.440 | 0.517 | 0.562 | 0.594 |
+| R=25 | 0.629 | 0.720 | 0.764 | 0.783 |
+| R=50 | **0.765** | **0.836** | **0.852** | **0.856** |
+
+At matched budget, roots beat draws every time — +0.075 at B=20, +0.044 at
+B=50, +0.049 at B=100 — and **roots are worth roughly 4× draws fold-for-fold**
+(5→50 roots gains +0.428 at K=1; 1→4 draws gains +0.116 at R=5).
+
+**The ceiling is the best root in the pool, not the number of roots.** The R
+axis is still climbing steeply at K=1, and saturates at K=4 only because the
+best of these 50 backbones tops out at 0.860. Three roots in fifty carry
+essentially all reachable quality (median 0.210, max 0.860); the root all three
+search runs descended from ranks in the bottom five at 0.13.
+
+**A cheap predictor of root quality, tested prospectively and found too weak to
+use.** Of six structural features computed from the backbone PDB alone, radius
+of gyration correlated with per-root quality at ρ = −0.482 (p = 0.0004, n = 50,
+surviving Bonferroni) — compact binders score better. Because it was selected as
+the largest of six on the data that measured it, we pre-registered a prospective
+test on 150 held-out backbones: the 10 most compact against the 10 most
+extended, 4 draws each.
+
+**It replicated and fell short of the threshold we had fixed in advance.**
+Compact 0.310 against extended 0.227, gap +0.083, p = 0.019; ρ = −0.374 across
+all 20. The registered rule required a gap ≥ 0.10 to call it a usable screen, so
+we report it as a real but unusable effect rather than a recommendation.
+
+This is the second feature we selected post hoc and then tested. The first,
+interface contact count, led at n = 10 (+0.511) and was nothing at n = 50
+(+0.191). **Two for two, the selected effect shrank on honest re-testing**, by
+the amount selection bias predicts.
+
+> This is the result that makes the paper. It is counterintuitive, cheap to
+> reproduce, and rules out a family of methods rather than one implementation.
+
+### 3.5 Why: the objective is a maximum and every strategy optimises a mean
+
+**[FIGURE 5]** node-score disagreement against K, two targets, max versus mean.
+
+Scoring a backbone by the maximum of K sequence draws, the disagreement between
+two disjoint sets of K draws from the *same* backbone:
 
 | target | K=2 | K=4 | K=8 |
 |---|---|---|---|
@@ -171,25 +371,29 @@ backbone:
 
 RBD's score distribution has skew **+3.38** (median 0.14; 91% of draws below
 0.3, 3% above 0.7); IL-7Rα's is −0.66. The maximum is a **tail statistic**, so
-on a right-skewed target its value depends on whether a subset happened to catch
-an excursion — and adding draws makes two subsets *more* likely to disagree. The
+on a right-skewed target its value depends on whether a subset caught an
+excursion — and adding draws makes two subsets *more* likely to disagree. The
 mean decays normally on both.
 
-The search scored nodes by max-of-4 on the right-skewed target. That single fact
-accounts for every anomaly observed: parent score failing to predict child
-quality, the best-known node yielding nothing on three separate expansions, the
-largest gains arriving from low-scoring parents, a flat score-versus-depth
-profile, and children beating parents only 26% of the time.
+**This single fact accounts for §3.1, §3.3 and §3.4 together.** What a designer
+wants is the best single design: a maximum. What every clever strategy estimates
+and steers by — a screen score, a node value, a root's expected quality — is a
+location statistic. Optimising location concentrates sampling on the
+highest-*mean* region, but tails are found by sampling **many different
+distributions**, not the best one harder. Hence:
 
-**The fix is free.** `max` is the correct statistic for selecting a design to
-synthesise; `mean` is the correct statistic for valuing a region to search. The
-same folds serve both.
+- selecting on a cheap score inflates it by 0.26 and loses what it gains (§3.1);
+- best-first search concentrates on high-mean branches and ties blind sampling
+  (§3.3);
+- an oracle that perfectly identifies the highest-mean root loses to uniform
+  (§3.4).
 
-> Report the pre-registration and the loss plainly. A negative result with a
-> diagnosed cause and a costless remedy is worth more than a marginal win, and
-> reviewers can tell the difference.
+Consistent with this, returns to compute are logarithmic and saturate: pooling
+2,104 RBD folds, expected best-of-N rises from 0.727 at N=60 to 0.849 at N=1000
+and gains ~+0.01 per doubling after; 0.33% of draws exceed 0.80 and none exceed
+0.90.
 
-### 3.4 Supporting: sequence choice dominates backbone choice
+### 3.6 Supporting: sequence choice dominates backbone choice
 
 Within-backbone (sequence) share of total interface-score variance, 180
 high-accuracy predictions over 30 backbones, 6 draws each:
@@ -202,23 +406,16 @@ high-accuracy predictions over 30 backbones, 6 draws each:
 
 Best-of-six rather than one raises mean ipTM by 0.155 pooled and 0.246 on RBD.
 
-> Previously the paper's headline. Demoted because the framing rested on "eight
-> sequences per backbone is standard", which could not be confirmed — published
-> descriptions give 1–5. State the variance result on its own terms and make no
-> claim about ablating a convention.
-
-### 3.5 Supporting: confidence scores do not rank affinity
+### 3.7 Supporting: confidence scores do not rank affinity
 
 All 55 binders carry a measured K_D spanning 1.2 nM to 10 µM. Spearman ρ against
 log10(K_D): ipTM +0.150, pLDDT +0.139, PAE_interaction −0.164, ESM
 pseudo-likelihood +0.226, length −0.155. At n = 55, significance requires
 |ρ| > 0.27; none reaches it.
 
-> Frame as confirmation, not discovery. That confidence scores work as negative
-> filters and not as rankings is already discussed in the field. The
-> contribution is measuring it against real K_D across 3.9 decades.
+> Frame as confirmation, not discovery, and cite.
 
-### 3.6 Supporting: orthogonal validation by molecular dynamics
+### 3.8 Supporting: orthogonal validation by molecular dynamics
 
 37 complexes across three targets, 2 ns implicit-solvent MD, panel spanning the
 full ipTM range by construction. ipTM predicts binder RMSD relative to the
@@ -232,39 +429,69 @@ this timescale and are uninformative rather than null.
 
 ## 4. Discussion
 
-**Recommendations.**
-1. Never screen without the target's alignment. Compute it once per campaign.
-2. Fold at 1 model / 3 recycles; the extra models and recycles buy nothing.
-3. In any search or selection loop, value regions by the **mean** of sampled
-   scores and select final designs by the **max**. Check the target's score
-   skew first — a pilot of 16 draws on 10 backbones takes 40 minutes.
-4. Draw at least three sequences per backbone.
-5. Do not treat any of these metrics as an affinity estimate.
+**Recommendations, in order of what they save.**
+
+1. **Spread folds across many starting points, uniformly, and stop when the
+   best-so-far stops improving.** Do not search, do not allocate, do not steer —
+   an oracle loses to uniform. Roots are worth ~4× draws fold-for-fold, and the
+   ceiling is the best root you drew, not the number you drew: once the pool
+   contains a good root, further draws on it do not help and a pool with no good
+   root cannot be rescued by depth (§3.4).
+2. **Never screen without the target's alignment.** Compute it once per
+   campaign; it is the single largest quality lever measured here (§3.1).
+3. **Fold at 1 model / 3 recycles to triage, not to rank.** The extra models and
+   recycles buy nothing for separating binders from non-binders, and four times
+   the compute. They buy a great deal for ranking de novo designs against each
+   other, where the two configurations do not agree at all (§3.2).
+4. **Use cheap scores as filters and never as estimates.** Worth +0.194 for the
+   first purpose and −0.26 for the second (§3.1).
+5. **Check your target's score skew before designing any selection scheme.** A
+   pilot of 16 draws on 10 backbones takes 40 minutes and tells you whether
+   max-of-K is estimable at all (§3.5).
+6. Draw at least three sequences per backbone (§3.6).
+7. Do not treat any of these metrics as an affinity estimate (§3.7).
 
 **Limitations — first in the paragraph, not last.**
-- Three targets. The search result is n = 1: one root, one target, one seed,
-  one hyperparameter setting.
-- No wet-lab validation of our own designs; the only measured outcomes are
-  other groups' designs re-scored.
-- 54 binders bounds every null here. "No detectable relationship" is not "no
+
+- Three targets; the search result is three runs sharing one root, one target,
+  one seed. That root ranks **9th of 10** on measured quality, chosen before any
+  of this was measured.
+- No wet-lab validation of our own designs. Every "accurate" measurement here is
+  a *different AlphaFold configuration*, not reality. The MD in §3.8 is the only
+  orthogonal check and it is 2 ns.
+- 54 binders bounds every null. "No detectable relationship" is not "no
   relationship".
-- MD is 2 ns — sufficient for rigidity, too short for dissociation.
+- The `partial_T` sweep uses 6 parents per T and detects only large
+  correlations; ~30 per T would be needed for ρ = 0.5 at 80% power.
+- Allocation results are simulated by resampling observed pools, so no policy
+  can exceed a root's observed maximum. Comparisons between multi-root policies
+  are fair; the single-root arm is a floor.
 - One consumer GPU constrained which configurations could be tested, not only
   how many.
+- **Our diagnostic claims have a worse track record than our measurements.**
+  Three mechanisms we found compelling during this work did not survive their
+  own tests: that both broken search runs were breadth-first (they were the
+  opposite), that a variance decomposition explained the shortfall (its one
+  pre-committed prediction missed), and that search gain concentrates in poor
+  starting points (the sweep found the reverse). The descriptive numbers held.
+  We report this because it is the reason to trust the tables and not the
+  stories.
 
-**Future work.** The mean-versus-max correction is untested inside a live
-search; that it makes node values estimable does not prove a search using it
-succeeds. Proteina-Complexa (arXiv:2603.27950) reports MCTS beating best-of-N on
-hard targets at far larger budgets, and re-running with corrected node values on
-a low-skew target is the obvious next experiment.
+**Future work.** Every negative result here is bounded by one consumer GPU.
+Proteina-Complexa (arXiv:2603.27950) reports MCTS beating best-of-N on hard
+targets at far larger budgets, so this does not generalise upward. The
+tail-statistic argument does predict the shape of any such win: it should come
+from sampling breadth, not from steering. The decisive experiment is a validated
+value function, which requires measured binding data rather than more compute.
 
 ---
 
 ## 5. Data and code availability
 
 github.com/PRANAVV1107/protein-calibration-kit — all scripts, fold outputs,
-analysis code, the search pre-registration, and a log of errors found and
-corrected during the work.
+analysis code, the two search pre-registrations, a running log of the
+experiments as they were performed, and a log of errors found and corrected
+during the work.
 
 ---
 
@@ -272,12 +499,15 @@ corrected during the work.
 
 > Delete before submitting.
 
-- **One theme, three claims.** Cheap shortcuts fail for measurable reasons; two
-  have free fixes. Resist adding findings that dilute it.
-- **The error log is an asset, not an embarrassment.** A random-sequence stub
-  that passed three validation stages, a label inversion, a positive control
-  scored as a design, a sampling bias from fold ordering. Reporting them is
-  what makes the rest credible.
+- **One thesis, four measurements, escalating.** Screen → search → allocate →
+  why. Resist adding findings that dilute it; §3.6–3.8 are already at the limit.
+- **The oracle result is the hook.** Lead the abstract and the talk with it.
+- **The error log is an asset.** A random-sequence stub that passed three
+  validation stages, a label inversion, a positive control scored as a design, a
+  sampling bias from fold ordering, a process guard that matched itself five
+  times, and an invalid instrument comparison that stood for three search runs.
+  Reporting them is what makes the rest credible.
 - **Cite what you confirm.** For the affinity result and for ipSAE, say
   "consistent with" and cite.
-- **Figures carry the paper.** Three good ones beat eight mediocre ones.
+- **Figures carry the paper.** Five good ones; Figure 4 (the oracle) is the one
+  people will remember.

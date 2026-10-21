@@ -1,0 +1,18 @@
+{
+ "next_id": 1,
+ "folds_used": 0,
+ "root": 0,
+ "nodes": [
+  {
+   "id": 0,
+   "pdb": "/mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_15.pdb",
+   "parent": null,
+   "children": [],
+   "n": 1,
+   "total": 0.0,
+   "best": 0.0,
+   "depth": 6,
+   "evaluated": true
+  }
+ ]
+}

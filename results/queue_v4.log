@@ -1,0 +1,7 @@
+[2026-09-13 19:23:25] === QUEUE V4 START ===
+[2026-09-13 19:23:25] hhsearch: /usr/bin/hhsearch
+[2026-09-13 19:23:25] START template_rbd (60)
+[2026-09-13 19:51:11] DONE  template_rbd (60)
+[2026-09-13 19:51:11] START decoys_full (30)
+[2026-09-13 22:08:31] DONE  decoys_full (30)
+[2026-09-13 22:08:31] START il7ra_rescreen (114)

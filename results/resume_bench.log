@@ -1,0 +1,21 @@
+[2026-09-16 09:17:26] === RESUME BENCH START (at 85/165) ===
+[2026-09-16 09:17:26] waiting for MD to finish (running: 1)
+[2026-09-16 13:45:21] === RESUME BENCH START (at 85/165) ===
+[2026-09-16 13:45:21] waiting for MD to finish (running: 1)
+[2026-09-16 14:07:22] MD done. 37/37 systems.
+[2026-09-16 14:07:33] 80 remaining, chunks of 30
+[2026-09-16 14:07:43]   chunk 1 nonzero (continuing)
+[2026-09-16 14:07:43]   chunk 1 done -- 85/165
+[2026-09-16 14:07:50]   chunk 2 nonzero (continuing)
+[2026-09-16 14:07:51]   chunk 2 done -- 85/165
+[2026-09-16 14:07:55]   chunk 3 nonzero (continuing)
+[2026-09-16 14:07:56]   chunk 3 done -- 85/165
+[2026-09-16 14:07:56] === RESUME BENCH COMPLETE (85/165) ===
+[2026-09-17 08:36:37] === RESUME BENCH START (at 85/165) ===
+[2026-09-17 08:36:37] waiting for MD to finish (running: 0)
+[2026-09-17 08:36:37] MD done. 37/37 systems.
+[2026-09-17 08:36:39] 80 remaining, chunks of 30
+[2026-09-17 09:33:13]   chunk 1 done -- 115/165
+[2026-09-17 10:29:14]   chunk 2 done -- 145/165
+[2026-09-17 11:09:40]   chunk 3 done -- 165/165
+[2026-09-17 11:09:41] === RESUME BENCH COMPLETE (165/165) ===

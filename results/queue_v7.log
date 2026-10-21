@@ -1,0 +1,27 @@
+[2026-09-13 23:14:21] === QUEUE V7 START (reordered by impact) ===
+[2026-09-13 23:14:21] GPU free.
+[2026-09-13 23:14:21] START adaptyv_seed (1 fold, generates EGFR domain III alignment)
+[2026-09-13 23:21:54] DONE  adaptyv_seed
+[2026-09-13 23:21:54] building validation inputs from seed_EGFRd3.a3m
+Adaptyv EGFR round 2
+  labelled designs      : 365  (55 binders / 310 non-binders)
+  dropped as too short  : 15  (< 25 aa)
+  length range          : 27-250 aa
+
+  EGFR alignment: 4289 rows, target 201 aa (reused for every design)
+[OK] 365 hybrid inputs -> results/queue/adaptyv_val  (~5.1 h at ~50 s/fold)
+[2026-09-13 23:22:02] START adaptyv_validation (365 designs, 55 binders / 310 non-binders)
+scripts/queue_v7.sh: line 115: 87292 Killed                  colabfold_batch --model-type alphafold2_multimer_v3 --num-models 1 --num-recycle 3 "$Q/adaptyv_val" "$Q/adaptyv_val_folds" > "$Q/adaptyv_val.log" 2>&1
+[2026-09-14 01:44:17] FAIL  adaptyv_validation (166 done)
+[2026-09-14 01:44:17] START family_seed (5 folds, one alignment per decoy)
+[2026-09-14 02:14:28] DONE  family_seed
+  candidates: 15
+  gammaC   target 191 res, MSA 2127 rows
+  IL4Ra    target 188 res, MSA 1063 rows
+  IL21R    target 209 res, MSA 1084 rows
+  IgGFc    target 207 res, MSA 5503 rows
+  albumin  target 578 res, MSA 1105 rows
+[OK] 75 pairings -> results/queue/family_panel  (~1.0 h at ~50 s/fold)
+[2026-09-14 02:14:31] START family_panel
+[2026-09-14 04:08:33] DONE  family_panel (75)
+[2026-09-14 04:08:33] START il7ra_rescreen (114, resumes)

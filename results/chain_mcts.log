@@ -1,0 +1,22 @@
+[2026-09-16 12:44:33] === CHAIN: MD -> MCTS -> benchmark -> expert_r1 ===
+[2026-09-16 12:44:33] waiting for MD (running: 1)
+[2026-09-16 13:44:34] MD done: 36/37 systems
+[2026-09-16 13:44:34] --- MCTS (budget 1000 folds, ~21 h) ---
+[2026-09-16 13:44:35] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_15.pdb
+[2026-09-16 13:44:37] root score 0.000 (folds 0)
+[2026-09-16 13:44:37] iter: expanding node 0 (depth 0, mean 0.000, n 1) [folds 0/1000]
+[2026-09-16 13:45:20]   RFdiffusion returned 1 on node 0
+[2026-09-16 13:45:20]   expansion produced nothing; marking node exhausted
+[2026-09-16 13:45:20] no expandable node left
+[2026-09-16 13:45:20] ============================================================
+[2026-09-16 13:45:20] SEARCH COMPLETE: 1 nodes, 0 folds
+[2026-09-16 13:45:20]   node 0    depth 6  best 0.000  mean 0.000  n 1  binder_15.pdb
+[2026-09-16 13:45:20] MCTS returned
+nodes 1  folds 0
+root best 0.0000
+overall best 0.0000
+
+all evaluated nodes, best first:
+   0 depth 6 best 0.0000 mean 0.0000 n 1 /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_15.pdb
+[2026-09-16 13:45:20] --- remaining paper folds ---
+[2026-09-16 14:11:51] === CHAIN COMPLETE ===

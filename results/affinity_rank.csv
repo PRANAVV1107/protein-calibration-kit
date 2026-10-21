@@ -1,0 +1,6 @@
+metric,rho_vs_logKD,p,n,verdict
+adaptyv ipTM,0.15032883242140258,0.2775220243789932,53,not distinguishable from noise
+adaptyv pLDDT,0.13902401039862966,0.31607034246790183,53,not distinguishable from noise
+adaptyv PAE_int,-0.16351486804443477,0.2365473734684228,53,not distinguishable from noise
+ESM pseudo-LL,0.2263181564628855,0.09705782548344592,53,not distinguishable from noise
+binder length,-0.15508622101673722,0.25309156706861036,55,not distinguishable from noise

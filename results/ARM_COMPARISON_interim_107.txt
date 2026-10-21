@@ -1,0 +1,64 @@
+==============================================================================
+CONTROLLED COMPARISON -- identical designs, cheap screen vs high accuracy
+==============================================================================
+  paired designs: 107   binders 29   non-binders 78
+  high-accuracy arm is 107 / 165 complete
+
+  *** INTERIM -- NOT A RESULT ***
+  ColabFold folds shortest-first, so this is the short tail,
+  not a random subsample.
+  length covered here : 27-122 aa (sd 26)
+  length in full set  : 27-250 aa
+  covering 43% of the length range; 58 designs still unfolded.
+  Length-adjusted columns are unreliable at this coverage:
+  there is too little length variation left to adjust for.
+
+metric                          AUC   95% CI          
+------------------------------------------------------------------------------
+length (confound baseline)    0.394   [0.287, 0.496]   (CI includes 0.5)
+adaptyv_iptm (external)       0.790   [0.700, 0.867]
+cheap  ipTM                   0.567   [0.460, 0.681]   (CI includes 0.5)
+cheap  ipSAE_min              0.399   [0.291, 0.507]   (CI includes 0.5)
+cheap  pDockQ2_min            0.397   [0.291, 0.504]   (CI includes 0.5)
+HIGH   ipTM                   0.620   [0.514, 0.720]
+HIGH   ipSAE_min              0.616   [0.509, 0.716]
+HIGH   pDockQ2_min            0.626   [0.517, 0.726]
+HIGH   pLDDT                  0.647   [0.540, 0.752]
+
+==============================================================================
+PAIRED DIFFERENCES (same designs, same resamples)
+==============================================================================
+  high accuracy - cheap screen (ipTM)    +0.054  [-0.033, +0.140]  p=0.229  not distinguishable
+  high accuracy - cheap screen (ipSAE)   +0.216  [+0.113, +0.328]  p=0.000  significant
+  high accuracy - Adaptyv's own (ipTM)   -0.169  [-0.285, -0.060]  p=0.001  significant
+  high accuracy ipTM - length alone      +0.226  [+0.088, +0.366]  p=0.001  significant
+
+==============================================================================
+LENGTH-ADJUSTED (binders 53 aa vs non-binders 69 aa in this set)
+==============================================================================
+  raw    = plain AUC, inherits whatever length predicts on its own
+  strat  = pooled within length tertiles
+  resid  = AUC after regressing length out of the metric
+  A metric is only real if strat and resid both stay above 0.5.
+
+metric                           raw   strat   resid
+------------------------------------------------------------------------------
+adaptyv_iptm (external)        0.790   0.735   0.746   <- survives
+cheap  ipTM                    0.567   0.631   0.544
+cheap  ipSAE_min               0.399   0.427   0.418   <- collapses; was length
+cheap  pDockQ2_min             0.397   0.425   0.468   <- collapses; was length
+HIGH   ipTM                    0.620   0.611   0.585
+HIGH   ipSAE_min               0.616   0.610   0.630   <- survives
+HIGH   pDockQ2_min             0.626   0.608   0.612   <- survives
+HIGH   pLDDT                   0.647   0.645   0.630   <- survives
+
+==============================================================================
+DECISION GATE: >= 0.564 justifies the RL layer
+==============================================================================
+  best on raw AUC       : HIGH   pLDDT       0.647
+  best length-controlled: HIGH   pLDDT       0.630  (weaker of strat/resid)
+
+  GATE CLEARED on the length-controlled figure (0.630 vs 0.564)
+  (raw-AUC bootstraps above gate for that metric: 93.5%)
+
+[OK] results/arm_comparison.csv

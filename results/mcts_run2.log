@@ -1,0 +1,360 @@
+[2026-09-18 20:13:38] contig from root: [E333-526/0 71-71]  (binder 71 aa, target E 194 aa)
+[2026-09-18 20:13:38] root: /mnt/c/Users/prana/Downloads/proteinfoldingexp/real_test_results/rbd_200_batch/batch_0/rfdiffusion/binder_47.pdb
+[2026-09-18 20:14:13]   4 sequences -> 4 hybrid a3m
+[2026-09-18 20:19:27] root score 0.117 (folds 1)
+[2026-09-18 20:19:27] iter: expanding node 0 (depth 0, mean 0.117, n 1) [folds 1/1000]
+[2026-09-18 20:23:01]   16 sequences -> 16 hybrid a3m
+[2026-09-18 20:34:11]   child 1 -> value 0.117  (best seq 0.120)
+[2026-09-18 20:34:11]   child 2 -> value 0.170  (best seq 0.260)
+[2026-09-18 20:34:11]   child 3 -> value 0.147  (best seq 0.240)
+[2026-09-18 20:34:11]   child 4 -> value 0.140  (best seq 0.160)
+[2026-09-18 20:34:11] iter: expanding node 2 (depth 1, mean 0.170, n 1) [folds 5/1000]
+[2026-09-18 20:37:34]   16 sequences -> 16 hybrid a3m
+[2026-09-18 20:48:39]   child 5 -> value 0.165  (best seq 0.230)
+[2026-09-18 20:48:39]   child 6 -> value 0.138  (best seq 0.190)
+[2026-09-18 20:48:39]   child 7 -> value 0.148  (best seq 0.190)
+[2026-09-18 20:48:39]   child 8 -> value 0.312  (best seq 0.780)
+[2026-09-18 20:48:39] iter: expanding node 8 (depth 2, mean 0.312, n 1) [folds 9/1000]
+[2026-09-18 20:51:55]   16 sequences -> 16 hybrid a3m
+[2026-09-18 21:02:55]   child 9 -> value 0.138  (best seq 0.160)
+[2026-09-18 21:02:55]   child 10 -> value 0.148  (best seq 0.200)
+[2026-09-18 21:02:55]   child 11 -> value 0.290  (best seq 0.530)
+[2026-09-18 21:02:55]   child 12 -> value 0.160  (best seq 0.260)
+[2026-09-18 21:02:55] iter: expanding node 3 (depth 1, mean 0.147, n 1) [folds 13/1000]
+[2026-09-18 21:06:19]   16 sequences -> 16 hybrid a3m
+[2026-09-18 21:17:18]   child 13 -> value 0.230  (best seq 0.480)
+[2026-09-18 21:17:18]   child 14 -> value 0.218  (best seq 0.440)
+[2026-09-18 21:17:18]   child 15 -> value 0.158  (best seq 0.240)
+[2026-09-18 21:17:18]   child 16 -> value 0.223  (best seq 0.370)
+[2026-09-18 21:17:18] iter: expanding node 4 (depth 1, mean 0.140, n 1) [folds 17/1000]
+[2026-09-18 21:20:32]   16 sequences -> 16 hybrid a3m
+[2026-09-18 21:31:32]   child 17 -> value 0.180  (best seq 0.250)
+[2026-09-18 21:31:32]   child 18 -> value 0.143  (best seq 0.160)
+[2026-09-18 21:31:32]   child 19 -> value 0.203  (best seq 0.320)
+[2026-09-18 21:31:32]   child 20 -> value 0.295  (best seq 0.790)
+[2026-09-18 21:31:32] iter: expanding node 1 (depth 1, mean 0.117, n 1) [folds 21/1000]
+[2026-09-18 21:34:51]   16 sequences -> 16 hybrid a3m
+[2026-09-18 21:45:50]   child 21 -> value 0.358  (best seq 0.680)
+[2026-09-18 21:45:50]   child 22 -> value 0.133  (best seq 0.170)
+[2026-09-18 21:45:50]   child 23 -> value 0.152  (best seq 0.190)
+[2026-09-18 21:45:50]   child 24 -> value 0.147  (best seq 0.220)
+[2026-09-18 21:45:50] iter: expanding node 21 (depth 2, mean 0.358, n 1) [folds 25/1000]
+[2026-09-18 21:49:06]   16 sequences -> 16 hybrid a3m
+[2026-09-18 22:00:04]   child 25 -> value 0.122  (best seq 0.140)
+[2026-09-18 22:00:04]   child 26 -> value 0.130  (best seq 0.140)
+[2026-09-18 22:00:04]   child 27 -> value 0.128  (best seq 0.150)
+[2026-09-18 22:00:04]   child 28 -> value 0.140  (best seq 0.170)
+[2026-09-18 22:00:04] iter: expanding node 20 (depth 2, mean 0.295, n 1) [folds 29/1000]
+[2026-09-18 22:03:20]   16 sequences -> 16 hybrid a3m
+[2026-09-18 22:14:18]   child 29 -> value 0.210  (best seq 0.320)
+[2026-09-18 22:14:18]   child 30 -> value 0.143  (best seq 0.170)
+[2026-09-18 22:14:18]   child 31 -> value 0.297  (best seq 0.640)
+[2026-09-18 22:14:18]   child 32 -> value 0.168  (best seq 0.240)
+[2026-09-18 22:14:18] iter: expanding node 19 (depth 2, mean 0.203, n 1) [folds 33/1000]
+[2026-09-18 22:17:34]   16 sequences -> 16 hybrid a3m
+[2026-09-18 22:28:34]   child 33 -> value 0.135  (best seq 0.140)
+[2026-09-18 22:28:34]   child 34 -> value 0.228  (best seq 0.530)
+[2026-09-18 22:28:34]   child 35 -> value 0.133  (best seq 0.160)
+[2026-09-18 22:28:34]   child 36 -> value 0.125  (best seq 0.130)
+[2026-09-18 22:28:34] iter: expanding node 17 (depth 2, mean 0.180, n 1) [folds 37/1000]
+[2026-09-18 22:31:52]   16 sequences -> 16 hybrid a3m
+[2026-09-18 22:42:53]   child 37 -> value 0.158  (best seq 0.180)
+[2026-09-18 22:42:53]   child 38 -> value 0.290  (best seq 0.600)
+[2026-09-18 22:42:53]   child 39 -> value 0.148  (best seq 0.170)
+[2026-09-18 22:42:53]   child 40 -> value 0.145  (best seq 0.200)
+[2026-09-18 22:42:53] iter: expanding node 18 (depth 2, mean 0.143, n 1) [folds 41/1000]
+[2026-09-18 22:46:13]   16 sequences -> 16 hybrid a3m
+[2026-09-18 22:57:15]   child 41 -> value 0.135  (best seq 0.160)
+[2026-09-18 22:57:15]   child 42 -> value 0.228  (best seq 0.490)
+[2026-09-18 22:57:15]   child 43 -> value 0.152  (best seq 0.200)
+[2026-09-18 22:57:15]   child 44 -> value 0.305  (best seq 0.640)
+[2026-09-18 22:57:15] iter: expanding node 44 (depth 3, mean 0.305, n 1) [folds 45/1000]
+[2026-09-18 23:00:46]   16 sequences -> 16 hybrid a3m
+[2026-09-18 23:11:42]   child 45 -> value 0.228  (best seq 0.430)
+[2026-09-18 23:11:42]   child 46 -> value 0.210  (best seq 0.410)
+[2026-09-18 23:11:42]   child 47 -> value 0.163  (best seq 0.210)
+[2026-09-18 23:11:42]   child 48 -> value 0.153  (best seq 0.190)
+[2026-09-18 23:11:42] iter: expanding node 42 (depth 3, mean 0.228, n 1) [folds 49/1000]
+[2026-09-18 23:15:13]   16 sequences -> 16 hybrid a3m
+[2026-09-18 23:26:07]   child 49 -> value 0.140  (best seq 0.170)
+[2026-09-18 23:26:07]   child 50 -> value 0.122  (best seq 0.130)
+[2026-09-18 23:26:07]   child 51 -> value 0.233  (best seq 0.360)
+[2026-09-18 23:26:07]   child 52 -> value 0.203  (best seq 0.320)
+[2026-09-18 23:26:07] iter: expanding node 43 (depth 3, mean 0.152, n 1) [folds 53/1000]
+[2026-09-18 23:29:35]   16 sequences -> 16 hybrid a3m
+[2026-09-18 23:40:31]   child 53 -> value 0.345  (best seq 0.730)
+[2026-09-18 23:40:31]   child 54 -> value 0.210  (best seq 0.300)
+[2026-09-18 23:40:31]   child 55 -> value 0.158  (best seq 0.190)
+[2026-09-18 23:40:31]   child 56 -> value 0.145  (best seq 0.170)
+[2026-09-18 23:40:31] iter: expanding node 41 (depth 3, mean 0.135, n 1) [folds 57/1000]
+[2026-09-18 23:43:59]   16 sequences -> 16 hybrid a3m
+[2026-09-18 23:54:52]   child 57 -> value 0.143  (best seq 0.170)
+[2026-09-18 23:54:52]   child 58 -> value 0.253  (best seq 0.410)
+[2026-09-18 23:54:52]   child 59 -> value 0.203  (best seq 0.370)
+[2026-09-18 23:54:52]   child 60 -> value 0.297  (best seq 0.790)
+[2026-09-18 23:54:52] iter: expanding node 53 (depth 4, mean 0.345, n 1) [folds 61/1000]
+[2026-09-18 23:58:17]   16 sequences -> 16 hybrid a3m
+[2026-09-19 00:09:10]   child 61 -> value 0.230  (best seq 0.350)
+[2026-09-19 00:09:10]   child 62 -> value 0.160  (best seq 0.200)
+[2026-09-19 00:09:10]   child 63 -> value 0.133  (best seq 0.150)
+[2026-09-19 00:09:10]   child 64 -> value 0.140  (best seq 0.160)
+[2026-09-19 00:09:10] iter: expanding node 54 (depth 4, mean 0.210, n 1) [folds 65/1000]
+[2026-09-19 00:12:35]   16 sequences -> 16 hybrid a3m
+[2026-09-19 00:23:31]   child 65 -> value 0.235  (best seq 0.500)
+[2026-09-19 00:23:31]   child 66 -> value 0.138  (best seq 0.140)
+[2026-09-19 00:23:31]   child 67 -> value 0.180  (best seq 0.260)
+[2026-09-19 00:23:31]   child 68 -> value 0.138  (best seq 0.150)
+[2026-09-19 00:23:31] iter: expanding node 55 (depth 4, mean 0.158, n 1) [folds 69/1000]
+[2026-09-19 00:27:00]   16 sequences -> 16 hybrid a3m
+[2026-09-19 00:37:56]   child 69 -> value 0.147  (best seq 0.240)
+[2026-09-19 00:37:56]   child 70 -> value 0.160  (best seq 0.200)
+[2026-09-19 00:37:56]   child 71 -> value 0.148  (best seq 0.180)
+[2026-09-19 00:37:56]   child 72 -> value 0.150  (best seq 0.170)
+[2026-09-19 00:37:56] iter: expanding node 56 (depth 4, mean 0.145, n 1) [folds 73/1000]
+[2026-09-19 00:41:22]   16 sequences -> 16 hybrid a3m
+[2026-09-19 00:52:16]   child 73 -> value 0.120  (best seq 0.130)
+[2026-09-19 00:52:16]   child 74 -> value 0.247  (best seq 0.610)
+[2026-09-19 00:52:16]   child 75 -> value 0.152  (best seq 0.210)
+[2026-09-19 00:52:16]   child 76 -> value 0.263  (best seq 0.500)
+[2026-09-19 00:52:16] iter: expanding node 31 (depth 3, mean 0.297, n 1) [folds 77/1000]
+[2026-09-19 00:55:48]   16 sequences -> 16 hybrid a3m
+[2026-09-19 01:06:40]   child 77 -> value 0.128  (best seq 0.140)
+[2026-09-19 01:06:40]   child 78 -> value 0.122  (best seq 0.140)
+[2026-09-19 01:06:40]   child 79 -> value 0.143  (best seq 0.170)
+[2026-09-19 01:06:40]   child 80 -> value 0.150  (best seq 0.180)
+[2026-09-19 01:06:40] iter: expanding node 29 (depth 3, mean 0.210, n 1) [folds 81/1000]
+[2026-09-19 01:10:03]   16 sequences -> 16 hybrid a3m
+[2026-09-19 01:20:57]   child 81 -> value 0.135  (best seq 0.150)
+[2026-09-19 01:20:57]   child 82 -> value 0.220  (best seq 0.440)
+[2026-09-19 01:20:57]   child 83 -> value 0.163  (best seq 0.210)
+[2026-09-19 01:20:57]   child 84 -> value 0.140  (best seq 0.160)
+[2026-09-19 01:20:57] iter: expanding node 32 (depth 3, mean 0.168, n 1) [folds 85/1000]
+[2026-09-19 01:24:11]   16 sequences -> 16 hybrid a3m
+[2026-09-19 01:35:03]   child 85 -> value 0.120  (best seq 0.130)
+[2026-09-19 01:35:03]   child 86 -> value 0.175  (best seq 0.280)
+[2026-09-19 01:35:03]   child 87 -> value 0.170  (best seq 0.260)
+[2026-09-19 01:35:03]   child 88 -> value 0.220  (best seq 0.300)
+[2026-09-19 01:35:03] iter: expanding node 30 (depth 3, mean 0.143, n 1) [folds 89/1000]
+[2026-09-19 01:38:16]   16 sequences -> 16 hybrid a3m
+[2026-09-19 01:49:07]   child 89 -> value 0.158  (best seq 0.210)
+[2026-09-19 01:49:07]   child 90 -> value 0.180  (best seq 0.240)
+[2026-09-19 01:49:07]   child 91 -> value 0.220  (best seq 0.460)
+[2026-09-19 01:49:07]   child 92 -> value 0.140  (best seq 0.140)
+[2026-09-19 01:49:07] iter: expanding node 60 (depth 4, mean 0.297, n 1) [folds 93/1000]
+[2026-09-19 01:52:19]   16 sequences -> 16 hybrid a3m
+[2026-09-19 02:03:09]   child 93 -> value 0.195  (best seq 0.260)
+[2026-09-19 02:03:09]   child 94 -> value 0.260  (best seq 0.610)
+[2026-09-19 02:03:09]   child 95 -> value 0.310  (best seq 0.510)
+[2026-09-19 02:03:09]   child 96 -> value 0.297  (best seq 0.710)
+[2026-09-19 02:03:09] iter: expanding node 58 (depth 4, mean 0.253, n 1) [folds 97/1000]
+[2026-09-19 02:06:21]   16 sequences -> 16 hybrid a3m
+[2026-09-19 02:17:12]   child 97 -> value 0.133  (best seq 0.140)
+[2026-09-19 02:17:12]   child 98 -> value 0.160  (best seq 0.210)
+[2026-09-19 02:17:12]   child 99 -> value 0.140  (best seq 0.160)
+[2026-09-19 02:17:12]   child 100 -> value 0.185  (best seq 0.320)
+[2026-09-19 02:17:12] iter: expanding node 59 (depth 4, mean 0.203, n 1) [folds 101/1000]
+[2026-09-19 02:20:28]   16 sequences -> 16 hybrid a3m
+[2026-09-19 02:31:16]   child 101 -> value 0.148  (best seq 0.170)
+[2026-09-19 02:31:16]   child 102 -> value 0.147  (best seq 0.160)
+[2026-09-19 02:31:16]   child 103 -> value 0.143  (best seq 0.180)
+[2026-09-19 02:31:16]   child 104 -> value 0.150  (best seq 0.200)
+[2026-09-19 02:31:17] iter: expanding node 57 (depth 4, mean 0.143, n 1) [folds 105/1000]
+[2026-09-19 02:34:33]   16 sequences -> 16 hybrid a3m
+[2026-09-19 02:45:23]   child 105 -> value 0.125  (best seq 0.130)
+[2026-09-19 02:45:23]   child 106 -> value 0.138  (best seq 0.180)
+[2026-09-19 02:45:23]   child 107 -> value 0.133  (best seq 0.140)
+[2026-09-19 02:45:23]   child 108 -> value 0.128  (best seq 0.130)
+[2026-09-19 02:45:23] iter: expanding node 95 (depth 5, mean 0.310, n 1) [folds 109/1000]
+[2026-09-19 02:48:39]   16 sequences -> 16 hybrid a3m
+[2026-09-19 02:59:31]   child 109 -> value 0.155  (best seq 0.190)
+[2026-09-19 02:59:31]   child 110 -> value 0.135  (best seq 0.160)
+[2026-09-19 02:59:31]   child 111 -> value 0.185  (best seq 0.220)
+[2026-09-19 02:59:32]   child 112 -> value 0.370  (best seq 0.550)
+[2026-09-19 02:59:32] iter: expanding node 96 (depth 5, mean 0.297, n 1) [folds 113/1000]
+[2026-09-19 03:02:52]   16 sequences -> 16 hybrid a3m
+[2026-09-19 03:13:41]   child 113 -> value 0.375  (best seq 0.700)
+[2026-09-19 03:13:41]   child 114 -> value 0.117  (best seq 0.130)
+[2026-09-19 03:13:41]   child 115 -> value 0.297  (best seq 0.470)
+[2026-09-19 03:13:41]   child 116 -> value 0.128  (best seq 0.140)
+[2026-09-19 03:13:41] iter: expanding node 94 (depth 5, mean 0.260, n 1) [folds 117/1000]
+[2026-09-19 03:17:06]   16 sequences -> 16 hybrid a3m
+[2026-09-19 03:27:55]   child 117 -> value 0.135  (best seq 0.150)
+[2026-09-19 03:27:55]   child 118 -> value 0.160  (best seq 0.190)
+[2026-09-19 03:27:55]   child 119 -> value 0.130  (best seq 0.140)
+[2026-09-19 03:27:55]   child 120 -> value 0.150  (best seq 0.170)
+[2026-09-19 03:27:55] iter: expanding node 93 (depth 5, mean 0.195, n 1) [folds 121/1000]
+[2026-09-19 03:31:27]   16 sequences -> 16 hybrid a3m
+[2026-09-19 03:42:14]   child 121 -> value 0.128  (best seq 0.140)
+[2026-09-19 03:42:14]   child 122 -> value 0.240  (best seq 0.540)
+[2026-09-19 03:42:14]   child 123 -> value 0.228  (best seq 0.370)
+[2026-09-19 03:42:14]   child 124 -> value 0.140  (best seq 0.170)
+[2026-09-19 03:42:14] iter: expanding node 11 (depth 3, mean 0.290, n 1) [folds 125/1000]
+[2026-09-19 03:45:34]   16 sequences -> 16 hybrid a3m
+[2026-09-19 03:56:25]   child 125 -> value 0.343  (best seq 0.580)
+[2026-09-19 03:56:25]   child 126 -> value 0.212  (best seq 0.360)
+[2026-09-19 03:56:25]   child 127 -> value 0.175  (best seq 0.300)
+[2026-09-19 03:56:25]   child 128 -> value 0.138  (best seq 0.160)
+[2026-09-19 03:56:25] iter: expanding node 125 (depth 4, mean 0.343, n 1) [folds 129/1000]
+[2026-09-19 03:59:50]   16 sequences -> 16 hybrid a3m
+[2026-09-19 04:10:40]   child 129 -> value 0.125  (best seq 0.140)
+[2026-09-19 04:10:40]   child 130 -> value 0.275  (best seq 0.660)
+[2026-09-19 04:10:40]   child 131 -> value 0.175  (best seq 0.230)
+[2026-09-19 04:10:40]   child 132 -> value 0.120  (best seq 0.120)
+[2026-09-19 04:10:40] iter: expanding node 5 (depth 2, mean 0.165, n 1) [folds 133/1000]
+[2026-09-19 04:14:02]   16 sequences -> 16 hybrid a3m
+[2026-09-19 04:24:57]   child 133 -> value 0.265  (best seq 0.670)
+[2026-09-19 04:24:57]   child 134 -> value 0.185  (best seq 0.330)
+[2026-09-19 04:24:57]   child 135 -> value 0.158  (best seq 0.180)
+[2026-09-19 04:24:57]   child 136 -> value 0.282  (best seq 0.760)
+[2026-09-19 04:24:57] iter: expanding node 7 (depth 2, mean 0.148, n 1) [folds 137/1000]
+[2026-09-19 04:28:18]   16 sequences -> 16 hybrid a3m
+[2026-09-19 04:39:13]   child 137 -> value 0.325  (best seq 0.560)
+[2026-09-19 04:39:13]   child 138 -> value 0.233  (best seq 0.530)
+[2026-09-19 04:39:13]   child 139 -> value 0.217  (best seq 0.490)
+[2026-09-19 04:39:13]   child 140 -> value 0.208  (best seq 0.290)
+[2026-09-19 04:39:13] iter: expanding node 6 (depth 2, mean 0.138, n 1) [folds 141/1000]
+[2026-09-19 04:42:39]   16 sequences -> 16 hybrid a3m
+[2026-09-19 04:53:29]   child 141 -> value 0.143  (best seq 0.170)
+[2026-09-19 04:53:29]   child 142 -> value 0.168  (best seq 0.280)
+[2026-09-19 04:53:29]   child 143 -> value 0.120  (best seq 0.130)
+[2026-09-19 04:53:29]   child 144 -> value 0.150  (best seq 0.210)
+[2026-09-19 04:53:29] iter: expanding node 12 (depth 3, mean 0.160, n 1) [folds 145/1000]
+[2026-09-19 04:56:53]   16 sequences -> 16 hybrid a3m
+[2026-09-19 05:07:39]   child 145 -> value 0.250  (best seq 0.570)
+[2026-09-19 05:07:39]   child 146 -> value 0.290  (best seq 0.660)
+[2026-09-19 05:07:39]   child 147 -> value 0.135  (best seq 0.150)
+[2026-09-19 05:07:39]   child 148 -> value 0.135  (best seq 0.150)
+[2026-09-19 05:07:39] iter: expanding node 10 (depth 3, mean 0.148, n 1) [folds 149/1000]
+[2026-09-19 05:10:58]   16 sequences -> 16 hybrid a3m
+[2026-09-19 05:21:47]   child 149 -> value 0.168  (best seq 0.220)
+[2026-09-19 05:21:47]   child 150 -> value 0.273  (best seq 0.460)
+[2026-09-19 05:21:47]   child 151 -> value 0.175  (best seq 0.230)
+[2026-09-19 05:21:47]   child 152 -> value 0.188  (best seq 0.350)
+[2026-09-19 05:21:47] iter: expanding node 9 (depth 3, mean 0.138, n 1) [folds 153/1000]
+[2026-09-19 05:25:05]   16 sequences -> 16 hybrid a3m
+[2026-09-19 05:35:53]   child 153 -> value 0.150  (best seq 0.190)
+[2026-09-19 05:35:53]   child 154 -> value 0.273  (best seq 0.660)
+[2026-09-19 05:35:53]   child 155 -> value 0.275  (best seq 0.410)
+[2026-09-19 05:35:53]   child 156 -> value 0.143  (best seq 0.160)
+[2026-09-19 05:35:53] iter: expanding node 137 (depth 3, mean 0.325, n 1) [folds 157/1000]
+[2026-09-19 05:39:06]   16 sequences -> 16 hybrid a3m
+[2026-09-19 05:49:53]   child 157 -> value 0.165  (best seq 0.270)
+[2026-09-19 05:49:53]   child 158 -> value 0.285  (best seq 0.420)
+[2026-09-19 05:49:53]   child 159 -> value 0.310  (best seq 0.510)
+[2026-09-19 05:49:53]   child 160 -> value 0.242  (best seq 0.470)
+[2026-09-19 05:49:53] iter: expanding node 138 (depth 3, mean 0.233, n 1) [folds 161/1000]
+[2026-09-19 05:53:03]   16 sequences -> 16 hybrid a3m
+[2026-09-19 06:03:51]   child 161 -> value 0.355  (best seq 0.580)
+[2026-09-19 06:03:51]   child 162 -> value 0.295  (best seq 0.430)
+[2026-09-19 06:03:51]   child 163 -> value 0.125  (best seq 0.140)
+[2026-09-19 06:03:51]   child 164 -> value 0.155  (best seq 0.180)
+[2026-09-19 06:03:51] iter: expanding node 139 (depth 3, mean 0.217, n 1) [folds 165/1000]
+[2026-09-19 06:07:02]   16 sequences -> 16 hybrid a3m
+[2026-09-19 06:17:50]   child 165 -> value 0.242  (best seq 0.420)
+[2026-09-19 06:17:50]   child 166 -> value 0.230  (best seq 0.340)
+[2026-09-19 06:17:50]   child 167 -> value 0.340  (best seq 0.690)
+[2026-09-19 06:17:50]   child 168 -> value 0.147  (best seq 0.180)
+[2026-09-19 06:17:50] iter: expanding node 140 (depth 3, mean 0.208, n 1) [folds 169/1000]
+[2026-09-19 06:20:59]   16 sequences -> 16 hybrid a3m
+[2026-09-19 06:31:45]   child 169 -> value 0.163  (best seq 0.280)
+[2026-09-19 06:31:45]   child 170 -> value 0.242  (best seq 0.410)
+[2026-09-19 06:31:45]   child 171 -> value 0.165  (best seq 0.240)
+[2026-09-19 06:31:45]   child 172 -> value 0.198  (best seq 0.380)
+[2026-09-19 06:31:45] iter: expanding node 161 (depth 4, mean 0.355, n 1) [folds 173/1000]
+[2026-09-19 06:34:56]   16 sequences -> 16 hybrid a3m
+[2026-09-19 06:45:41]   child 173 -> value 0.147  (best seq 0.180)
+[2026-09-19 06:45:41]   child 174 -> value 0.212  (best seq 0.470)
+[2026-09-19 06:45:41]   child 175 -> value 0.292  (best seq 0.750)
+[2026-09-19 06:45:41]   child 176 -> value 0.140  (best seq 0.210)
+[2026-09-19 06:45:41] iter: expanding node 162 (depth 4, mean 0.295, n 1) [folds 177/1000]
+[2026-09-19 06:48:49]   16 sequences -> 16 hybrid a3m
+[2026-09-19 06:59:34]   child 177 -> value 0.263  (best seq 0.450)
+[2026-09-19 06:59:34]   child 178 -> value 0.160  (best seq 0.200)
+[2026-09-19 06:59:34]   child 179 -> value 0.217  (best seq 0.400)
+[2026-09-19 06:59:34]   child 180 -> value 0.145  (best seq 0.190)
+[2026-09-19 06:59:34] iter: expanding node 167 (depth 4, mean 0.340, n 1) [folds 181/1000]
+[2026-09-19 07:02:43]   16 sequences -> 16 hybrid a3m
+[2026-09-19 07:13:27]   child 181 -> value 0.155  (best seq 0.230)
+[2026-09-19 07:13:27]   child 182 -> value 0.255  (best seq 0.560)
+[2026-09-19 07:13:27]   child 183 -> value 0.360  (best seq 0.490)
+[2026-09-19 07:13:27]   child 184 -> value 0.398  (best seq 0.610)
+[2026-09-19 07:13:27] iter: expanding node 184 (depth 5, mean 0.398, n 1) [folds 185/1000]
+[2026-09-19 07:16:35]   16 sequences -> 16 hybrid a3m
+[2026-09-19 07:27:19]   child 185 -> value 0.355  (best seq 0.690)
+[2026-09-19 07:27:19]   child 186 -> value 0.242  (best seq 0.310)
+[2026-09-19 07:27:19]   child 187 -> value 0.307  (best seq 0.760)
+[2026-09-19 07:27:19]   child 188 -> value 0.260  (best seq 0.380)
+[2026-09-19 07:27:19] iter: expanding node 183 (depth 5, mean 0.360, n 1) [folds 189/1000]
+[2026-09-19 07:30:36]   16 sequences -> 16 hybrid a3m
+[2026-09-19 07:41:16]   child 189 -> value 0.168  (best seq 0.220)
+[2026-09-19 07:41:16]   child 190 -> value 0.185  (best seq 0.260)
+[2026-09-19 07:41:16]   child 191 -> value 0.193  (best seq 0.300)
+[2026-09-19 07:41:16]   child 192 -> value 0.427  (best seq 0.820)
+[2026-09-19 07:41:16] iter: expanding node 165 (depth 4, mean 0.242, n 1) [folds 193/1000]
+[2026-09-19 07:44:34]   16 sequences -> 16 hybrid a3m
+[2026-09-19 07:55:17]   child 193 -> value 0.163  (best seq 0.210)
+[2026-09-19 07:55:17]   child 194 -> value 0.148  (best seq 0.200)
+[2026-09-19 07:55:17]   child 195 -> value 0.155  (best seq 0.190)
+[2026-09-19 07:55:17]   child 196 -> value 0.135  (best seq 0.150)
+[2026-09-19 07:55:17] iter: expanding node 166 (depth 4, mean 0.230, n 1) [folds 197/1000]
+[2026-09-19 07:58:35]   16 sequences -> 16 hybrid a3m
+[2026-09-19 08:09:18]   child 197 -> value 0.128  (best seq 0.150)
+[2026-09-19 08:09:18]   child 198 -> value 0.203  (best seq 0.340)
+[2026-09-19 08:09:18]   child 199 -> value 0.295  (best seq 0.710)
+[2026-09-19 08:09:18]   child 200 -> value 0.148  (best seq 0.160)
+[2026-09-19 08:09:19] iter: expanding node 168 (depth 4, mean 0.147, n 1) [folds 201/1000]
+[2026-09-19 08:12:36]   16 sequences -> 16 hybrid a3m
+[2026-09-19 08:23:20]   child 201 -> value 0.122  (best seq 0.130)
+[2026-09-19 08:23:20]   child 202 -> value 0.235  (best seq 0.550)
+[2026-09-19 08:23:20]   child 203 -> value 0.135  (best seq 0.140)
+[2026-09-19 08:23:20]   child 204 -> value 0.125  (best seq 0.140)
+[2026-09-19 08:23:20] iter: expanding node 182 (depth 5, mean 0.255, n 1) [folds 205/1000]
+[2026-09-19 08:26:44]   16 sequences -> 16 hybrid a3m
+[2026-09-19 08:37:27]   child 205 -> value 0.160  (best seq 0.190)
+[2026-09-19 08:37:27]   child 206 -> value 0.172  (best seq 0.210)
+[2026-09-19 08:37:27]   child 207 -> value 0.307  (best seq 0.760)
+[2026-09-19 08:37:27]   child 208 -> value 0.238  (best seq 0.560)
+[2026-09-19 08:37:27] iter: expanding node 181 (depth 5, mean 0.155, n 1) [folds 209/1000]
+[2026-09-19 08:40:48]   16 sequences -> 16 hybrid a3m
+[2026-09-19 08:51:31]   child 209 -> value 0.237  (best seq 0.490)
+[2026-09-19 08:51:31]   child 210 -> value 0.318  (best seq 0.590)
+[2026-09-19 08:51:31]   child 211 -> value 0.290  (best seq 0.370)
+[2026-09-19 08:51:31]   child 212 -> value 0.175  (best seq 0.230)
+[2026-09-19 08:51:31] iter: expanding node 164 (depth 4, mean 0.155, n 1) [folds 213/1000]
+[2026-09-19 08:54:51]   16 sequences -> 16 hybrid a3m
+[2026-09-19 09:05:32]   child 213 -> value 0.330  (best seq 0.650)
+[2026-09-19 09:05:32]   child 214 -> value 0.188  (best seq 0.270)
+[2026-09-19 09:05:32]   child 215 -> value 0.160  (best seq 0.230)
+[2026-09-19 09:05:32]   child 216 -> value 0.355  (best seq 0.770)
+[2026-09-19 09:05:32] iter: expanding node 216 (depth 5, mean 0.355, n 1) [folds 217/1000]
+[2026-09-19 09:08:56]   16 sequences -> 16 hybrid a3m
+[2026-09-19 09:19:38]   child 217 -> value 0.225  (best seq 0.340)
+[2026-09-19 09:19:38]   child 218 -> value 0.398  (best seq 0.780)
+[2026-09-19 09:19:38]   child 219 -> value 0.323  (best seq 0.640)
+[2026-09-19 09:19:38]   child 220 -> value 0.190  (best seq 0.210)
+[2026-09-19 09:19:38] iter: expanding node 213 (depth 5, mean 0.330, n 1) [folds 221/1000]
+[2026-09-19 09:22:48]   16 sequences -> 16 hybrid a3m
+[2026-09-19 09:33:29]   child 221 -> value 0.340  (best seq 0.610)
+[2026-09-19 09:33:29]   child 222 -> value 0.255  (best seq 0.540)
+[2026-09-19 09:33:29]   child 223 -> value 0.213  (best seq 0.370)
+[2026-09-19 09:33:29]   child 224 -> value 0.145  (best seq 0.180)
+[2026-09-19 09:33:29] iter: expanding node 163 (depth 4, mean 0.125, n 1) [folds 225/1000]
+[2026-09-19 09:36:39]   16 sequences -> 16 hybrid a3m
+[2026-09-19 09:47:21]   child 225 -> value 0.367  (best seq 0.730)
+[2026-09-19 09:47:21]   child 226 -> value 0.282  (best seq 0.600)
+[2026-09-19 09:47:21]   child 227 -> value 0.143  (best seq 0.180)
+[2026-09-19 09:47:21]   child 228 -> value 0.240  (best seq 0.430)
+[2026-09-19 09:47:21] iter: expanding node 225 (depth 5, mean 0.367, n 1) [folds 229/1000]
+[2026-09-19 09:50:30]   16 sequences -> 16 hybrid a3m
+[2026-09-19 10:01:12]   child 229 -> value 0.143  (best seq 0.180)
+[2026-09-19 10:01:12]   child 230 -> value 0.255  (best seq 0.510)
+[2026-09-19 10:01:12]   child 231 -> value 0.155  (best seq 0.180)
+[2026-09-19 10:01:12]   child 232 -> value 0.148  (best seq 0.160)
+[2026-09-19 10:01:12] iter: expanding node 226 (depth 5, mean 0.282, n 1) [folds 233/1000]
+[2026-09-19 10:04:27]   16 sequences -> 16 hybrid a3m
+[2026-09-19 10:15:07]   child 233 -> value 0.143  (best seq 0.160)
+[2026-09-19 10:15:07]   child 234 -> value 0.155  (best seq 0.190)
+[2026-09-19 10:15:07]   child 235 -> value 0.247  (best seq 0.330)
+[2026-09-19 10:15:07]   child 236 -> value 0.138  (best seq 0.180)
+[2026-09-19 10:15:07] iter: expanding node 228 (depth 5, mean 0.240, n 1) [folds 237/1000]
+[2026-09-19 10:18:38]   16 sequences -> 16 hybrid a3m

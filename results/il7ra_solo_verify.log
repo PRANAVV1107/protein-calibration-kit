@@ -1,0 +1,56 @@
+
+WARNING: You are welcome to use the default MSA server, however keep in mind that it's a
+limited shared resource only capable of processing a few thousand MSAs per day. Please
+submit jobs only from a single IP address. We reserve the right to limit access to the
+server case-by-case when usage exceeds fair use. If you require more MSAs: You can 
+precompute all MSAs with `colabfold_search` or host your own API and pass it to `--host-url`
+
+2026-09-11 18:48:15,268 Running colabfold 1.6.2 (c35de0221f4d297a39edf4cf292ba2832e321edc)
+2026-09-11 18:48:24,405 Running on GPU
+2026-09-11 18:48:24,666 Found 5 citations for tools or databases
+2026-09-11 18:48:24,666 Query 1/1: pair_042_solo (length 313)
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:01 remaining: 00:00]
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:01 remaining: 00:00]
+2026-09-11 18:49:22.182805: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.183844: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.184558: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.184923: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.185298: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.185864: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.186332: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.186619: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.187024: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.187436: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.187630: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.187755: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.188235: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.188590: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.188758: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.188892: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.188993: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.189105: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.189215: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.189555: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.189988: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:49:22.190142: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-09-11 18:48:28,807 Setting max_seq=508, max_extra_seq=639
+2026-09-11 18:50:12,280 alphafold2_multimer_v3_model_1_seed_000 recycle=0 pLDDT=68.9 pTM=0.608 ipTM=0.323
+2026-09-11 18:51:08,101 alphafold2_multimer_v3_model_1_seed_000 recycle=1 pLDDT=76.2 pTM=0.712 ipTM=0.444 tol=5.18
+2026-09-11 18:51:16,448 alphafold2_multimer_v3_model_1_seed_000 recycle=2 pLDDT=86.2 pTM=0.796 ipTM=0.643 tol=1.26
+2026-09-11 18:51:24,815 alphafold2_multimer_v3_model_1_seed_000 recycle=3 pLDDT=91.3 pTM=0.845 ipTM=0.779 tol=0.444
+2026-09-11 18:51:24,816 alphafold2_multimer_v3_model_1_seed_000 took 129.1s (3 recycles)
+2026-09-11 18:51:33,198 alphafold2_multimer_v3_model_2_seed_000 recycle=0 pLDDT=64.4 pTM=0.53 ipTM=0.238
+2026-09-11 18:51:41,488 alphafold2_multimer_v3_model_2_seed_000 recycle=1 pLDDT=81.1 pTM=0.737 ipTM=0.507 tol=4.78
+2026-09-11 18:51:49,837 alphafold2_multimer_v3_model_2_seed_000 recycle=2 pLDDT=90.1 pTM=0.841 ipTM=0.778 tol=0.678
+2026-09-11 18:51:58,271 alphafold2_multimer_v3_model_2_seed_000 recycle=3 pLDDT=91.6 pTM=0.839 ipTM=0.802 tol=0.214
+2026-09-11 18:51:58,272 alphafold2_multimer_v3_model_2_seed_000 took 33.4s (3 recycles)
+2026-09-11 18:52:06,971 alphafold2_multimer_v3_model_3_seed_000 recycle=0 pLDDT=71.8 pTM=0.609 ipTM=0.306
+2026-09-11 18:52:15,816 alphafold2_multimer_v3_model_3_seed_000 recycle=1 pLDDT=89.1 pTM=0.823 ipTM=0.738 tol=3.85
+2026-09-11 18:52:24,827 alphafold2_multimer_v3_model_3_seed_000 recycle=2 pLDDT=92.4 pTM=0.853 ipTM=0.825 tol=0.635
+2026-09-11 18:52:34,005 alphafold2_multimer_v3_model_3_seed_000 recycle=3 pLDDT=93 pTM=0.871 ipTM=0.858 tol=0.15
+2026-09-11 18:52:34,008 alphafold2_multimer_v3_model_3_seed_000 took 35.7s (3 recycles)
+2026-09-11 18:52:34,082 reranking models by 'multimer' metric
+2026-09-11 18:52:34,083 rank_001_alphafold2_multimer_v3_model_3_seed_000 pLDDT=93 pTM=0.871 ipTM=0.858 ipSAE=0.71 pDockQ2=0.609
+2026-09-11 18:52:34,096 rank_002_alphafold2_multimer_v3_model_2_seed_000 pLDDT=91.6 pTM=0.839 ipTM=0.802 ipSAE=0.587 pDockQ2=0.445
+2026-09-11 18:52:34,107 rank_003_alphafold2_multimer_v3_model_1_seed_000 pLDDT=91.3 pTM=0.845 ipTM=0.779 ipSAE=0.582 pDockQ2=0.397
+2026-09-11 18:52:35,175 Done

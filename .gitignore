@@ -1,67 +1,45 @@
-# Fold outputs -- large, regenerable, and not useful in version control.
-# Ignore everything under results/ by default; whitelist summaries explicitly below.
-results/**
-!results/.gitkeep
-!results/**/ranked.csv
-!results/**/variance_results.csv
-!results/**/per_backbone_summary.csv
-
-# Raw structures and prediction dumps anywhere
-*.pdb
-!benchmark/**/*.pdb
-*.a3m
-*.pkl
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
-venv/
-env/
-ENV/
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Pytest
-.pytest_cache/
-
-# Large files
-*.tar.gz
-*.zip
-
-# Raw RCSB downloads are regenerable by scripts/fetch_decoys.py
-benchmark/decoys/[0-9]*.pdb
-
-# Known-bad inputs, kept for audit only. See QUARANTINE/README.md
+# ---------------------------------------------------------------------------
+# Known-bad artifacts, kept on disk so the record of what went wrong stays
+# auditable, but never published. QUARANTINE/README.md states this intent
+# explicitly. A rewrite of this file on 2026-10-20 dropped the rule and staged
+# five files, including a CSV of 100 random amino-acid strings labelled as
+# IL-7Ra designs -- which, published without context, reads as fabricated data.
+# ---------------------------------------------------------------------------
 QUARANTINE/
+
+# ---------------------------------------------------------------------------
+# results/ holds ~6,700 ColabFold predictions: PDBs, PAE matrices, MSAs,
+# mmseqs2 environment dumps, MD trajectories. Tens of thousands of files and
+# many GB, all regenerable from scripts/ plus the tracked manifests.
+#
+# Blacklisting failed -- payloads appear at many depths under many directory
+# names. This whitelists instead: ignore everything under results/, then
+# re-admit only the small files that constitute the record.
+# ---------------------------------------------------------------------------
+results/**
+
+# directories must be re-admitted for the patterns below to be reachable
+!results/**/
+
+# the record: what was run, and the extracted numbers every analysis reads
+!results/**/manifest.csv
+!results/**/to_fold.fasta
+!results/**/state.json
+!results/**/REGISTRATION.md
+!results/**/WHY_VOID.md
+!results/*.csv
+!results/*.txt
+!results/*.log
+!results/**/*_results.csv
+!results/**/*_summary.csv
+!results/variance_study/**/*.csv
+!results/rescore/*.csv
+
+# Raw per-design score JSONs are deliberately NOT tracked. There are ~6,700 of
+# them; the numbers they contain are in the analysis CSVs above, and the files
+# themselves are regenerable. Re-folding is documented in README.md.
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store

@@ -1,0 +1,41 @@
+==========================================================================
+SEARCH DESIGNS RE-SCORED ON THE BAR'S OWN INSTRUMENT
+==========================================================================
+  60 designs re-folded at full MSA / 3 models / 8 recycles
+  (originally scored with a donated alignment at 1 model / 3 recycles)
+
+--------------------------------------------------------------------------
+1. INSTRUMENT MAPPING  (random arm only -- not selected on either score)
+--------------------------------------------------------------------------
+  n = 15
+  hybrid   mean 0.190
+  high-acc mean 0.329
+  offset        +0.139   <- how much the instruments differ
+  Spearman rho  -0.086 (p = 0.761)  <- whether ranking survives
+
+--------------------------------------------------------------------------
+2. THE PRIMARY, REDONE
+--------------------------------------------------------------------------
+  run             n  hybrid best high-acc best   vs 0.870
+  run1           20        0.860        0.870   below by 0.000
+  run2           20        0.820        0.820   below by 0.050
+  run3           20        0.830        0.820   below by 0.050
+
+  best across all runs, high accuracy: 0.870
+  blind-sampling bar (same instrument):  0.870
+  -> search still below by 0.000
+
+--------------------------------------------------------------------------
+3. DID THE SEARCH OPTIMISE THE RIGHT THING?
+--------------------------------------------------------------------------
+  Spearman(hybrid, high-acc) over all 60 designs: +0.320 (p = 0.0126)
+  top arm   (chosen for high hybrid): high-acc mean 0.523
+  random arm                        : high-acc mean 0.329
+  Mann-Whitney one-sided p = 0.0027
+
+  If the top arm is not above the random arm, the hybrid score the
+  search maximised does not identify designs that are good on the
+  instrument that matters -- which would make the search's objective,
+  not its algorithm, the thing that failed.
+
+[OK] results/rescore/rescore_results.csv

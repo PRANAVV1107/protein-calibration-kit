@@ -1,0 +1,29 @@
+======================================================================
+SEQUENCE-DRAW VARIANCE STUDY
+======================================================================
+targets: il7ra, rbd, pdl1   backbones/target: 10   draws/backbone: 6
+Start: Sun Sep 13 00:28:59 EDT 2026
+
+[Sun Sep 13 00:29:00 EDT 2026] Stage 1 [il7ra]: ProteinMPNN 6 draws/backbone (temp 0.2, A bias -1.0, designed chain A)...
+   backbone files: 50
+
+[Sun Sep 13 00:36:02 EDT 2026] Stage 1 [rbd]: ProteinMPNN 6 draws/backbone (temp 0.2, A bias -1.0, designed chain A)...
+   backbone files: 50
+
+[Sun Sep 13 00:42:09 EDT 2026] Stage 1 [pdl1]: ProteinMPNN 6 draws/backbone (temp 0.2, A bias -1.0, designed chain B)...
+   backbone files: 50
+
+[Sun Sep 13 00:45:54 EDT 2026] Stage 2: building fold set...
+  il7ra : 10 backbones x 6 draws = 60 folds  (binder len 59-120, mean composition penalty 0.060)
+  rbd   : 10 backbones x 6 draws = 60 folds  (binder len 70-96, mean composition penalty 0.027)
+  pdl1  : 10 backbones x 6 draws = 60 folds  (binder len 52-114, mean composition penalty 0.015)
+
+[OK] total folds queued: 180   estimated 13.5 h at 4.5 min/fold
+
+[Sun Sep 13 00:45:57 EDT 2026] Stage 3 [il7ra]: high-accuracy folding...
+   folds done: 60
+
+[Sun Sep 13 04:51:14 EDT 2026] Stage 3 [rbd]: high-accuracy folding...
+   folds done: 60
+
+[Sun Sep 13 09:39:08 EDT 2026] Stage 3 [pdl1]: high-accuracy folding...

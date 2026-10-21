@@ -1,0 +1,14 @@
+[2026-09-13 16:29:14] === QUEUE V3 START ===
+[2026-09-13 16:29:14] waiting for in-flight fold (rbd_null) to finish...
+[2026-09-13 17:22:44] GPU free.
+[2026-09-13 17:22:44] START hybrid_rbd (60, target MSA from disk)
+[2026-09-13 18:10:16] DONE  hybrid_rbd (60)
+[2026-09-13 18:10:16] START template_rbd (60, target PDB as template)
+[2026-09-13 18:10:27] DONE  template_rbd (0)
+[2026-09-13 18:10:27] START rewardchannel_il7ra (60)
+[2026-09-13 18:37:21] DONE  rewardchannel_il7ra (60)
+[2026-09-13 18:37:21] START pdl1_variance (12 remaining, uses MSA server)
+[2026-09-13 19:09:45] DONE  pdl1_variance (60)
+[2026-09-13 19:09:45] START monomers (183)
+[2026-09-13 19:19:07] DONE  monomers (183)
+[2026-09-13 19:19:07] === QUEUE V3 COMPLETE ===

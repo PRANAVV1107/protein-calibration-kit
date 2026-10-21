@@ -1,0 +1,7 @@
+[2026-09-15 23:45:16] === REWARD BENCH START ===
+[2026-09-15 23:45:16] queue_v11.sh not running
+[2026-09-15 23:45:50] reusing 165 precomputed MSAs (no MMseqs2 re-search)
+scripts/reward_bench.sh: line 57: 20081 Killed                  colabfold_batch --model-type alphafold2_multimer_v3 --num-models 1 --num-recycle 3 "$IN" "$OUT" >> "$Q/reward_bench.log" 2>&1
+[2026-09-16 01:15:49] colabfold returned nonzero
+[2026-09-16 01:15:50] m1r3 arm: 85 folds in 89 min  (63 s/design)
+[2026-09-16 01:15:50] === REWARD BENCH DONE -- analyse with compare_arms.py --high-dir /mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit/results/queue/reward_bench_m1r3 ===
