@@ -1,0 +1,154 @@
+{
+  "Test 1: Cross-Validation (Leave-One-Target-Out)": {
+    "rbd": {
+      "status": "WARN",
+      "high_iptm_hit_rate": 0,
+      "low_iptm_hit_rate": 0.07575757575757576,
+      "test_count": 264
+    },
+    "pdl1": {
+      "status": "PASS",
+      "high_iptm_hit_rate": 0.2857142857142857,
+      "low_iptm_hit_rate": 0.125,
+      "test_count": 55
+    }
+  },
+  "Test 2: Bin Coverage (Minimum Samples)": {
+    "ipTM 0.05-0.10": {
+      "status": "PASS",
+      "samples": 155,
+      "min_required": 5
+    },
+    "ipTM 0.10-0.15": {
+      "status": "PASS",
+      "samples": 157,
+      "min_required": 5
+    },
+    "ipTM 0.15-0.20": {
+      "status": "PASS",
+      "samples": 5,
+      "min_required": 5
+    },
+    "ipTM 0.35-0.40": {
+      "status": "WARN",
+      "samples": 1,
+      "min_required": 5
+    },
+    "ipTM 0.80-0.85": {
+      "status": "WARN",
+      "samples": 1,
+      "min_required": 5
+    }
+  },
+  "Test 3: Monotonicity (Increasing Hit Rates)": {
+    "status": "PASS",
+    "bin_count": 5,
+    "increasing_transitions": 4,
+    "hit_rate_progression": [
+      "5.6%",
+      "13.0%",
+      "33.0%",
+      "39.7%",
+      "60.3%"
+    ]
+  },
+  "Test 4: CI Sanity (Finite & Reasonable)": {
+    "ipTM 0.05-0.10": {
+      "status": "PASS",
+      "ci": [
+        0.022045472650521432,
+        0.056161610056811306,
+        0.09027774746310119
+      ],
+      "checks": {
+        "finite": "True",
+        "ordered": true,
+        "width_reasonable": true
+      }
+    },
+    "ipTM 0.10-0.15": {
+      "status": "PASS",
+      "ci": [
+        0.07885952914320205,
+        0.13007082744762552,
+        0.181282125752049
+      ],
+      "checks": {
+        "finite": "True",
+        "ordered": true,
+        "width_reasonable": true
+      }
+    },
+    "ipTM 0.15-0.20": {
+      "status": "PASS",
+      "ci": [
+        0.03622316096978745,
+        0.33034744842562436,
+        0.6244717358814613
+      ],
+      "checks": {
+        "finite": "True",
+        "ordered": true,
+        "width_reasonable": true
+      }
+    },
+    "ipTM 0.35-0.40": {
+      "status": "PASS",
+      "ci": [
+        0.0,
+        0.39672835426305353,
+        0.7934567085261071
+      ],
+      "checks": {
+        "finite": "True",
+        "ordered": true,
+        "width_reasonable": true
+      }
+    },
+    "ipTM 0.80-0.85": {
+      "status": "PASS",
+      "ci": [
+        0.20654329147389294,
+        0.6032716457369465,
+        1.0
+      ],
+      "checks": {
+        "finite": "True",
+        "ordered": true,
+        "width_reasonable": true
+      }
+    }
+  },
+  "Test 5: Calibration Error (Predicted vs Observed)": {
+    "status": "PASS",
+    "mean_absolute_error": 0.1449213528522489,
+    "max_error": 0.39672835426305353,
+    "bins": {
+      "ipTM 0.05-0.10": {
+        "predicted": 0.056161610056811306,
+        "observed": 0.04516129032258064,
+        "error": 0.011000319734230664
+      },
+      "ipTM 0.10-0.15": {
+        "predicted": 0.13007082744762552,
+        "observed": 0.12179487179487179,
+        "error": 0.008275955652753728
+      },
+      "ipTM 0.15-0.20": {
+        "predicted": 0.33034744842562436,
+        "observed": 0.16666666666666666,
+        "error": 0.1636807817589577
+      },
+      "ipTM 0.35-0.40": {
+        "predicted": 0.39672835426305353,
+        "observed": 0.0,
+        "error": 0.39672835426305353
+      },
+      "ipTM 0.80-0.85": {
+        "predicted": 0.6032716457369465,
+        "observed": null,
+        "error": null
+      }
+    }
+  }
+}

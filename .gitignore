@@ -30,6 +30,13 @@ results/**
 !results/*.csv
 !results/*.txt
 !results/*.log
+# Fitted models, validation outputs and figures at the top level. These are
+# INPUTS to tracked scripts, not regenerable byproducts: 04_calibrate_your_designs.py
+# and 05_validate.py both read results/calibration_model.json, so omitting it
+# ships a broken tool. The first whitelist admitted only csv/txt/log here and
+# silently dropped all six.
+!results/*.json
+!results/*.png
 !results/**/*_results.csv
 !results/**/*_summary.csv
 !results/variance_study/**/*.csv

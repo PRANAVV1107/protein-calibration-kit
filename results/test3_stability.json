@@ -1,0 +1,8 @@
+{
+  "test": "replication_stability",
+  "spearman_correlation": 0.9559,
+  "max_difference": 0.0096,
+  "mean_difference": 0.0037,
+  "n_samples": 30,
+  "prediction": "FAIL"
+}

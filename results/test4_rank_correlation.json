@@ -1,0 +1,13 @@
+{
+  "test": "rank_correlation",
+  "metric": "ipTM",
+  "hit_rate_top_20_percent": 0.159,
+  "hit_rate_bottom_20_percent": 0.062,
+  "ratio": 2.54,
+  "n_total": 319,
+  "n_top_20": 63,
+  "n_bottom_20": 64,
+  "n_positives_top": 10,
+  "n_positives_bottom": 4,
+  "prediction": "PASS"
+}

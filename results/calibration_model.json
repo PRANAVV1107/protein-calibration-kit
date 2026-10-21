@@ -1,0 +1,52 @@
+[
+  {
+    "bin_center": 0.07500000000000001,
+    "bin_left": 0.05,
+    "bin_right": 0.1,
+    "hit_rate": 0.056161610056811306,
+    "ci_lower": 0.022045472650521432,
+    "ci_upper": 0.09027774746310119,
+    "n_samples": 155,
+    "n_positives": 7
+  },
+  {
+    "bin_center": 0.125,
+    "bin_left": 0.1,
+    "bin_right": 0.15,
+    "hit_rate": 0.13007082744762552,
+    "ci_lower": 0.07885952914320205,
+    "ci_upper": 0.181282125752049,
+    "n_samples": 157,
+    "n_positives": 19
+  },
+  {
+    "bin_center": 0.175,
+    "bin_left": 0.15,
+    "bin_right": 0.2,
+    "hit_rate": 0.33034744842562436,
+    "ci_lower": 0.03622316096978745,
+    "ci_upper": 0.6244717358814613,
+    "n_samples": 5,
+    "n_positives": 1
+  },
+  {
+    "bin_center": 0.375,
+    "bin_left": 0.35,
+    "bin_right": 0.4,
+    "hit_rate": 0.39672835426305353,
+    "ci_lower": 0.0,
+    "ci_upper": 0.7934567085261071,
+    "n_samples": 1,
+    "n_positives": 0
+  },
+  {
+    "bin_center": 0.825,
+    "bin_left": 0.8,
+    "bin_right": 0.85,
+    "hit_rate": 0.6032716457369465,
+    "ci_lower": 0.20654329147389294,
+    "ci_upper": 1.0,
+    "n_samples": 1,
+    "n_positives": 1
+  }
+]
