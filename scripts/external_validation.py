@@ -43,7 +43,7 @@ import urllib.request
 import numpy as np
 import pandas as pd
 
-KIT = "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit"
+KIT = os.environ.get("CALIB_KIT_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RAW = "https://raw.githubusercontent.com/DigBioLab/de_novo_binder_scoring/HEAD/analysis/data"
 FILES = {"training": "prepared_training_dataset.csv",
          "affinity": "all_affinity_data_with_predicted_metrics.csv"}

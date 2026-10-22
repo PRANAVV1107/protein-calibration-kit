@@ -44,7 +44,7 @@ import os
 import numpy as np
 import pandas as pd
 
-KIT = "/mnt/c/Users/prana/Downloads/proteinfoldingexp/calibration-kit"
+KIT = os.environ.get("CALIB_KIT_ROOT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 def load_pools(source, target):
