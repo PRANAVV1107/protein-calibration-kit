@@ -1,11 +1,12 @@
-# Shell scripts run under WSL. CRLF would put a \r on the shebang line and
-# every script would fail with "bad interpreter". Force LF regardless of the
-# checkout platform -- this repo is authored on Windows and executed on Linux.
-*.sh text eol=lf
-*.py text eol=lf
+# Normalise line endings to LF in the repository. Without this, Windows
+# checkouts rewrite committed LF files as CRLF and every `git status` reports
+# them modified -- four JSON files showed 51-line diffs in a 52-line file,
+# which is pure noise and obscures real changes.
+* text=auto eol=lf
 
-# Structure and alignment files are parsed by fixed column offsets; leave the
-# bytes alone.
-*.pdb -text
-*.a3m -text
-*.fasta -text
+# Binary: never touched
+*.pdb binary
+*.png binary
+*.pickle binary
+*.dcd binary
+*.a3m binary
