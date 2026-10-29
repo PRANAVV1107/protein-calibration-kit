@@ -21,7 +21,7 @@ assayed. **No design of ours has been tested at a bench.**
 
 | [ROOT_SYSTEM.md](ROOT_SYSTEM.md) | what a root is, how 200 were made, what varies | **root choice beats search** |
 | [PARTIAL_T_RESULT.md](PARTIAL_T_RESULT.md) | is there locality at any diffusion step size? | no trend with T; two regimes found |
-| [ALLOCATION_RESULT.md](ALLOCATION_RESULT.md) | should folds be allocated across roots? | **no — uniform beats the oracle** |
+| [ALLOCATION_RESULT.md](ALLOCATION_RESULT.md) | should folds be allocated across roots? | **no policy beats uniform** (oracle anecdote later withdrawn, see result 5) |
 | [ROOT_BREADTH_RESULT.md](ROOT_BREADTH_RESULT.md) | roots or draws? 50 backbones x 4 | **roots, by ~4x** |
 | [ROG_PROSPECTIVE_RESULT.md](ROG_PROSPECTIVE_RESULT.md) | does the rog predictor replicate? | real, too weak to use |
 | [CALIBRATION_RESULT.md](CALIBRATION_RESULT.md) | do the two AF configs agree? | **no — uncorrelated rankings** |
@@ -29,6 +29,8 @@ assayed. **No design of ours has been tested at a bench.**
 | [RESCORE_RESULT.md](RESCORE_RESULT.md) | search designs re-scored on the bar's instrument | **search ties, does not lose** |
 | [RUN3_RESULT.md](RUN3_RESULT.md) | corrected UCT: what it changed and did not | selection fixed, outcome unchanged |
 | [EXP1_EXP3_LOG.md](EXP1_EXP3_LOG.md) | rescore + partial_T, running log | both complete |
+| [ORACLE_BOOTSTRAP_PREREGISTRATION.md](ORACLE_BOOTSTRAP_PREREGISTRATION.md) | re-testing the oracle-vs-uniform headline before running it | committed before the bootstrap ran |
+| [ORACLE_BOOTSTRAP_RESULT.md](ORACLE_BOOTSTRAP_RESULT.md) | how often does uniform beat the oracle? | **withdrawn — held in 19.6% of draws** |
 
 Supporting numeric output lives in `../results/*_RESULT.txt`.
 
@@ -62,9 +64,11 @@ budget.** Two further results came out of the same experiment:
 backbones are independently generated (rho +1.000, n=6 clustered, p=0.0014) but
 not within one lineage (rho +0.185, n=62). That argued for a bandit over roots.
 Simulated on existing folds ([ALLOCATION_RESULT.md](ALLOCATION_RESULT.md)), **no
-allocation policy beats uniform at any budget on either instrument** — and
-spending every fold on the root with the best true mean reaches 0.770 where
-uniform across ten roots reaches 0.869.
+allocation policy beats uniform at any budget on either instrument** — and on
+one draw of ten roots, spending every fold on the root with the best true mean
+reached 0.770 where uniform reached 0.869. (That specific gap was later
+pre-registered and re-tested — see the fifth result below — and held in only
+19.6% of resampled draws. The no-policy-beats-uniform finding is untouched.)
 
 **Knowing which root is best and exploiting it perfectly is worse than not
 choosing at all.** The objective is a maximum over designs; allocation optimises
@@ -94,6 +98,33 @@ prospectively** on 150 held-out backbones. It replicated (gap +0.083, p = 0.019)
 but missed the 0.10 threshold fixed in advance, so it is reported as a real but
 unusable effect rather than a screening recommendation. Both features this
 project selected post hoc have now shrunk on honest re-testing.
+
+**Fifth result, 2026-10-29 — the project's own headline, pre-registered and
+re-tested against itself.** The oracle-vs-uniform gap above (0.770 vs 0.869)
+was one draw of ten RBD roots. Two things already on record made it worth
+re-testing before it carried the paper's lead: the effect was absent on the
+other two targets, and in the full 50-root pool the best-mean root ties the
+pool maximum, so the loss is conditional on which ten of fifty roots happened
+to be drawn. Pre-registered the test before running it
+([ORACLE_BOOTSTRAP_PREREGISTRATION.md](ORACLE_BOOTSTRAP_PREREGISTRATION.md)):
+10,000 resampled 10-root draws from the 50-root pool, with decision thresholds
+fixed in advance.
+
+    discordance rate (best-mean root != best-max root)   19.63%
+    gap, median across all 10,000 draws                  0.000
+    headline gap (-0.099), percentile of severity         92.75th
+
+**Withdrawn as a general claim, on both independent legs of the decision rule.**
+In 80.4% of draws the oracle and uniform tie exactly; the reported gap sits in
+the worst 7.25% of outcomes, not near the centre. The mechanism — a
+mean-ranked root need not contain the pool's best design — is real, but how
+often it produces a visible loss is root-selection-dependent, not fixed.
+**"No allocation policy beats uniform" is untouched** — that rests on the
+bandit/greedy/UCB policy comparison, which this bootstrap did not re-run.
+§3.4 and the abstract now lead on roots-beat-draws (robust, measured directly
+on the 50-root pool) and report the oracle number as a single-draw
+illustration with its own re-test attached.
+([ORACLE_BOOTSTRAP_RESULT.md](ORACLE_BOOTSTRAP_RESULT.md))
 
 
 Separately, [ROOT_SYSTEM.md](ROOT_SYSTEM.md) shows all three searches ran from

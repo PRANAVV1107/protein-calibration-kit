@@ -4,8 +4,19 @@
 multi-root search (Experiment 4, ~14 h plus a code change) was worth building.
 
 **Verdict: no. Spread folds uniformly across roots and stop there.** No
-allocation policy beats uniform at any budget, on either instrument — and
-*uniform beats the oracle*, which is the result that explains why.
+allocation policy beats uniform at any budget, on either instrument.
+
+> **Update 2026-10-29.** This report originally explained the result as
+> "uniform beats the oracle," treating the 0.770-vs-0.869 ceiling gap below as
+> a general mechanism. A pre-registered bootstrap
+> (ORACLE_BOOTSTRAP_PREREGISTRATION.md, ORACLE_BOOTSTRAP_RESULT.md) found that
+> gap sits at the 92.75th percentile of severity across 10,000 resampled
+> 10-root draws from the full 50-root pool — the oracle matches uniform
+> exactly in 80.4% of draws, median gap zero. **The oracle number below is one
+> favourable draw, not a general property of the comparison.** The
+> policy-level finding in this report — single, halving, greedy and UCB all
+> ≤ uniform at every tested budget — is untouched by that bootstrap and
+> stands as reported.
 
 ---
 
@@ -53,25 +64,29 @@ small budgets and falls behind as budget grows. Greedy is materially worse —
 0.664 against 0.774 at B=160 on the hybrid instrument — because committing to
 an early leader forfeits the diversity that produces the result.
 
-## The number that explains it: uniform beats the oracle
+## Why allocation fails: the objective is a maximum, not a mean
 
-The `oracle` column spends every fold on the root with the **best true mean** —
+Allocation policies — bandits, oracles, best-first search — all optimise
+*location*: they steer folds toward distributions with high means. But the
+quantity that pays is a **maximum over designs**, and a maximum is a **tail**
+statistic. Tails are found by sampling many different distributions, not by
+sampling the best one harder. That is why single, halving, greedy and UCB all
+sit at or below uniform at every budget tested, on both instruments.
+
+**One illustration of the mechanism, reported with its own re-test.** The
+`oracle` column spends every fold on the root with the **best true mean** —
 perfect knowledge, unattainable by any real policy. On the high-accuracy
-instrument it reaches **0.770**, and uniform reaches **0.869**.
-
-**Knowing exactly which root is best, and exploiting it perfectly, is worse than
-spreading folds evenly across ten roots.**
-
-This is the project's own central finding arriving from a new direction. The
-objective is a **maximum over designs**, not a mean. Allocation policies —
-bandits, oracles, best-first search — all optimise *location*: they steer folds
-toward distributions with high means. But a maximum is a **tail** statistic, and
-tails are found by sampling many different distributions, not by sampling the
-best one harder.
+instrument, on the original ten-root draw, it reaches **0.770** against
+uniform's **0.869**. A pre-registered bootstrap of 10,000 such draws from the
+full 50-root RBD pool found that gap at the 92.75th percentile of severity —
+the oracle matches uniform exactly in 80.4% of draws, median gap zero (see
+ORACLE_BOOTSTRAP_RESULT.md). The mechanism — a perfectly-chosen mean-ranked
+root need not contain the pool's best design — is real; how often it produces
+a visible gap on a given ten-root draw is not a fixed property of the method.
 
 So the across-backbone correlation of +1.000 is real and it is about means. It
 simply is not the quantity that pays. Root quality predicts root quality;
-it does not tell you where the tail is.
+it does not reliably tell you where the tail is.
 
 ## What this settles
 
@@ -105,3 +120,4 @@ Regenerate with:
 
     python scripts/bandit_sim.py --source noise_poc --target rbd
     python scripts/bandit_sim.py --source variance  --target rbd
+    python scripts/oracle_bootstrap.py                              # the oracle re-test

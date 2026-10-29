@@ -255,7 +255,7 @@ measuring regression to the mean.
 | **1** | **rescore at high accuracy** | **4 h** | three reports and the preprint state a conclusion that may be an instrument artifact; nothing else is interpretable until this lands |
 | **2** | **second validation dataset** | **none** | makes the project's strongest and most novel claim cross-target instead of single-competition; costs no compute, so it runs alongside everything |
 | **3** | **partial_T sweep** | **8 h** | publishable either way, and it *gates* 5 — if no T has both locality and diversity, multi-root search is multi-root blind with tree overhead |
-| ~~4~~ | ~~multi-root search~~ | ~~14 h + code~~ | **CANCELLED 2026-09-21** — [ALLOCATION_RESULT.md](ALLOCATION_RESULT.md): no allocation policy beats uniform, and uniform beats the oracle |
+| ~~4~~ | ~~multi-root search~~ | ~~14 h + code~~ | **CANCELLED 2026-09-21** — [ALLOCATION_RESULT.md](ALLOCATION_RESULT.md): no allocation policy beats uniform *(the oracle-specific number cited at cancellation time was later re-tested and withdrawn as general — see ORACLE_BOOTSTRAP_RESULT.md; the policy-level finding this cancellation rests on is unaffected)* |
 | 5 | root sweep extension | — | largely answered in 0b/0c |
 
 **Added to Experiment 3 at no cost:** `partial_t_analyze.py` now also tests

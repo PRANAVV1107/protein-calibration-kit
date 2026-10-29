@@ -107,10 +107,14 @@ victims of a bad hyperparameter.
 **Settled elsewhere.** The two-regimes finding argued for a bandit over roots.
 That was simulated on existing folds in
 [ALLOCATION_RESULT.md](ALLOCATION_RESULT.md): **no allocation policy beats
-uniform, and uniform beats the oracle.** So the across-backbone signal is real,
-is about *means*, and still cannot be exploited — because the objective is a
-maximum, and maxima are tail statistics. **Experiment 4 (multi-root search) is
-cancelled.**
+uniform.** (A specific oracle-vs-uniform number cited there at the time was
+later pre-registered and re-tested across 10,000 resampled root draws —
+[ORACLE_BOOTSTRAP_RESULT.md](ORACLE_BOOTSTRAP_RESULT.md) — and held in only
+19.6% of draws, so it is withdrawn as a general claim; the no-policy-beats-
+uniform finding itself is untouched.) The across-backbone signal is real, is
+about *means*, and still cannot reliably be exploited by an allocation policy
+— because the objective is a maximum, and maxima are tail statistics.
+**Experiment 4 (multi-root search) is cancelled.**
 
 **Not settled.** Whether locality exists below the detection threshold of six
 parents. This bounds the effect; it does not prove it is zero.

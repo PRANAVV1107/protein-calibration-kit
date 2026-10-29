@@ -15,12 +15,23 @@ All of it on one RTX 3060 (6 GB) under WSL2. ~6,700 AlphaFold2 predictions.
 
 ## The one result
 
-> **An oracle with perfect knowledge of which starting point is best loses to
-> spreading the same folds uniformly — 0.770 against 0.869 expected best ipTM.**
+> **Spend a fixed fold budget on more starting points, not more draws per
+> starting point — roots are worth about 4× draws, fold for fold. The ceiling
+> is set by the best root in your pool, not by how many you draw.**
 
-Not a bandit, not a heuristic: an oracle told the true best-mean starting point
-and allowed to exploit it perfectly. It loses, because a maximum is found by
-sampling many distributions rather than the best one harder.
+Measured directly across 50 backbones × 4 draws (200 folds): at every matched
+budget, splitting folds across more roots beats drawing more sequences from
+fewer roots, and the gain from adding roots only stops once the pool's best
+design has already been found.
+
+A sharper, less stable version of the same idea: an oracle given the single
+best-mean starting point is capped at that point's own ceiling, and on one
+draw of ten roots it lost to spreading folds uniformly (0.770 against 0.869
+expected best ipTM). We pre-registered a re-test before leaning on that number
+— bootstrapping 10,000 such draws from the full 50-root pool — and it holds in
+only 19.6% of draws (median gap: zero). The mechanism is real; that particular
+number was one favourable draw. Both the claim and its own re-test are in the
+repo. [ORACLE_BOOTSTRAP_RESULT.md](reports/ORACLE_BOOTSTRAP_RESULT.md)
 
 ## The four measurements
 
@@ -28,7 +39,7 @@ sampling many distributions rather than the best one harder.
 |---|---|---|
 | **screen cheaply** | selects **worse than random** (−0.162 ipTM); the *target* fails to fold without an alignment (pLDDT 27.2 vs 84.3) | [RESULTS.md](reports/RESULTS.md) |
 | **search over trajectories** | **ties** 60 folds of blind sampling (0.870 vs 0.870) across 3 runs, ~2,900 folds and two corrected implementation bugs | [RUN3_RESULT.md](reports/RUN3_RESULT.md), [RESCORE_RESULT.md](reports/RESCORE_RESULT.md) |
-| **allocate adaptively** | no policy beats uniform on 3 targets; **uniform beats the oracle** | [ALLOCATION_RESULT.md](reports/ALLOCATION_RESULT.md) |
+| **allocate adaptively** | no bandit policy beats uniform on 3 targets, at any tested budget | [ALLOCATION_RESULT.md](reports/ALLOCATION_RESULT.md) |
 | **why** | max-of-K error *grows* with K on a right-skewed target (0.120 → 0.214); the mean decays normally | [NOISE_RESULT.md](reports/NOISE_RESULT.md) |
 
 ## What does pay
@@ -58,7 +69,8 @@ sampling many distributions rather than the best one harder.
 
 ## Method
 
-Two pre-registrations, both committed before any data existed, and both bit:
+Three pre-registrations, all committed before any data existed, and all three
+changed what got reported:
 
 - [MCTS_PREREGISTRATION.md](reports/MCTS_PREREGISTRATION.md) — the search was
   judged against a bar fixed in advance
@@ -68,6 +80,10 @@ Two pre-registrations, both committed before any data existed, and both bit:
 - [results/rog_prospective/REGISTRATION.md](results/rog_prospective/REGISTRATION.md)
   — a post-hoc feature registered and then tested; it replicated and **missed
   the threshold set in advance**, so the recommendation built on it was removed
+- [ORACLE_BOOTSTRAP_PREREGISTRATION.md](reports/ORACLE_BOOTSTRAP_PREREGISTRATION.md)
+  — the project's own headline result, re-tested against a rule fixed before
+  the bootstrap ran, and **withdrawn as a general claim** when it only held in
+  19.6% of resampled draws
 
 **[reports/EXP1_EXP3_LOG.md](reports/EXP1_EXP3_LOG.md) is the running log**,
 written as the work happened rather than afterwards. It contains an invalid
@@ -95,8 +111,9 @@ scripts plus the tracked manifests.
 RFdiffusion, ProteinMPNN and ColabFold 1.6.2 in separate conda environments.
 Analyses need only `numpy`, `pandas`, `scipy`:
 
-    python scripts/bandit_sim.py --source variance --target rbd   # the oracle result
     python scripts/root_allocation.py --target rbd                # roots vs draws
+    python scripts/bandit_sim.py --source variance --target rbd   # allocation vs uniform vs oracle
+    python scripts/oracle_bootstrap.py                            # the oracle re-test
     python scripts/external_validation.py                         # cross-target check
     python scripts/rescore_analyze.py --dir results/rescore       # filter vs estimator
 

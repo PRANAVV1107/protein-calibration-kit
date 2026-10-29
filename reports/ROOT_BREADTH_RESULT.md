@@ -16,6 +16,13 @@ mean* (0.770) loses to spreading folds across ten roots (0.869). The
 tail-statistic argument explains it: the objective is a maximum, and maxima come
 from sampling many distributions rather than the best one harder.
 
+> *Update 2026-10-29: that 0.770-vs-0.869 gap was later pre-registered and
+> re-tested across 10,000 resampled root draws
+> ([ORACLE_BOOTSTRAP_RESULT.md](ORACLE_BOOTSTRAP_RESULT.md)) and holds in only
+> 19.6% of draws — one favourable draw, not a general property. The breadth
+> result below, measured directly on the 50-root pool, is unaffected by that
+> finding either way.*
+
 That argument predicts something the ten-root data could not test — **E[best]
 should keep climbing with the number of roots**. Uniform flattened at 0.869 there
 only because there were ten distributions available. Fifty can distinguish "the

@@ -18,6 +18,17 @@ written the way it is. Delete them before submitting.
 > That comparison was invalid: the search and the baseline were scored with
 > different AlphaFold configurations. Re-measured properly it is a tie. The
 > correction is in the text, not hidden.
+>
+> **Updated 2026-10-29.** §3.4 led on an oracle-vs-uniform result (0.770
+> versus 0.869) measured on one draw of ten RBD roots. Pre-registered a
+> bootstrap of 10,000 such draws from the full 50-root pool before running it;
+> the oracle matched uniform in 80.4% of draws and the reported gap sat at the
+> 92.75th percentile of severity. Withdrawn as a general claim per the
+> decision rule fixed in advance — see
+> reports/ORACLE_BOOTSTRAP_PREREGISTRATION.md and
+> reports/ORACLE_BOOTSTRAP_RESULT.md. §3.4 and the abstract now lead on
+> roots-beat-draws, which this test does not touch, and report the oracle
+> number as a single-draw illustration with the bootstrap attached.
 
 ---
 
@@ -53,10 +64,13 @@ A single-sequence screen selects **worse than random** (−0.162 ipTM), because
 the *target* fails to fold without an alignment (pLDDT 27.2 versus 84.3). A
 pre-registered test-time search over denoising trajectories, run three times
 across ~2,900 folds and two corrected implementation bugs, **ties** 60 folds of
-blind sampling (0.870 versus 0.870). Simulated allocation over roots is worse
-still: no bandit policy beats uniform, and spending every fold on the root with
-the best true mean reaches **0.770 where uniform across ten roots reaches
-0.869** — perfect knowledge, exploited perfectly, loses.
+blind sampling (0.870 versus 0.870). Simulated allocation over roots is no
+better: **no bandit policy beats uniform at any tested budget**. An oracle
+given the best-mean root is capped at that root's own ceiling and lost to
+uniform on one draw of ten roots (0.770 versus 0.869); a pre-registered
+bootstrap of 10,000 such draws from the full root pool found that loss in only
+19.6% of draws, with a median gap of zero, so we report it as an illustration of
+the mechanism rather than a general result.
 
 One mechanism explains all three. The objective is a **maximum** over designs, a
 tail statistic, while every clever strategy optimises a **mean**. Selecting on a
@@ -290,33 +304,14 @@ descending within one lineage operates precisely where there is no signal.**
 > negative result that survived two implementation fixes and an instrument
 > correction is worth far more than one that did not, and reviewers can tell.
 
-### 3.4 Adaptive allocation is worse than not choosing
+### 3.4 Roots beat draws, and allocation policies do not improve on uniform
 
-**[FIGURE 4]** E[best] against budget for each policy, with the oracle marked.
+**[FIGURE 4]** E[best] against budget, roots (R) versus draws (K), with the
+single-root oracle's bootstrapped severity distribution inset.
 
-§3.3 found signal *between* independently generated backbones. The natural
-exploitation is a bandit over roots: evaluate several, then spend the remaining
-budget on the ones scoring well. Simulated on 3,000 replicates over ten RBD
-roots at full accuracy:
-
-| budget | single root | **uniform** | halving | greedy | UCB | oracle |
-|---|---|---|---|---|---|---|
-| 20 | 0.696 | **0.833** | 0.830 | 0.832 | 0.834 | 0.770 |
-| 80 | 0.694 | **0.866** | 0.858 | 0.843 | 0.858 | 0.770 |
-| 160 | 0.697 | **0.869** | 0.866 | 0.844 | 0.863 | 0.770 |
-
-**No policy beats uniform at any budget.** Greedy is materially worse.
-
-The `oracle` column spends every fold on the root with the **best true mean** —
-perfect knowledge, unavailable to any real policy. It reaches 0.770 where
-uniform reaches 0.869.
-
-**Knowing exactly which starting point is best, and exploiting it perfectly, is
-worse than spreading folds evenly and not choosing at all.**
-
-
-**What to do instead, measured.** Extending to 50 roots × 4 draws (200 folds)
-gives the positive counterpart. E[best] for a budget spent as R roots × K draws:
+**The robust result: spend a fixed budget on more roots, not more draws per
+root.** Extending the root pool to 50 roots × 4 draws (200 folds) gives E[best]
+for a budget spent as R roots × K draws:
 
 | | K=1 | K=2 | K=3 | K=4 |
 |---|---|---|---|---|
@@ -335,6 +330,35 @@ best of these 50 backbones tops out at 0.860. Three roots in fifty carry
 essentially all reachable quality (median 0.210, max 0.860); the root all three
 search runs descended from ranks in the bottom five at 0.13.
 
+**Allocation policies do not improve on uniform.** Section 3.3 found signal
+*between* independently generated backbones, which motivates spending a budget
+adaptively — evaluate several roots, then commit more folds to the ones
+scoring well. Simulated on 3,000 replicates over ten RBD roots at full
+accuracy, no policy beats uniform at any tested budget:
+
+| budget | single root | **uniform** | halving | greedy | UCB |
+|---|---|---|---|---|---|
+| 20 | 0.696 | **0.833** | 0.830 | 0.832 | 0.834 |
+| 80 | 0.694 | **0.866** | 0.858 | 0.843 | 0.858 |
+| 160 | 0.697 | **0.869** | 0.866 | 0.844 | 0.863 |
+
+Greedy is materially worse at every budget. This held on all three targets in
+the original simulation, and we have not re-tested it against resampled root
+subsets (see limitations).
+
+**An oracle given perfect knowledge of the best-mean root is capped at that
+root's own ceiling, and on one draw of ten RBD roots that ceiling was 0.770
+against uniform's 0.869 — a result we pre-registered to re-test before
+reporting it as general, and withdrew.** Bootstrapping 10,000 draws of ten
+roots from the full 50-root pool: the oracle matches uniform exactly in 80.4%
+of draws (median gap 0.000, both quartiles 0.000), and the reported −0.099 gap
+sits at the 92.75th percentile of severity — a tail outcome from one
+favourable draw, not a property of the comparison. The mechanism is still
+real — a maximum cannot be found by perfectly locating the best mean when the
+best-mean root does not contain the best design — but how often that
+mechanism bites on a given ten-root draw is itself root-selection-dependent,
+and here it bit less than a fifth of the time.
+
 **A cheap predictor of root quality, tested prospectively and found too weak to
 use.** Of six structural features computed from the backbone PDB alone, radius
 of gyration correlated with per-root quality at ρ = −0.482 (p = 0.0004, n = 50,
@@ -351,10 +375,17 @@ we report it as a real but unusable effect rather than a recommendation.
 This is the second feature we selected post hoc and then tested. The first,
 interface contact count, led at n = 10 (+0.511) and was nothing at n = 50
 (+0.191). **Two for two, the selected effect shrank on honest re-testing**, by
-the amount selection bias predicts.
+the amount selection bias predicts. The oracle bootstrap above is a third
+instance of the same discipline applied to a headline result rather than a
+feature: pre-register before re-testing, and withdraw what does not survive it.
 
-> This is the result that makes the paper. It is counterintuitive, cheap to
-> reproduce, and rules out a family of methods rather than one implementation.
+> Lead on roots-beat-draws, which is measured directly from the 50-root pool
+> and not contradicted by anything here. The oracle number was the more
+> dramatic claim and the one we led the abstract with; it is also the one that
+> turned out to be a single favourable draw. Report the bootstrap plainly
+> rather than quietly dropping the number — a reviewer who finds the original
+> draw in the repo and reruns it will get 0.770 vs 0.869 exactly as stated, and
+> should also find the test that shows it is not typical.
 
 ### 3.5 Why: the objective is a maximum and every strategy optimises a mean
 
